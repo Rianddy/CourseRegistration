@@ -1,0 +1,4 @@
+com\upittis2739\courseregistration\message\MailMessageBean.class
+com\upittis2739\courseregistration\service\RegistrationService.class
+com\upittis2739\courseregistration\function\SendMail.class
+com\upittis2739\courseregistration\message\MailMessage.class
