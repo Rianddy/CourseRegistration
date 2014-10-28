@@ -9,7 +9,7 @@ public class SendMail
     {
         String smtphost = "smtp.163.com";
         String user = "rianddy@163.com";
-        String password = "cairuicairuiaaaa";
+        String password = "xxxx";
         String from = "rianddy@163.com";
         String to = toMail; 
         String subject = title;
