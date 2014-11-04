@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/Users/Edison/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/studentXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/StudentInfo/studentXmlSchema.xsd"/>
+    <system systemId="file:/Users/Edison/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/classXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/classInfo/classXmlSchema.xsd"/>
+    <system systemId="file:/Users/Edison/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/facultyXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/FacultyInfo/facultyXmlSchema.xsd"/>
+    <system systemId="file:/Users/Edison/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/semesterXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/SemesterInfo/semesterXmlSchema.xsd"/>
+    <system systemId="file:/Users/Edison/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/prerequestXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/prerequestInfo/prerequestXmlSchema.xsd"/>
+    <system systemId="file:/Users/Edison/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/courseXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/courseInfo/courseXmlSchema.xsd"/>
+    <system systemId="file:/Users/Edison/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/stuEnrolXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/StudentEnrollmentInfo/stuEnrolXmlSchema.xsd"/>
+</catalog>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://xml.netbeans.org/schema/stuEnrolXmlSchema"
+    xmlns:tns="http://xml.netbeans.org/schema/stuEnrolXmlSchema"
+    elementFormDefault="qualified">
+    <xsd:complexType name="stuEnrollList">
+        <xsd:sequence>
+            <xsd:element name="oneenroll" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="classid" type="xsd:string"></xsd:element>
+                        <xsd:element name="courseid" type="xsd:string"></xsd:element>
+                        <xsd:element name="grade" type="xsd:string"></xsd:element>
+                        <xsd:element name="score" type="xsd:float"></xsd:element>
+                        <xsd:element name="status" type="xsd:string"></xsd:element>
+                        <xsd:element name="stuenrolltime" type="xsd:dateTime"></xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
