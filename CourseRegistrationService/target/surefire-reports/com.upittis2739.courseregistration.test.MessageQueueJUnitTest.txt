@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.upittis2739.courseregistration.test.MessageQueueJUnitTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 sec
