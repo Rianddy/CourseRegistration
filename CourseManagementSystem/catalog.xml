@@ -7,4 +7,9 @@
     <system systemId="file:/Users/Edison/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/prerequestXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/prerequestInfo/prerequestXmlSchema.xsd"/>
     <system systemId="file:/Users/Edison/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/courseXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/courseInfo/courseXmlSchema.xsd"/>
     <system systemId="file:/Users/Edison/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/stuEnrolXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/StudentEnrollmentInfo/stuEnrolXmlSchema.xsd"/>
+    <system systemId="file:/Users/birui/Workspace/CourseManagementSystem/build/generated-sources/jax-ws/resources/PreRegCheckService.wsdl" uri="src/conf/xml-resources/web-services/RegCheckService/wsdl/PreRegCheckService.wsdl"/>
+    <system systemId="file:/Users/birui/Workspace/CourseManagementSystem/build/generated-sources/jax-ws/resources/PreRegCheckService_schema1.xsd" uri="src/conf/xml-resources/web-services/RegCheckService/wsdl/PreRegCheckService_schema1.xsd"/>
+    <system systemId="file:/Users/birui/Workspace/CourseManagementSystem/src/java/team/soa/cms/xml/studentPrereqCheck.xsd" uri="src/conf/xml-resources/jaxb/studentPrereqCheck/studentPrereqCheck.xsd"/>
+    <system systemId="file:/Users/birui/Workspace/CourseManagementSystem/src/java/team/soa/cms/xml/semesterXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/SemesterInfo/semesterXmlSchema.xsd"/>
+    <system systemId="file:/Users/birui/Workspace/CourseManagementSystem/src/java/team/soa/cms/xml/studentRegCheck.xsd" uri="src/conf/xml-resources/jaxb/StudentRegCheck/studentRegCheck.xsd"/>
 </catalog>

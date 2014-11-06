@@ -4,6 +4,10 @@
     <service name="CMS_WebServices">
       <implementation-class>team.soa.cms.ws.CMS_WebServices</implementation-class>
     </service>
+    <service name="PreRegCheckService">
+      <implementation-class>team.soa.cms.ws.PreRegCheckService</implementation-class>
+    </service>
   </services>
   <clients/>
+  <jsr109>true</jsr109>
 </jax-ws>

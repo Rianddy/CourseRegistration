@@ -70,4 +70,24 @@
 		</bindings>
 		<catalog/>
 	</schema>
+	<schema type='-xmlschema' package='' name='studentPrereqCheck'>
+		<xjc-options>
+		</xjc-options>
+		<schema-sources>
+			<schema-source location='src/conf/xml-resources/jaxb/studentPrereqCheck/studentPrereqCheck.xsd' origLocation='src/java/team/soa/cms/xml/studentPrereqCheck.xsd'/>
+		</schema-sources>
+		<bindings>
+		</bindings>
+		<catalog/>
+	</schema>
+	<schema type='-xmlschema' package='' name='StudentRegCheck'>
+		<xjc-options>
+		</xjc-options>
+		<schema-sources>
+			<schema-source location='src/conf/xml-resources/jaxb/StudentRegCheck/studentRegCheck.xsd' origLocation='src/java/team/soa/cms/xml/studentRegCheck.xsd'/>
+		</schema-sources>
+		<bindings>
+		</bindings>
+		<catalog/>
+	</schema>
 </schemas>
