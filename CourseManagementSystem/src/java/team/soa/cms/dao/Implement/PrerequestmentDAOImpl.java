@@ -36,7 +36,7 @@ public class PrerequestmentDAOImpl extends GeneralDAO implements PrerequestmentD
         Prerequestment preList = new Prerequestment();
         try {
             this.OpenConnection();
-            this.sql="SELECT * FROM course where course_ID="+course_ID;
+            this.sql="SELECT * FROM Prerequestment where Cos_ID="+course_ID;
             rs= stmt.executeQuery(sql);
             CourseDAO cosDAO = new CourseDAOImpl();
            

@@ -29,7 +29,9 @@ public class GeneralDAO {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conn = DriverManager.getConnection("jdbc:mysql://localhost:"+DBPORT+"/"+DBNAME,DBUSER,DBPASSWORD);
+            System.out.println("connection success!");
             stmt = conn.createStatement();
+            System.out.println("stmt success!");
             /*sql = "select * from Student";
             rs = stmt.executeQuery(sql);
             

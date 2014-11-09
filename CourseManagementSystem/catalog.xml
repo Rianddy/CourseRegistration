@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
-    <system systemId="file:/Users/Edison/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/studentXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/StudentInfo/studentXmlSchema.xsd"/>
-    <system systemId="file:/Users/Edison/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/classXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/classInfo/classXmlSchema.xsd"/>
-    <system systemId="file:/Users/Edison/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/facultyXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/FacultyInfo/facultyXmlSchema.xsd"/>
-    <system systemId="file:/Users/Edison/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/semesterXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/SemesterInfo/semesterXmlSchema.xsd"/>
-    <system systemId="file:/Users/Edison/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/prerequestXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/prerequestInfo/prerequestXmlSchema.xsd"/>
-    <system systemId="file:/Users/Edison/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/courseXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/courseInfo/courseXmlSchema.xsd"/>
-    <system systemId="file:/Users/Edison/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/stuEnrolXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/StudentEnrollmentInfo/stuEnrolXmlSchema.xsd"/>
-    <system systemId="file:/Users/birui/Workspace/CourseManagementSystem/build/generated-sources/jax-ws/resources/PreRegCheckService.wsdl" uri="src/conf/xml-resources/web-services/RegCheckService/wsdl/PreRegCheckService.wsdl"/>
-    <system systemId="file:/Users/birui/Workspace/CourseManagementSystem/build/generated-sources/jax-ws/resources/PreRegCheckService_schema1.xsd" uri="src/conf/xml-resources/web-services/RegCheckService/wsdl/PreRegCheckService_schema1.xsd"/>
-    <system systemId="file:/Users/birui/Workspace/CourseManagementSystem/src/java/team/soa/cms/xml/studentPrereqCheck.xsd" uri="src/conf/xml-resources/jaxb/studentPrereqCheck/studentPrereqCheck.xsd"/>
-    <system systemId="file:/Users/birui/Workspace/CourseManagementSystem/src/java/team/soa/cms/xml/semesterXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/SemesterInfo/semesterXmlSchema.xsd"/>
-    <system systemId="file:/Users/birui/Workspace/CourseManagementSystem/src/java/team/soa/cms/xml/studentRegCheck.xsd" uri="src/conf/xml-resources/jaxb/StudentRegCheck/studentRegCheck.xsd"/>
+    <system systemId="file:/C:/Users/xmrui_000/Documents/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/classXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/classxmlschema/classXmlSchema.xsd"/>
+    <system systemId="file:/C:/Users/xmrui_000/Documents/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/courseXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/coursexmlschema/courseXmlSchema.xsd"/>
+    <system systemId="file:/C:/Users/xmrui_000/Documents/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/facultyXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/facultyxmlschema/facultyXmlSchema.xsd"/>
+    <system systemId="file:/C:/Users/xmrui_000/Documents/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/prerequestXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/prerequestxmlschema/prerequestXmlSchema.xsd"/>
+    <system systemId="file:/C:/Users/xmrui_000/Documents/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/semesterXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/semesterxmlschema/semesterXmlSchema.xsd"/>
+    <system systemId="file:/C:/Users/xmrui_000/Documents/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/studentPrereqCheck.xsd" uri="src/conf/xml-resources/jaxb/studentprereqcheck/studentPrereqCheck.xsd"/>
+    <system systemId="file:/C:/Users/xmrui_000/Documents/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/studentRegCheck.xsd" uri="src/conf/xml-resources/jaxb/studentregscheck/studentRegCheck.xsd"/>
+    <system systemId="file:/C:/Users/xmrui_000/Documents/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/stuEnrolXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/stuenrolxmlschema/stuEnrolXmlSchema.xsd"/>
+    <system systemId="file:/C:/Users/xmrui_000/Documents/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/studentXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/studentxmlschema/studentXmlSchema.xsd"/>
 </catalog>

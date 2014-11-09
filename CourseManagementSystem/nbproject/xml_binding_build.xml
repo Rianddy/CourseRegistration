@@ -11,131 +11,131 @@
     <target name="jaxb-code-generation" depends="xjc-typedef-target,-do-init,-init-macrodef-javac">
         <mkdir dir="${build.generated.sources.dir}/jaxb" xmlns:s="http://xml.netbeans.org/schema/JAXBWizConfig"/>
         <mkdir dir="build/generated/jaxbCache" xmlns:s="http://xml.netbeans.org/schema/JAXBWizConfig"/>
-        <mkdir dir="build/generated/jaxbCache/StudentInfo"/>
-        <xjc destdir="build/generated/jaxbCache/StudentInfo" catalog="catalog.xml">
+        <mkdir dir="build/generated/jaxbCache/classxmlschema"/>
+        <xjc destdir="build/generated/jaxbCache/classxmlschema" catalog="catalog.xml">
             <classpath>
                 <pathelement location="${src.dir}"/>
                 <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
             </classpath>
             <arg value="-xmlschema"/>
-            <schema file="src/conf/xml-resources/jaxb/StudentInfo/studentXmlSchema.xsd"/>
-            <depends file="src/conf/xml-resources/jaxb/StudentInfo/studentXmlSchema.xsd"/>
-            <produces dir="build/generated/jaxbCache/StudentInfo"/>
+            <schema file="src/conf/xml-resources/jaxb/classxmlschema/classXmlSchema.xsd"/>
+            <depends file="src/conf/xml-resources/jaxb/classxmlschema/classXmlSchema.xsd"/>
+            <produces dir="build/generated/jaxbCache/classxmlschema"/>
         </xjc>
         <copy todir="${build.generated.sources.dir}/jaxb">
-            <fileset dir="build/generated/jaxbCache/StudentInfo"/>
+            <fileset dir="build/generated/jaxbCache/classxmlschema"/>
         </copy>
-        <mkdir dir="build/generated/jaxbCache/classInfo"/>
-        <xjc destdir="build/generated/jaxbCache/classInfo" catalog="catalog.xml">
+        <mkdir dir="build/generated/jaxbCache/coursexmlschema"/>
+        <xjc destdir="build/generated/jaxbCache/coursexmlschema" catalog="catalog.xml">
             <classpath>
                 <pathelement location="${src.dir}"/>
                 <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
             </classpath>
             <arg value="-xmlschema"/>
-            <schema file="src/conf/xml-resources/jaxb/classInfo/classXmlSchema.xsd"/>
-            <depends file="src/conf/xml-resources/jaxb/classInfo/classXmlSchema.xsd"/>
-            <produces dir="build/generated/jaxbCache/classInfo"/>
+            <schema file="src/conf/xml-resources/jaxb/coursexmlschema/courseXmlSchema.xsd"/>
+            <depends file="src/conf/xml-resources/jaxb/coursexmlschema/courseXmlSchema.xsd"/>
+            <produces dir="build/generated/jaxbCache/coursexmlschema"/>
         </xjc>
         <copy todir="${build.generated.sources.dir}/jaxb">
-            <fileset dir="build/generated/jaxbCache/classInfo"/>
+            <fileset dir="build/generated/jaxbCache/coursexmlschema"/>
         </copy>
-        <mkdir dir="build/generated/jaxbCache/FacultyInfo"/>
-        <xjc destdir="build/generated/jaxbCache/FacultyInfo" catalog="catalog.xml">
+        <mkdir dir="build/generated/jaxbCache/facultyxmlschema"/>
+        <xjc destdir="build/generated/jaxbCache/facultyxmlschema" catalog="catalog.xml">
             <classpath>
                 <pathelement location="${src.dir}"/>
                 <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
             </classpath>
             <arg value="-xmlschema"/>
-            <schema file="src/conf/xml-resources/jaxb/FacultyInfo/facultyXmlSchema.xsd"/>
-            <depends file="src/conf/xml-resources/jaxb/FacultyInfo/facultyXmlSchema.xsd"/>
-            <produces dir="build/generated/jaxbCache/FacultyInfo"/>
+            <schema file="src/conf/xml-resources/jaxb/facultyxmlschema/facultyXmlSchema.xsd"/>
+            <depends file="src/conf/xml-resources/jaxb/facultyxmlschema/facultyXmlSchema.xsd"/>
+            <produces dir="build/generated/jaxbCache/facultyxmlschema"/>
         </xjc>
         <copy todir="${build.generated.sources.dir}/jaxb">
-            <fileset dir="build/generated/jaxbCache/FacultyInfo"/>
+            <fileset dir="build/generated/jaxbCache/facultyxmlschema"/>
         </copy>
-        <mkdir dir="build/generated/jaxbCache/SemesterInfo"/>
-        <xjc destdir="build/generated/jaxbCache/SemesterInfo" catalog="catalog.xml">
+        <mkdir dir="build/generated/jaxbCache/prerequestxmlschema"/>
+        <xjc destdir="build/generated/jaxbCache/prerequestxmlschema" catalog="catalog.xml">
             <classpath>
                 <pathelement location="${src.dir}"/>
                 <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
             </classpath>
             <arg value="-xmlschema"/>
-            <schema file="src/conf/xml-resources/jaxb/SemesterInfo/semesterXmlSchema.xsd"/>
-            <depends file="src/conf/xml-resources/jaxb/SemesterInfo/semesterXmlSchema.xsd"/>
-            <produces dir="build/generated/jaxbCache/SemesterInfo"/>
+            <schema file="src/conf/xml-resources/jaxb/prerequestxmlschema/prerequestXmlSchema.xsd"/>
+            <depends file="src/conf/xml-resources/jaxb/prerequestxmlschema/prerequestXmlSchema.xsd"/>
+            <produces dir="build/generated/jaxbCache/prerequestxmlschema"/>
         </xjc>
         <copy todir="${build.generated.sources.dir}/jaxb">
-            <fileset dir="build/generated/jaxbCache/SemesterInfo"/>
+            <fileset dir="build/generated/jaxbCache/prerequestxmlschema"/>
         </copy>
-        <mkdir dir="build/generated/jaxbCache/prerequestInfo"/>
-        <xjc destdir="build/generated/jaxbCache/prerequestInfo" catalog="catalog.xml">
+        <mkdir dir="build/generated/jaxbCache/semesterxmlschema"/>
+        <xjc destdir="build/generated/jaxbCache/semesterxmlschema" catalog="catalog.xml">
             <classpath>
                 <pathelement location="${src.dir}"/>
                 <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
             </classpath>
             <arg value="-xmlschema"/>
-            <schema file="src/conf/xml-resources/jaxb/prerequestInfo/prerequestXmlSchema.xsd"/>
-            <depends file="src/conf/xml-resources/jaxb/prerequestInfo/prerequestXmlSchema.xsd"/>
-            <produces dir="build/generated/jaxbCache/prerequestInfo"/>
+            <schema file="src/conf/xml-resources/jaxb/semesterxmlschema/semesterXmlSchema.xsd"/>
+            <depends file="src/conf/xml-resources/jaxb/semesterxmlschema/semesterXmlSchema.xsd"/>
+            <produces dir="build/generated/jaxbCache/semesterxmlschema"/>
         </xjc>
         <copy todir="${build.generated.sources.dir}/jaxb">
-            <fileset dir="build/generated/jaxbCache/prerequestInfo"/>
+            <fileset dir="build/generated/jaxbCache/semesterxmlschema"/>
         </copy>
-        <mkdir dir="build/generated/jaxbCache/courseInfo"/>
-        <xjc destdir="build/generated/jaxbCache/courseInfo" catalog="catalog.xml">
+        <mkdir dir="build/generated/jaxbCache/studentprereqcheck"/>
+        <xjc destdir="build/generated/jaxbCache/studentprereqcheck" catalog="catalog.xml">
             <classpath>
                 <pathelement location="${src.dir}"/>
                 <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
             </classpath>
             <arg value="-xmlschema"/>
-            <schema file="src/conf/xml-resources/jaxb/courseInfo/courseXmlSchema.xsd"/>
-            <depends file="src/conf/xml-resources/jaxb/courseInfo/courseXmlSchema.xsd"/>
-            <produces dir="build/generated/jaxbCache/courseInfo"/>
+            <schema file="src/conf/xml-resources/jaxb/studentprereqcheck/studentPrereqCheck.xsd"/>
+            <depends file="src/conf/xml-resources/jaxb/studentprereqcheck/studentPrereqCheck.xsd"/>
+            <produces dir="build/generated/jaxbCache/studentprereqcheck"/>
         </xjc>
         <copy todir="${build.generated.sources.dir}/jaxb">
-            <fileset dir="build/generated/jaxbCache/courseInfo"/>
+            <fileset dir="build/generated/jaxbCache/studentprereqcheck"/>
         </copy>
-        <mkdir dir="build/generated/jaxbCache/StudentEnrollmentInfo"/>
-        <xjc destdir="build/generated/jaxbCache/StudentEnrollmentInfo" catalog="catalog.xml">
+        <mkdir dir="build/generated/jaxbCache/studentregscheck"/>
+        <xjc destdir="build/generated/jaxbCache/studentregscheck" catalog="catalog.xml">
             <classpath>
                 <pathelement location="${src.dir}"/>
                 <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
             </classpath>
             <arg value="-xmlschema"/>
-            <schema file="src/conf/xml-resources/jaxb/StudentEnrollmentInfo/stuEnrolXmlSchema.xsd"/>
-            <depends file="src/conf/xml-resources/jaxb/StudentEnrollmentInfo/stuEnrolXmlSchema.xsd"/>
-            <produces dir="build/generated/jaxbCache/StudentEnrollmentInfo"/>
+            <schema file="src/conf/xml-resources/jaxb/studentregscheck/studentRegCheck.xsd"/>
+            <depends file="src/conf/xml-resources/jaxb/studentregscheck/studentRegCheck.xsd"/>
+            <produces dir="build/generated/jaxbCache/studentregscheck"/>
         </xjc>
         <copy todir="${build.generated.sources.dir}/jaxb">
-            <fileset dir="build/generated/jaxbCache/StudentEnrollmentInfo"/>
+            <fileset dir="build/generated/jaxbCache/studentregscheck"/>
         </copy>
-        <mkdir dir="build/generated/jaxbCache/studentPrereqCheck"/>
-        <xjc destdir="build/generated/jaxbCache/studentPrereqCheck" catalog="catalog.xml">
+        <mkdir dir="build/generated/jaxbCache/stuenrolxmlschema"/>
+        <xjc destdir="build/generated/jaxbCache/stuenrolxmlschema" catalog="catalog.xml">
             <classpath>
                 <pathelement location="${src.dir}"/>
                 <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
             </classpath>
             <arg value="-xmlschema"/>
-            <schema file="src/conf/xml-resources/jaxb/studentPrereqCheck/studentPrereqCheck.xsd"/>
-            <depends file="src/conf/xml-resources/jaxb/studentPrereqCheck/studentPrereqCheck.xsd"/>
-            <produces dir="build/generated/jaxbCache/studentPrereqCheck"/>
+            <schema file="src/conf/xml-resources/jaxb/stuenrolxmlschema/stuEnrolXmlSchema.xsd"/>
+            <depends file="src/conf/xml-resources/jaxb/stuenrolxmlschema/stuEnrolXmlSchema.xsd"/>
+            <produces dir="build/generated/jaxbCache/stuenrolxmlschema"/>
         </xjc>
         <copy todir="${build.generated.sources.dir}/jaxb">
-            <fileset dir="build/generated/jaxbCache/studentPrereqCheck"/>
+            <fileset dir="build/generated/jaxbCache/stuenrolxmlschema"/>
         </copy>
-        <mkdir dir="build/generated/jaxbCache/StudentRegCheck"/>
-        <xjc destdir="build/generated/jaxbCache/StudentRegCheck" catalog="catalog.xml">
+        <mkdir dir="build/generated/jaxbCache/studentxmlschema"/>
+        <xjc destdir="build/generated/jaxbCache/studentxmlschema" catalog="catalog.xml">
             <classpath>
                 <pathelement location="${src.dir}"/>
                 <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
             </classpath>
             <arg value="-xmlschema"/>
-            <schema file="src/conf/xml-resources/jaxb/StudentRegCheck/studentRegCheck.xsd"/>
-            <depends file="src/conf/xml-resources/jaxb/StudentRegCheck/studentRegCheck.xsd"/>
-            <produces dir="build/generated/jaxbCache/StudentRegCheck"/>
+            <schema file="src/conf/xml-resources/jaxb/studentxmlschema/studentXmlSchema.xsd"/>
+            <depends file="src/conf/xml-resources/jaxb/studentxmlschema/studentXmlSchema.xsd"/>
+            <produces dir="build/generated/jaxbCache/studentxmlschema"/>
         </xjc>
         <copy todir="${build.generated.sources.dir}/jaxb">
-            <fileset dir="build/generated/jaxbCache/StudentRegCheck"/>
+            <fileset dir="build/generated/jaxbCache/studentxmlschema"/>
         </copy>
         <!--*** Web project javac macro does not support sourcepath attribute, so do not pass "sourcepath=${src.dir}"-->
     </target>

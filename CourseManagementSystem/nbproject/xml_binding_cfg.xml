@@ -1,90 +1,90 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <schemas xmlns='http://xml.netbeans.org/schema/JAXBWizConfig' destdir='build/generated-sources/jaxb' projectName='CourseManagementSystem' version='1.0'>
-	<schema type='-xmlschema' package='' name='StudentInfo'>
+	<schema type='-xmlschema' package='' name='classxmlschema'>
 		<xjc-options>
 		</xjc-options>
 		<schema-sources>
-			<schema-source location='src/conf/xml-resources/jaxb/StudentInfo/studentXmlSchema.xsd' origLocation='src/java/team/soa/cms/xml/studentXmlSchema.xsd'/>
+			<schema-source location='src/conf/xml-resources/jaxb/classxmlschema/classXmlSchema.xsd' origLocation='src/java/team/soa/cms/xml/classXmlSchema.xsd'/>
 		</schema-sources>
 		<bindings>
 		</bindings>
 		<catalog/>
 	</schema>
-	<schema type='-xmlschema' package='' name='classInfo'>
+	<schema type='-xmlschema' package='' name='coursexmlschema'>
 		<xjc-options>
 		</xjc-options>
 		<schema-sources>
-			<schema-source location='src/conf/xml-resources/jaxb/classInfo/classXmlSchema.xsd' origLocation='src/java/team/soa/cms/xml/classXmlSchema.xsd'/>
+			<schema-source location='src/conf/xml-resources/jaxb/coursexmlschema/courseXmlSchema.xsd' origLocation='src/java/team/soa/cms/xml/courseXmlSchema.xsd'/>
 		</schema-sources>
 		<bindings>
 		</bindings>
 		<catalog/>
 	</schema>
-	<schema type='-xmlschema' package='' name='FacultyInfo'>
+	<schema type='-xmlschema' package='' name='facultyxmlschema'>
 		<xjc-options>
 		</xjc-options>
 		<schema-sources>
-			<schema-source location='src/conf/xml-resources/jaxb/FacultyInfo/facultyXmlSchema.xsd' origLocation='src/java/team/soa/cms/xml/facultyXmlSchema.xsd'/>
+			<schema-source location='src/conf/xml-resources/jaxb/facultyxmlschema/facultyXmlSchema.xsd' origLocation='src/java/team/soa/cms/xml/facultyXmlSchema.xsd'/>
 		</schema-sources>
 		<bindings>
 		</bindings>
 		<catalog/>
 	</schema>
-	<schema type='-xmlschema' package='' name='SemesterInfo'>
+	<schema type='-xmlschema' package='' name='prerequestxmlschema'>
 		<xjc-options>
 		</xjc-options>
 		<schema-sources>
-			<schema-source location='src/conf/xml-resources/jaxb/SemesterInfo/semesterXmlSchema.xsd' origLocation='src/java/team/soa/cms/xml/semesterXmlSchema.xsd'/>
+			<schema-source location='src/conf/xml-resources/jaxb/prerequestxmlschema/prerequestXmlSchema.xsd' origLocation='src/java/team/soa/cms/xml/prerequestXmlSchema.xsd'/>
 		</schema-sources>
 		<bindings>
 		</bindings>
 		<catalog/>
 	</schema>
-	<schema type='-xmlschema' package='' name='prerequestInfo'>
+	<schema type='-xmlschema' package='' name='semesterxmlschema'>
 		<xjc-options>
 		</xjc-options>
 		<schema-sources>
-			<schema-source location='src/conf/xml-resources/jaxb/prerequestInfo/prerequestXmlSchema.xsd' origLocation='src/java/team/soa/cms/xml/prerequestXmlSchema.xsd'/>
+			<schema-source location='src/conf/xml-resources/jaxb/semesterxmlschema/semesterXmlSchema.xsd' origLocation='src/java/team/soa/cms/xml/semesterXmlSchema.xsd'/>
 		</schema-sources>
 		<bindings>
 		</bindings>
 		<catalog/>
 	</schema>
-	<schema type='-xmlschema' package='' name='courseInfo'>
+	<schema type='-xmlschema' package='' name='studentprereqcheck'>
 		<xjc-options>
 		</xjc-options>
 		<schema-sources>
-			<schema-source location='src/conf/xml-resources/jaxb/courseInfo/courseXmlSchema.xsd' origLocation='src/java/team/soa/cms/xml/courseXmlSchema.xsd'/>
+			<schema-source location='src/conf/xml-resources/jaxb/studentprereqcheck/studentPrereqCheck.xsd' origLocation='src/java/team/soa/cms/xml/studentPrereqCheck.xsd'/>
 		</schema-sources>
 		<bindings>
 		</bindings>
 		<catalog/>
 	</schema>
-	<schema type='-xmlschema' package='' name='StudentEnrollmentInfo'>
+	<schema type='-xmlschema' package='' name='studentregscheck'>
 		<xjc-options>
 		</xjc-options>
 		<schema-sources>
-			<schema-source location='src/conf/xml-resources/jaxb/StudentEnrollmentInfo/stuEnrolXmlSchema.xsd' origLocation='src/java/team/soa/cms/xml/stuEnrolXmlSchema.xsd'/>
+			<schema-source location='src/conf/xml-resources/jaxb/studentregscheck/studentRegCheck.xsd' origLocation='src/java/team/soa/cms/xml/studentRegCheck.xsd'/>
 		</schema-sources>
 		<bindings>
 		</bindings>
 		<catalog/>
 	</schema>
-	<schema type='-xmlschema' package='' name='studentPrereqCheck'>
+	<schema type='-xmlschema' package='' name='stuenrolxmlschema'>
 		<xjc-options>
 		</xjc-options>
 		<schema-sources>
-			<schema-source location='src/conf/xml-resources/jaxb/studentPrereqCheck/studentPrereqCheck.xsd' origLocation='src/java/team/soa/cms/xml/studentPrereqCheck.xsd'/>
+			<schema-source location='src/conf/xml-resources/jaxb/stuenrolxmlschema/stuEnrolXmlSchema.xsd' origLocation='src/java/team/soa/cms/xml/stuEnrolXmlSchema.xsd'/>
 		</schema-sources>
 		<bindings>
 		</bindings>
 		<catalog/>
 	</schema>
-	<schema type='-xmlschema' package='' name='StudentRegCheck'>
+	<schema type='-xmlschema' package='' name='studentxmlschema'>
 		<xjc-options>
 		</xjc-options>
 		<schema-sources>
-			<schema-source location='src/conf/xml-resources/jaxb/StudentRegCheck/studentRegCheck.xsd' origLocation='src/java/team/soa/cms/xml/studentRegCheck.xsd'/>
+			<schema-source location='src/conf/xml-resources/jaxb/studentxmlschema/studentXmlSchema.xsd' origLocation='src/java/team/soa/cms/xml/studentXmlSchema.xsd'/>
 		</schema-sources>
 		<bindings>
 		</bindings>

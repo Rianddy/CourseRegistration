@@ -7,6 +7,7 @@
 package team.soa.cms.dao;
 
 import org.netbeans.xml.schema.stuenrolxmlschema.StuEnrollList;
+import org.netbeans.xml.schema.stuenrolxmlschema.StuEnrollList.Oneenroll;
 
 /**
  *
@@ -16,4 +17,8 @@ public interface StudentEnrollDAO {
     public String insert(int Class_ID, int Stu_ID);
     
     public StuEnrollList getStudentEnrollment(int Stu_ID);
+
+    public int insertIDStatus(int Class_ID, int Stu_ID, String status);
+    
+    public Oneenroll getOneEnrollmentInfo(int Class_ID, int Stu_ID,String status);
 }

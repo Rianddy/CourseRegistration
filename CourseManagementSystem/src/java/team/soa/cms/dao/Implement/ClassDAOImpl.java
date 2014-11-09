@@ -25,7 +25,35 @@ public class ClassDAOImpl extends GeneralDAO implements ClassDAO{
     public ClassDAOImpl(){
         
     }
-    
+    /*
+	Ruiting Yi Nov 6
+	
+	
+	*/
+
+    @Override
+    public void update(int class_id, Class cls) {
+       
+          String class_ID = cls.getClassid();
+          int maxSize = cls.getMaxsize();
+          int maxWaitList = cls.getMaxwaitlist();
+          
+          int curSize = cls.getCursize();
+          int curWaitList = cls.getCurwaitlist();
+            
+          try {
+            this.OpenConnection();
+            
+            this.sql = "UPDATE class SET Max_Size = '"+maxSize+"',Max_WaitList ='"+maxWaitList+"',Cur_Size='"+curSize+"',Cur_WaitList='"+curWaitList+"' WHERE Cls_ID  = '"+class_ID+"' ";
+            
+            stmt.executeUpdate(sql);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ClassDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+    }
+
     @Override
     public Class getOneClass(int class_id) {
         Class cls = new Class();
@@ -62,7 +90,7 @@ public class ClassDAOImpl extends GeneralDAO implements ClassDAO{
         } catch (SQLException ex) {
             Logger.getLogger(ClassDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return cls;
+        return cls; //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -74,13 +102,7 @@ public class ClassDAOImpl extends GeneralDAO implements ClassDAO{
     public void delete(int class_id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public void update(int class_id, Class cls) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
-    
-    
+   
     
 }

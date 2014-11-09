@@ -1,6 +1,7 @@
 
 package team.soa.cms.ws.jaxws;
 
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -11,14 +12,14 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "checkStudentRegistration", namespace = "http://ws.cms.soa.team/", propOrder = {
     "stuID",
-    "classID"
+    "classIDList"
 })
 public class CheckStudentRegistration {
 
     @XmlElement(name = "Stu_ID", namespace = "")
     private int stuID;
-    @XmlElement(name = "Class_ID", namespace = "")
-    private int classID;
+    @XmlElement(name = "Class_ID_List", namespace = "")
+    private List<Integer> classIDList;
 
     /**
      * 
@@ -41,19 +42,19 @@ public class CheckStudentRegistration {
     /**
      * 
      * @return
-     *     returns int
+     *     returns List<Integer>
      */
-    public int getClassID() {
-        return this.classID;
+    public List<Integer> getClassIDList() {
+        return this.classIDList;
     }
 
     /**
      * 
-     * @param classID
-     *     the value for the classID property
+     * @param classIDList
+     *     the value for the classIDList property
      */
-    public void setClassID(int classID) {
-        this.classID = classID;
+    public void setClassIDList(List<Integer> classIDList) {
+        this.classIDList = classIDList;
     }
 
 }

@@ -30,6 +30,7 @@ public class StudentDAOImpl extends GeneralDAO implements StudentDAO {
             sql = "select * from Student where Stu_ID="+stu_id;
             rs =stmt.executeQuery(sql);
             while (rs.next()){
+                System.out.println("query success!");
                 String stu_ID = rs.getString("stu_ID");
                 String name = rs.getString("name");
                 String email = rs.getString("email");
@@ -49,6 +50,7 @@ public class StudentDAOImpl extends GeneralDAO implements StudentDAO {
                 stu.setBirthday(birthday);
                 stu.setAddress(address);
                 stu.setCell(cell);
+                System.out.println(stu.getName());
             }
         } catch (SQLException ex) {
             Logger.getLogger(StudentDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
