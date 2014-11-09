@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://xml.netbeans.org/schema/prerequestXmlSchema"
+    xmlns:tns="http://xml.netbeans.org/schema/prerequestXmlSchema"
+    elementFormDefault="qualified">
+    <xsd:complexType name="prerequestment">
+        <xsd:sequence>
+            <xsd:element name="onepre" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="courseid" type="xsd:string"></xsd:element>
+                        <xsd:element name="coursename" type="xsd:string"></xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
