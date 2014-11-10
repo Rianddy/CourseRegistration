@@ -6,6 +6,8 @@
             <file>file:/Users/birui/GitHub/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/dao/Implement/CourseDAOImpl.java</file>
             <file>file:/Users/birui/GitHub/CourseRegistration/CourseManagementSystem/build/generated-sources/jaxb/org/netbeans/xml/schema/studentregcheck/ClassList.java</file>
             <file>file:/Users/birui/GitHub/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/dao/Implement/PrerequestmentDAOImpl.java</file>
+            <file>file:/Users/birui/GitHub/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/ws/RegCheckService.java</file>
+            <file>file:/Users/birui/GitHub/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/ws/basicCheck/StudentValidService.java</file>
         </group>
     </open-files>
 </project-private>
