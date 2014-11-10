@@ -37,7 +37,7 @@ public class RegCheckService {
 
         StuRegCheckInfo info = new StuRegCheckInfo();
         ClassList clsList = new ClassList();
-        ClassInfo cls = new ClassInfo();
+        
         StudentInformation stu = new StudentInformation();
         StudentClass stucls = new StudentClass();
 
@@ -55,6 +55,7 @@ public class RegCheckService {
         for (Integer Class_ID : ClsIdList) {
             boolean clsValid = classValid.classIsValid(Class_ID);
             if (clsValid) {
+                ClassInfo cls = new ClassInfo();
                 Integer classStatus = canRegister.classRegisterLeftSpace(Class_ID);
                 cls.setClassid(String.valueOf(Class_ID));
                 cls.setClassvalid(clsValid);
