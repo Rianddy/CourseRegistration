@@ -88,4 +88,13 @@ public class DAOService {
         }
         return result;
     }
+    
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "dropEnrolledClass")
+    public Boolean dropEnrolledClass(@WebParam(name = "Stu_Enroll_ID") int Stu_Enroll_ID) {
+        StudentEnrollDAO stuEnrollDAO = new StudentEnrollDAOImpl();
+        return stuEnrollDAO.dropEnrolledClass(Stu_Enroll_ID);
+    }
 }

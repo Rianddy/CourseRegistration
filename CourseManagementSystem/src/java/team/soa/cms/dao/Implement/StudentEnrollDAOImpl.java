@@ -132,5 +132,19 @@ public class StudentEnrollDAOImpl extends GeneralDAO implements StudentEnrollDAO
         System.out.println("Enroll ID is "+onee.getStuenrollid());
         
     }
+    @Override
+    public boolean dropEnrolledClass(int Stu_Enroll_ID) {
+        boolean result=false;
+      try {
+            this.OpenConnection();
+            this.sql ="delete FROM StudentEnrollment where Stu_Enroll_ID="+Stu_Enroll_ID;
+            stmt.executeUpdate(sql);
+           result=true;
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentEnrollDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return result;
 
+     
+    }
 }
