@@ -11,6 +11,7 @@ import javax.jws.WebParam;
 import org.netbeans.xml.schema.prerequestxmlschema.Prerequestment;
 import org.netbeans.xml.schema.studentxmlschema.Student;
 import org.netbeans.xml.schema.stuenrolxmlschema.StuEnrollList;
+import org.netbeans.xml.schema.stuenrolxmlschema.StuEnrollList.Oneenroll;
 import team.soa.cms.dao.ClassDAO;
 import team.soa.cms.dao.Implement.ClassDAOImpl;
 import team.soa.cms.dao.Implement.PrerequestmentDAOImpl;
@@ -93,8 +94,17 @@ public class DAOService {
      * Web service operation
      */
     @WebMethod(operationName = "dropEnrolledClass")
-    public Boolean dropEnrolledClass(@WebParam(name = "Stu_Enroll_ID") int Stu_Enroll_ID) {
+    public void dropEnrolledClass(@WebParam(name = "courseid") int classid,@WebParam(name = "studentid") int studentid) {
         StudentEnrollDAO stuEnrollDAO = new StudentEnrollDAOImpl();
-        return stuEnrollDAO.dropEnrolledClass(Stu_Enroll_ID);
+        stuEnrollDAO.dropEnrolledClass(classid,studentid);
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getStudentEnrollmentRecord")  //to get specific record in the studentEnrollment table
+    public Oneenroll getStudentEnrollmentRecord(@WebParam(name = "studentid") int studentid, @WebParam(name = "courseid") int courseid) {
+       StudentEnrollDAO stuEnrollDAO = new StudentEnrollDAOImpl();
+          return stuEnrollDAO.getOneEnrollmentInfo(courseid, studentid);
     }
 }

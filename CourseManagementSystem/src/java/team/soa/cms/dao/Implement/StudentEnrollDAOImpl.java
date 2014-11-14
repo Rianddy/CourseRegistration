@@ -133,18 +133,43 @@ public class StudentEnrollDAOImpl extends GeneralDAO implements StudentEnrollDAO
         
     }
     @Override
-    public boolean dropEnrolledClass(int Stu_Enroll_ID) {
-        boolean result=false;
+    public void dropEnrolledClass(int Class_ID,int Stu_ID) {
+       // boolean result=false;
       try {
             this.OpenConnection();
-            this.sql ="delete FROM StudentEnrollment where Stu_Enroll_ID="+Stu_Enroll_ID;
+            this.sql ="delete FROM StudentEnrollment where Stu_ID="+Stu_ID+" and Cls_ID="+Class_ID;
             stmt.executeUpdate(sql);
-           result=true;
+        //   result=true;
         } catch (SQLException ex) {
             Logger.getLogger(StudentEnrollDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
-    return result;
+   // return result;
 
      
+    }
+
+    @Override
+    public Oneenroll getOneEnrollmentInfo(int Class_ID, int Stu_ID) {
+ Oneenroll onee = new Oneenroll();
+     try {
+            this.OpenConnection();
+            this.sql ="SELECT * FROM StudentEnrollment where Stu_ID="+Stu_ID+" AND Cls_ID="+Class_ID;//"SELECT * FROM StudentEnrollment where Stu_ID="+Stu_ID+" AND Cls_ID="+Class_ID;
+            rs = stmt.executeQuery(sql);
+            
+            while (rs.next()){
+                onee.setStuenrollid(rs.getString("Stu_Enroll_ID"));
+                onee.setStuid(rs.getString(Stu_ID));
+                onee.setClassid(rs.getString("Cls_ID"));
+                onee.setGrade(rs.getString("Grade"));
+//                onee.setScore(Float.valueOf(rs.getString("Score")));
+                onee.setStatus(rs.getString("Status"));
+         
+                }
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentEnrollDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+     return onee;
+    
     }
 }

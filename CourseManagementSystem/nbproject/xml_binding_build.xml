@@ -137,6 +137,90 @@
         <copy todir="${build.generated.sources.dir}/jaxb">
             <fileset dir="build/generated/jaxbCache/studentxmlschema"/>
         </copy>
+        <mkdir dir="build/generated/jaxbCache/checkDropClasses"/>
+        <xjc destdir="build/generated/jaxbCache/checkDropClasses" catalog="catalog.xml">
+            <classpath>
+                <pathelement location="${src.dir}"/>
+                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
+            </classpath>
+            <arg value="-xmlschema"/>
+            <schema file="src/conf/xml-resources/jaxb/checkDropClasses/checkDropClasses.xsd"/>
+            <depends file="src/conf/xml-resources/jaxb/checkDropClasses/checkDropClasses.xsd"/>
+            <produces dir="build/generated/jaxbCache/checkDropClasses"/>
+        </xjc>
+        <copy todir="${build.generated.sources.dir}/jaxb">
+            <fileset dir="build/generated/jaxbCache/checkDropClasses"/>
+        </copy>
+        <mkdir dir="build/generated/jaxbCache/dropClasses"/>
+        <xjc destdir="build/generated/jaxbCache/dropClasses" catalog="catalog.xml">
+            <classpath>
+                <pathelement location="${src.dir}"/>
+                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
+            </classpath>
+            <arg value="-xmlschema"/>
+            <schema file="src/conf/xml-resources/jaxb/dropClasses/dropClasses.xsd"/>
+            <depends file="src/conf/xml-resources/jaxb/dropClasses/dropClasses.xsd"/>
+            <produces dir="build/generated/jaxbCache/dropClasses"/>
+        </xjc>
+        <copy todir="${build.generated.sources.dir}/jaxb">
+            <fileset dir="build/generated/jaxbCache/dropClasses"/>
+        </copy>
+        <mkdir dir="build/generated/jaxbCache/dropClassInput"/>
+        <xjc destdir="build/generated/jaxbCache/dropClassInput" catalog="catalog.xml">
+            <classpath>
+                <pathelement location="${src.dir}"/>
+                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
+            </classpath>
+            <arg value="-xmlschema"/>
+            <schema file="src/conf/xml-resources/jaxb/dropClassInput/dropClassInput.xsd"/>
+            <depends file="src/conf/xml-resources/jaxb/dropClassInput/dropClassInput.xsd"/>
+            <produces dir="build/generated/jaxbCache/dropClassInput"/>
+        </xjc>
+        <copy todir="${build.generated.sources.dir}/jaxb">
+            <fileset dir="build/generated/jaxbCache/dropClassInput"/>
+        </copy>
+        <mkdir dir="build/generated/jaxbCache/InputClasses"/>
+        <xjc destdir="build/generated/jaxbCache/InputClasses" catalog="catalog.xml">
+            <classpath>
+                <pathelement location="${src.dir}"/>
+                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
+            </classpath>
+            <arg value="-xmlschema"/>
+            <schema file="src/conf/xml-resources/jaxb/InputClasses/dropClassInput.xsd"/>
+            <depends file="src/conf/xml-resources/jaxb/InputClasses/dropClassInput.xsd"/>
+            <produces dir="build/generated/jaxbCache/InputClasses"/>
+        </xjc>
+        <copy todir="${build.generated.sources.dir}/jaxb">
+            <fileset dir="build/generated/jaxbCache/InputClasses"/>
+        </copy>
+        <mkdir dir="build/generated/jaxbCache/CheckClasses"/>
+        <xjc destdir="build/generated/jaxbCache/CheckClasses" catalog="catalog.xml">
+            <classpath>
+                <pathelement location="${src.dir}"/>
+                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
+            </classpath>
+            <arg value="-xmlschema"/>
+            <schema file="src/conf/xml-resources/jaxb/CheckClasses/checkDropClasses.xsd"/>
+            <depends file="src/conf/xml-resources/jaxb/CheckClasses/checkDropClasses.xsd"/>
+            <produces dir="build/generated/jaxbCache/CheckClasses"/>
+        </xjc>
+        <copy todir="${build.generated.sources.dir}/jaxb">
+            <fileset dir="build/generated/jaxbCache/CheckClasses"/>
+        </copy>
+        <mkdir dir="build/generated/jaxbCache/DropStudentClasses"/>
+        <xjc destdir="build/generated/jaxbCache/DropStudentClasses" catalog="catalog.xml">
+            <classpath>
+                <pathelement location="${src.dir}"/>
+                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
+            </classpath>
+            <arg value="-xmlschema"/>
+            <schema file="src/conf/xml-resources/jaxb/DropStudentClasses/dropClasses.xsd"/>
+            <depends file="src/conf/xml-resources/jaxb/DropStudentClasses/dropClasses.xsd"/>
+            <produces dir="build/generated/jaxbCache/DropStudentClasses"/>
+        </xjc>
+        <copy todir="${build.generated.sources.dir}/jaxb">
+            <fileset dir="build/generated/jaxbCache/DropStudentClasses"/>
+        </copy>
         <!--*** Web project javac macro does not support sourcepath attribute, so do not pass "sourcepath=${src.dir}"-->
     </target>
 </project>

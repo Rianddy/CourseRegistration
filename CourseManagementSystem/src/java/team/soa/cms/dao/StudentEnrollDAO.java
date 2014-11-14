@@ -21,6 +21,7 @@ public interface StudentEnrollDAO {
     public int insertIDStatus(int Class_ID, int Stu_ID, String status);
     
     public Oneenroll getOneEnrollmentInfo(int Class_ID, int Stu_ID,String status);
-        public boolean dropEnrolledClass(int Stu_Enroll_ID);
+    public Oneenroll getOneEnrollmentInfo(int Class_ID, int Stu_ID); // used in drop module
+        public void dropEnrolledClass(int Class_ID,int Stu_ID);
 
 }

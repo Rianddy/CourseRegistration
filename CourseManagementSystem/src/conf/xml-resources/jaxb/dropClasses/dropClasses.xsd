@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://xml.netbeans.org/schema/dropClasses"
+    xmlns:tns="http://xml.netbeans.org/schema/dropClasses"
+    elementFormDefault="qualified">
+    <xsd:complexType name="dropStudentClasses">
+        <xsd:sequence>
+            <xsd:element name="studentid" type="xsd:int"></xsd:element>
+            <xsd:element name="coursesResult" maxOccurs="unbounded" minOccurs="0">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="courseid" type="xsd:int"></xsd:element>
+                        <xsd:element name="result" type="xsd:string"></xsd:element>
+                        <xsd:element name="reason" type="xsd:string"></xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
