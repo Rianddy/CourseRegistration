@@ -4,10 +4,12 @@
             targetNamespace="http://xml.netbeans.org/schema/dropClassInput"
     xmlns:tns="http://xml.netbeans.org/schema/dropClassInput"
     elementFormDefault="qualified">
-    <xsd:complexType name="inputClasses">
+    <xsd:complexType name="DropClassesInput">
         <xsd:sequence>
             <xsd:element name="studentid" type="xsd:int"></xsd:element>
-            <xsd:element name="courseid" type="xsd:int" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+            <xsd:element name ="classIds" type="xsd:int" minOccurs="0" maxOccurs="unbounded"></xsd:element>
         </xsd:sequence>
     </xsd:complexType>
+    
+    
 </xsd:schema>

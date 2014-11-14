@@ -52,9 +52,6 @@ public class UpdateClass {
             
             }
         }
-       
-        
-       
         return reStatus;
     }
 }

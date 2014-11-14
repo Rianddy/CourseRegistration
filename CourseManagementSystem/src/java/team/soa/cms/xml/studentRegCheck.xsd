@@ -14,21 +14,21 @@
     
     <xsd:complexType name="classInfo">
         <xsd:sequence>
+            <xsd:element name="classid" type="xsd:string"></xsd:element>
+            <xsd:element name="classvalid" type="xsd:boolean"></xsd:element>
+            <xsd:element name="classstatus" type="xsd:string"></xsd:element>
+            <xsd:element name="canTake" type="xsd:boolean"></xsd:element>
+            <xsd:element name="classPrereq" minOccurs="0" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
                         <xsd:element name="classid" type="xsd:string"></xsd:element>
-                        <xsd:element name="classvalid" type="xsd:boolean"></xsd:element>
-                        <xsd:element name="classstatus" type="xsd:string"></xsd:element>
-                        <xsd:element name="canTake" type="xsd:boolean"></xsd:element>
-                        <xsd:element name="classPrereq" minOccurs="0" maxOccurs="unbounded">
-                            <xsd:complexType>
-                                <xsd:sequence>
-                                    <xsd:element name="classid" type="xsd:string"></xsd:element>
-                                    <xsd:element name="courseid" type="xsd:string"></xsd:element>
-                                    <xsd:element name="grade" type="xsd:string"></xsd:element>
-                                    <xsd:element name="reqMet" type="xsd:boolean"></xsd:element>
-                                </xsd:sequence>
-                            </xsd:complexType>
-                        </xsd:element>
+                        <xsd:element name="courseid" type="xsd:string"></xsd:element>
+                        <xsd:element name="grade" type="xsd:string"></xsd:element>
+                        <xsd:element name="reqMet" type="xsd:boolean"></xsd:element>
                     </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
     </xsd:complexType>
     
     
