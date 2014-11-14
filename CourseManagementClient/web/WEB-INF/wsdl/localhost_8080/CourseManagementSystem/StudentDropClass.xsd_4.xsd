@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.3 (tags/2.3-7528; 2013-04-29T19:34:10+0000) JAXWS-RI/2.2.8 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws.cms.soa.team/" xmlns:ns3="http://xml.netbeans.org/schema/dropClassInput" xmlns:ns2="http://xml.netbeans.org/schema/dropClasses" xmlns:ns1="http://xml.netbeans.org/schema/checkDropClasses" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.cms.soa.team/">
+
+<xs:import namespace="http://xml.netbeans.org/schema/checkDropClasses" schemaLocation="http://localhost:8080/CourseManagementSystem/StudentDropClass?xsd=3"/>
+
+<xs:import namespace="http://xml.netbeans.org/schema/dropClasses" schemaLocation="http://localhost:8080/CourseManagementSystem/StudentDropClass?xsd=1"/>
+
+<xs:import namespace="http://xml.netbeans.org/schema/dropClassInput" schemaLocation="http://localhost:8080/CourseManagementSystem/StudentDropClass?xsd=2"/>
+
+<xs:element name="isClassEnrolled" type="tns:isClassEnrolled"/>
+
+<xs:element name="isClassEnrolledResponse" type="tns:isClassEnrolledResponse"/>
+
+<xs:element name="studentDropClass" type="tns:studentDropClass"/>
+
+<xs:element name="studentDropClassResponse" type="tns:studentDropClassResponse"/>
+
+<xs:complexType name="studentDropClass">
+<xs:sequence>
+<xs:element name="inputClasses" type="ns1:checkClasses" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="studentDropClassResponse">
+<xs:sequence>
+<xs:element name="return" type="ns2:dropStudentClasses" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isClassEnrolled">
+<xs:sequence>
+<xs:element name="classes" type="ns3:DropClassesInput" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isClassEnrolledResponse">
+<xs:sequence>
+<xs:element name="return" type="ns1:checkClasses" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

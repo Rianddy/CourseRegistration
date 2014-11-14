@@ -19,4 +19,9 @@
     <system systemId="http://localhost:8080/CourseManagementSystem/RegCheckService?wsdl" uri="src/conf/xml-resources/web-service-references/RegCheckService/wsdl/localhost_8080/CourseManagementSystem/RegCheckService.wsdl"/>
     <system systemId="http://localhost:8080/CourseManagementSystem/RegCheckService?xsd=1" uri="src/conf/xml-resources/web-service-references/RegCheckService/wsdl/localhost_8080/CourseManagementSystem/RegCheckService.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/CourseManagementSystem/RegCheckService?xsd=2" uri="src/conf/xml-resources/web-service-references/RegCheckService/wsdl/localhost_8080/CourseManagementSystem/RegCheckService.xsd_2.xsd"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/StudentDropClass?wsdl" uri="src/conf/xml-resources/web-service-references/StudentDropClass/wsdl/localhost_8080/CourseManagementSystem/StudentDropClass.wsdl"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/StudentDropClass?xsd=1" uri="src/conf/xml-resources/web-service-references/StudentDropClass/wsdl/localhost_8080/CourseManagementSystem/StudentDropClass.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/StudentDropClass?xsd=2" uri="src/conf/xml-resources/web-service-references/StudentDropClass/wsdl/localhost_8080/CourseManagementSystem/StudentDropClass.xsd_2.xsd"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/StudentDropClass?xsd=3" uri="src/conf/xml-resources/web-service-references/StudentDropClass/wsdl/localhost_8080/CourseManagementSystem/StudentDropClass.xsd_3.xsd"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/StudentDropClass?xsd=4" uri="src/conf/xml-resources/web-service-references/StudentDropClass/wsdl/localhost_8080/CourseManagementSystem/StudentDropClass.xsd_4.xsd"/>
 </catalog>
