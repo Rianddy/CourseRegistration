@@ -9,5 +9,6 @@
     <system systemId="file:/C:/Users/xmrui_000/Documents/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/studentRegCheck.xsd" uri="src/conf/xml-resources/jaxb/studentregscheck/studentRegCheck.xsd"/>
     <system systemId="file:/C:/Users/xmrui_000/Documents/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/stuEnrolXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/stuenrolxmlschema/stuEnrolXmlSchema.xsd"/>
     <system systemId="file:/C:/Users/xmrui_000/Documents/NetBeansProjects/CourseManagementSystem/src/java/team/soa/cms/xml/studentXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/studentxmlschema/studentXmlSchema.xsd"/>
-    <system systemId="file:/D:/Workspaces/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/xml/studentRegCheck.xsd" uri="src/conf/xml-resources/jaxb/studentregscheck/studentRegCheck.xsd"/>
+    <system systemId="file:/Users/birui/GitHub/CourseRegistration/CourseManagementSystem/../../CourseRegistrationMaster/CourseManagementSystem/src/java/team/soa/cms/xml/permissionXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/permissionxmlschema/permissionXmlSchema.xsd"/>
+    <system systemId="file:/Users/birui/GitHub/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/xml/permissionXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/permissionxmlschema/permissionXmlSchema.xsd"/>
 </catalog>

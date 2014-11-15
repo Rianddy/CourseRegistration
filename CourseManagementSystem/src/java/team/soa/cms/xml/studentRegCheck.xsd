@@ -38,14 +38,14 @@
             </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
-
-
-        <xsd:complexType  name="StuRegCheckInfo">
+    
+    <xsd:element name="StuRegCheckInfo">
+        <xsd:complexType>
             <xsd:sequence>
                 <xsd:element name="studentInfo" type="tns:studentInformation"></xsd:element>
                 <xsd:element name="clazzInfo" type="tns:classList"></xsd:element>
             </xsd:sequence>
         </xsd:complexType>
-
+    </xsd:element>
     
 </xsd:schema>

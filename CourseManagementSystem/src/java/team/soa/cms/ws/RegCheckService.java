@@ -18,7 +18,6 @@ import team.soa.cms.ws.basicCheck.ClassCanRegisterService;
 import team.soa.cms.ws.basicCheck.ClassValidService;
 import team.soa.cms.ws.basicCheck.PrereqMeetService;
 import team.soa.cms.ws.basicCheck.StudentValidService;
-import team.soa.cms.ws.daoService.DAOService;
 
 /**
  *
@@ -31,7 +30,7 @@ public class RegCheckService {
     ClassValidService classValid = new ClassValidService();
     StudentValidService studenValid = new StudentValidService();
     PrereqMeetService prereqMeet = new PrereqMeetService();
-    DAOService daoService = new DAOService();
+    
 
    @WebMethod(operationName = "checkStudentRegistration")
     public StuRegCheckInfo checkStudentRegistration(@WebParam(name = "Stu_ID") int Stu_ID, @WebParam(name = "Class_ID_List") List<Integer> ClsIdList) {
@@ -63,9 +62,6 @@ public class RegCheckService {
                 cls.setClassstatus(String.valueOf(classStatus));
                 stucls = prereqMeet.studentMeetsPrereq(Stu_ID, Class_ID);              
                 cls.setCanTake(stucls.isCanTake()); //waitng one more operation;
-                if(classStatus>0&&stucls.isCanTake()){
-                    daoService.insertStudentEnrollment(String.valueOf(Stu_ID), String.valueOf(Class_ID));
-                }
                 System.out.print(cls.getClassid() + " " + cls.getClassstatus());
 
                 //clsList.setClazz(cls);
