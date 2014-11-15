@@ -9,6 +9,8 @@ package Servlets;
 import Controllers.DropClassControler;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.ServletException;
@@ -17,12 +19,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.ws.WebServiceRef;
 import org.netbeans.xml.schema.checkdropclasses.CheckClasses;
+import org.netbeans.xml.schema.checkdropclasses.CheckClasses.Classes;
+import org.netbeans.xml.schema.dropclasses.DropStudentClasses;
+import org.netbeans.xml.schema.dropclasses.DropStudentClasses.ClassResult;
 import org.netbeans.xml.schema.dropclassinput.DropClassesInput;
 import team.soa.cms.ws.StudentDropClass_Service;
 
 /**
  *
- * @author Edison
+ * @author Edison Edited by Yaping Chen
  */
 public class DropClassServlet extends HttpServlet {
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/CourseManagementSystem/StudentDropClass.wsdl")
@@ -42,39 +47,41 @@ public class DropClassServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             //PrintWriter writer = response.getWriter();
-            Map<String, String[]> params = request.getParameterMap();
-            String queryString = "";
-            for (String key : params.keySet()) {
-                    String[] values = params.get(key);
-                    for (int i = 0; i < values.length; i++) {
-                            String value = values[i];
-                            queryString += key + "=" + value + "&";
-                    }
-            }
-            // 去掉最后一个空格
-            queryString = queryString.substring(0, queryString.length() - 1);
-            out.println("POST " + request.getRequestURL() + " " + queryString);
             
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet DropClassServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet DropClassServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            Map<String, String[]> params = request.getParameterMap();
+            
             DropClassControler dropClassControler =new DropClassControler();
             DropClassesInput classes = new DropClassesInput();
-            classes.setStudentid(1);
-            List<Integer> classIds = classes.getClassIds();
-            classIds.add(1002);
-            classIds.add(1001);
-            dropClassControler.isClassEnrolled(classes);
             
-            //dropClassControler.isClassEnrolled(null);
+            List<Integer> classIDs = new ArrayList<Integer>();
+            int studentID;
+            Iterator iter = params.entrySet().iterator();
+            while (iter.hasNext()){
+                Map.Entry<String, String[]> entry = (Map.Entry<String,String[]>) iter.next();
+                String key = entry.getKey();
+                String[] val =entry.getValue();
+                if (key.equals("studentID")){
+                    studentID= Integer.parseInt(val[0]);
+                    classes.setStudentid(studentID);
+                }else if (key.contains("classID")){
+                    if (val[0]!=null&&val[0]!=""){
+                        classes.getClassIds().add(Integer.parseInt(val[0]));
+                    }
+                }
+            }
             
+            CheckClasses checkClasses = dropClassControler.isClassEnrolled(classes);
+            for (Classes checkClass :checkClasses.getClasses()){
+               
+            }
+            DropStudentClasses finalResult =dropClassControler.studentDropClass(checkClasses);
+            out.println(finalResult.getStudentid());
+            for (ClassResult result :finalResult.getClassResult()){
+                 out.println(result.getClassid());
+                 out.println(result.getReason());
+                 out.println(result.getResult());
+            }
+           
         }
     }
 

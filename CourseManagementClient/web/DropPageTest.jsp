@@ -15,10 +15,10 @@
     <body>
         <form action ="DropClassServlet" method="POST">
             <p>Student ID</p>
-            <input type ="text" value = "StudentId">
+            <input type ="text" value = "studentID" name ="studentID">
             <p>Class ID</p>
-            <input type ="classID_1" value ="classID_1" name ="classID_1">
-            <input type ="classID_2" value ="classID_2" name ="classID_2">
+            <input type ="text" value ="classID_1" name ="classID_1">
+            <input type ="text" value ="classID_2" name ="classID_2">
             <input type ="submit" id ="submitButton" name ="submitButton" value ="submit">
         </form>
     </body>
