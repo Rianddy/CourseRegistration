@@ -103,8 +103,8 @@ public class DAOService {
      * Web service operation
      */
     @WebMethod(operationName = "getStudentEnrollmentRecord")  //to get specific record in the studentEnrollment table
-    public Oneenroll getStudentEnrollmentRecord(@WebParam(name = "studentid") int studentid, @WebParam(name = "courseid") int courseid) {
-       StudentEnrollDAO stuEnrollDAO = new StudentEnrollDAOImpl();
-          return stuEnrollDAO.getOneEnrollmentInfo(courseid, studentid);
+    public Oneenroll getStudentEnrollmentRecord(@WebParam(name = "studentid") int studentid, @WebParam(name = "courseid") int classid) {
+        StudentEnrollDAO stuEnrollDAO = new StudentEnrollDAOImpl();
+        return stuEnrollDAO.getOneEnrollmentInfo(studentid,classid);
     }
 }

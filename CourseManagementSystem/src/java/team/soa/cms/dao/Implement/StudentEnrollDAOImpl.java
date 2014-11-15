@@ -113,31 +113,13 @@ public class StudentEnrollDAOImpl extends GeneralDAO implements StudentEnrollDAO
     }
 
     
-    public static void main(String args[]){
-      /*
-        StudentEnrollDAO enrollDAO = new StudentEnrollDAOImpl();
-        StuEnrollList list = enrollDAO.getStudentEnrollment(1);
-        for (Oneenroll enroll : list.getOneenroll()){
-            System.out.println(enroll.getStuenrolltime());
-        }
-        
-        enrollDAO.insert(1,1);
-        */
-        
-        int Class_ID = 1;
-        int Stu_ID = 2;
-        String status = "enroll";
-        StudentEnrollDAOImpl impl = new StudentEnrollDAOImpl();
-        Oneenroll onee = impl.getOneEnrollmentInfo(Class_ID,Stu_ID,status);
-        System.out.println("Enroll ID is "+onee.getStuenrollid());
-        
-    }
+    
     @Override
     public void dropEnrolledClass(int Class_ID,int Stu_ID) {
        // boolean result=false;
       try {
             this.OpenConnection();
-            this.sql ="delete FROM StudentEnrollment where Stu_ID="+Stu_ID+" and Cls_ID="+Class_ID;
+            this.sql ="UPDATE StudentEnrollment SET STATUS=\"drop\" where Stu_ID="+Stu_ID+" and Cls_ID="+Class_ID;
             stmt.executeUpdate(sql);
         //   result=true;
         } catch (SQLException ex) {
@@ -149,27 +131,44 @@ public class StudentEnrollDAOImpl extends GeneralDAO implements StudentEnrollDAO
     }
 
     @Override
-    public Oneenroll getOneEnrollmentInfo(int Class_ID, int Stu_ID) {
- Oneenroll onee = new Oneenroll();
-     try {
-            this.OpenConnection();
-            this.sql ="SELECT * FROM StudentEnrollment where Stu_ID="+Stu_ID+" AND Cls_ID="+Class_ID;//"SELECT * FROM StudentEnrollment where Stu_ID="+Stu_ID+" AND Cls_ID="+Class_ID;
-            rs = stmt.executeQuery(sql);
-            
-            while (rs.next()){
-                onee.setStuenrollid(rs.getString("Stu_Enroll_ID"));
-                onee.setStuid(rs.getString(Stu_ID));
-                onee.setClassid(rs.getString("Cls_ID"));
-                onee.setGrade(rs.getString("Grade"));
-//                onee.setScore(Float.valueOf(rs.getString("Score")));
-                onee.setStatus(rs.getString("Status"));
-         
+    public Oneenroll getOneEnrollmentInfo(int Stu_ID,int Class_ID) {
+        Oneenroll onee = new Oneenroll();
+        try {
+               this.OpenConnection();
+               this.sql ="SELECT * FROM StudentEnrollment where Stu_ID="+Stu_ID+" AND Cls_ID="+Class_ID;//"SELECT * FROM StudentEnrollment where Stu_ID="+Stu_ID+" AND Cls_ID="+Class_ID;
+               rs = stmt.executeQuery(sql);
+
+               while (rs.next()){
+                   onee.setStuenrollid(rs.getString("Stu_Enroll_ID"));
+                   onee.setStuid(rs.getString(Stu_ID));
+                   onee.setClassid(rs.getString("Cls_ID"));
+                   onee.setGrade(rs.getString("Grade"));
+                   onee.setStatus(rs.getString("Status"));
+
                 }
         } catch (SQLException ex) {
             Logger.getLogger(StudentEnrollDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
-     return onee;
-    
+        return onee;
     }
+    public static void main(String args[]){
+      /*
+        StudentEnrollDAO enrollDAO = new StudentEnrollDAOImpl();
+        StuEnrollList list = enrollDAO.getStudentEnrollment(1);
+        for (Oneenroll enroll : list.getOneenroll()){
+            System.out.println(enroll.getStuenrolltime());
+        }
+        
+        enrollDAO.insert(1,1);
+        */
+        
+        int Class_ID = 3;
+        int Stu_ID = 2;
+        StudentEnrollDAOImpl impl = new StudentEnrollDAOImpl();
+        Oneenroll onee = impl.getOneEnrollmentInfo(Class_ID,Stu_ID);
+        System.out.println("Enroll ID is "+onee.getStatus());
+        
+    }
+
+
 }
