@@ -11,6 +11,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import org.netbeans.xml.schema.prerequestxmlschema.Prerequestment;
 import org.netbeans.xml.schema.studentprereqcheck.StudentClass;
+import org.netbeans.xml.schema.studentprereqcheck.StudentClass.ClassPrereq;
 import org.netbeans.xml.schema.stuenrolxmlschema.StuEnrollList;
 import team.soa.cms.ws.daoService.DAOService;
 
@@ -61,7 +62,11 @@ public class PrereqMeetService {
             for (int i = 0; i < size; i++) {
 
                 //set the prereq courseid according to prelist
-                classPrereq.get(i).setCourseid(prelist.getOnepre().get(i).getCourseid());
+                
+                ClassPrereq clsprereq = new ClassPrereq();
+                clsprereq.setCourseid(prelist.getOnepre().get(i).getCourseid());
+                
+                classPrereq.add(clsprereq);
 
                 //go through the enrolllist to find the prereq course and set the fields
                 int len = enrollList.getOneenroll().size();
@@ -72,6 +77,7 @@ public class PrereqMeetService {
                         classPrereq.get(i).setClassid(enrollList.getOneenroll().get(j).getClassid());
                         classPrereq.get(i).setGrade(enrollList.getOneenroll().get(j).getGrade());
                         classPrereq.get(i).setReqMet(true);
+                        
                         break;
                         //end if found the enrolled course
                     } else {
@@ -90,7 +96,7 @@ public class PrereqMeetService {
             }//end for loop classPrereq list    
 
         }// end of if(size>0)
-
+        System.out.println("hhhhhhhhhhhh: "+studentClass.isCanTake());
         return studentClass;
     }
 }

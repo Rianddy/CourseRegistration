@@ -33,7 +33,7 @@ public class StudentValidService {
         // student Stu_ID exists or not
         try {
             Student stu = daoService.getStudentInfo(Stu_ID);
-            if (stu != null) {
+            if (stu.getStuid()!= null) {
                 return true;
             } else {
                 return false;
