@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Servlets;
+package team.soa.cmsc.servlet.student;
 
 import Controllers.ClassController;
 import Controllers.PrereqController;
 import Controllers.StudentController;
 import Controllers.RegCheckController;
-import Model.RegClassInfo;
+import team.soa.cmsc.model.RegClassInfo;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
