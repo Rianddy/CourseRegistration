@@ -34,9 +34,6 @@
     <service name="PermsReqMailService">
       <implementation-class>team.soa.cms.mail.PermsReqMailService</implementation-class>
     </service>
-    <service name="PermissionRequestService">
-      <implementation-class>team.soa.cms.ws.permission.PermissionRequestService</implementation-class>
-    </service>
     <service name="StudentDropClass">
       <implementation-class>team.soa.cms.ws.StudentDropClass</implementation-class>
     </service>
