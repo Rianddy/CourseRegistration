@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://daoService.ws.cms.soa.team/" xmlns:ns4="http://xml.netbeans.org/schema/stuEnrolXmlSchema" xmlns:ns3="http://xml.netbeans.org/schema/studentXmlSchema" xmlns:ns2="http://xml.netbeans.org/schema/prerequestXmlSchema" xmlns:ns1="http://xml.netbeans.org/schema/classXmlSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://daoService.ws.cms.soa.team/">
+
+<xs:import namespace="http://xml.netbeans.org/schema/classXmlSchema" schemaLocation="http://localhost:8080/CourseManagementSystem/DAOService?xsd=4"/>
+
+<xs:import namespace="http://xml.netbeans.org/schema/prerequestXmlSchema" schemaLocation="http://localhost:8080/CourseManagementSystem/DAOService?xsd=3"/>
+
+<xs:import namespace="http://xml.netbeans.org/schema/studentXmlSchema" schemaLocation="http://localhost:8080/CourseManagementSystem/DAOService?xsd=1"/>
+
+<xs:import namespace="http://xml.netbeans.org/schema/stuEnrolXmlSchema" schemaLocation="http://localhost:8080/CourseManagementSystem/DAOService?xsd=2"/>
+
+<xs:element name="cgetClassPrerequisite" type="tns:cgetClassPrerequisite"/>
+
+<xs:element name="cgetClassPrerequisiteResponse" type="tns:cgetClassPrerequisiteResponse"/>
+
+<xs:element name="getClassInfo" type="tns:getClassInfo"/>
+
+<xs:element name="getClassInfoResponse" type="tns:getClassInfoResponse"/>
+
+<xs:element name="getStudentEnrollment" type="tns:getStudentEnrollment"/>
+
+<xs:element name="getStudentEnrollmentResponse" type="tns:getStudentEnrollmentResponse"/>
+
+<xs:element name="getStudentInfo" type="tns:getStudentInfo"/>
+
+<xs:element name="getStudentInfoResponse" type="tns:getStudentInfoResponse"/>
+
+<xs:element name="insertStudentEnrollment" type="tns:insertStudentEnrollment"/>
+
+<xs:element name="insertStudentEnrollmentResponse" type="tns:insertStudentEnrollmentResponse"/>
+
+<xs:element name="updateClassInfo" type="tns:updateClassInfo"/>
+
+<xs:element name="updateClassInfoResponse" type="tns:updateClassInfoResponse"/>
+
+<xs:complexType name="updateClassInfo">
+<xs:sequence>
+<xs:element name="Class_ID" type="xs:int"/>
+<xs:element name="Cls" type="ns1:class" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateClassInfoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cgetClassPrerequisite">
+<xs:sequence>
+<xs:element name="Class_ID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cgetClassPrerequisiteResponse">
+<xs:sequence>
+<xs:element name="return" type="ns2:prerequestment" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getStudentInfo">
+<xs:sequence>
+<xs:element name="Stu_ID" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getStudentInfoResponse">
+<xs:sequence>
+<xs:element name="return" type="ns3:student" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getClassInfo">
+<xs:sequence>
+<xs:element name="Class_ID" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getClassInfoResponse">
+<xs:sequence>
+<xs:element name="return" type="ns1:class" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertStudentEnrollment">
+<xs:sequence>
+<xs:element name="Student_ID" type="xs:string" minOccurs="0"/>
+<xs:element name="Class_ID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertStudentEnrollmentResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getStudentEnrollment">
+<xs:sequence>
+<xs:element name="Student_ID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getStudentEnrollmentResponse">
+<xs:sequence>
+<xs:element name="return" type="ns4:stuEnrollList" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

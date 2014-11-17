@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://xml.netbeans.org/schema/stuclassmessageXmlSchema"
+    xmlns:tns="http://xml.netbeans.org/schema/stuclassmessageXmlSchema"
+    elementFormDefault="qualified">
+    <xsd:complexType name="stuclassmessage">
+        <xsd:sequence>
+            <xsd:element name="studentinfo">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="stuid" type="xsd:string"></xsd:element>
+                        <xsd:element name="stuname" type="xsd:string"></xsd:element>
+                        <xsd:element name="stuemail" type="xsd:string"></xsd:element>
+                        <xsd:element name="department" type="xsd:string"></xsd:element>
+                        <xsd:element name="major" type="xsd:string"></xsd:element>
+                        <xsd:element name="concentration" type="xsd:string"></xsd:element>
+                        <xsd:element name="birthday" type="xsd:date"></xsd:element>
+                        <xsd:element name="address" type="xsd:string"></xsd:element>
+                        <xsd:element name="cell" type="xsd:string"></xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="requestclassinfo" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="classid" type="xsd:string"></xsd:element>
+                        <xsd:element name="courseid" type="xsd:string"></xsd:element>
+                        <xsd:element name="coursename" type="xsd:string"></xsd:element>
+                        <xsd:element name="maxsize" type="xsd:int"></xsd:element>
+                        <xsd:element name="currsize" type="xsd:int"></xsd:element>
+                        <xsd:element name="maxwaitlist" type="xsd:int"></xsd:element>
+                        <xsd:element name="curwaitlist" type="xsd:int"></xsd:element>
+                        <xsd:element name="opensemester" type="xsd:string"></xsd:element>
+                        <xsd:element name="facultyid" type="xsd:string"></xsd:element>
+                        <xsd:element name="facultyname" type="xsd:string"></xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
