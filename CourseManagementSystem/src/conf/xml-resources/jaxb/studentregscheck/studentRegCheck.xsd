@@ -2,8 +2,8 @@
 
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
             targetNamespace="http://xml.netbeans.org/schema/studentRegCheck"
-    xmlns:tns="http://xml.netbeans.org/schema/studentRegCheck"
-    elementFormDefault="qualified">
+            xmlns:tns="http://xml.netbeans.org/schema/studentRegCheck"
+            elementFormDefault="qualified">
     <xsd:complexType name="studentInformation">
         <xsd:sequence>
             <xsd:element name="studentid" type="xsd:string"></xsd:element>
@@ -12,23 +12,23 @@
         </xsd:sequence>
     </xsd:complexType>
     
+    <xsd:complexType name="classPrereq">
+        <xsd:sequence>
+            <xsd:element name="classid" type="xsd:string"></xsd:element>
+            <xsd:element name="courseid" type="xsd:string"></xsd:element>
+            <xsd:element name="grade" type="xsd:string"></xsd:element>
+            <xsd:element name="reqMet" type="xsd:boolean"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
     <xsd:complexType name="classInfo">
         <xsd:sequence>
-                        <xsd:element name="classid" type="xsd:string"></xsd:element>
-                        <xsd:element name="classvalid" type="xsd:boolean"></xsd:element>
-                        <xsd:element name="classstatus" type="xsd:string"></xsd:element>
-                        <xsd:element name="canTake" type="xsd:boolean"></xsd:element>
-                        <xsd:element name="classPrereq" minOccurs="0" maxOccurs="unbounded">
-                            <xsd:complexType>
-                                <xsd:sequence>
-                                    <xsd:element name="classid" type="xsd:string"></xsd:element>
-                                    <xsd:element name="courseid" type="xsd:string"></xsd:element>
-                                    <xsd:element name="grade" type="xsd:string"></xsd:element>
-                                    <xsd:element name="reqMet" type="xsd:boolean"></xsd:element>
-                                </xsd:sequence>
-                            </xsd:complexType>
-                        </xsd:element>
-                    </xsd:sequence>
+            <xsd:element name="classid" type="xsd:string"></xsd:element>
+            <xsd:element name="classvalid" type="xsd:boolean"></xsd:element>
+            <xsd:element name="classstatus" type="xsd:string"></xsd:element>
+            <xsd:element name="canTake" type="xsd:boolean"></xsd:element>
+            <xsd:element name="prereqClasses" type="tns:classPrereq" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+        </xsd:sequence>
     </xsd:complexType>
     
     
@@ -39,13 +39,11 @@
         </xsd:sequence>
     </xsd:complexType>
     
-    <xsd:element name="StuRegCheckInfo">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="studentInfo" type="tns:studentInformation"></xsd:element>
-                <xsd:element name="clazzInfo" type="tns:classList"></xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
+    <xsd:complexType name="StuRegCheckInfo">
+        <xsd:sequence>
+            <xsd:element name="studentInfo" type="tns:studentInformation"></xsd:element>
+            <xsd:element name="clazzInfo" type="tns:classList"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
     
 </xsd:schema>

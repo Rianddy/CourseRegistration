@@ -25,7 +25,7 @@ public class GeneralDAO {
         String DBPORT ="3306";
         String DBNAME ="courseregistration";
         String DBUSER ="root";
-        String DBPASSWORD="";
+        String DBPASSWORD="root";
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conn = DriverManager.getConnection("jdbc:mysql://localhost:"+DBPORT+"/"+DBNAME,DBUSER,DBPASSWORD);
