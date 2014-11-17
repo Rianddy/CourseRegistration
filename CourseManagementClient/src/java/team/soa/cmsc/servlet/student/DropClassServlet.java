@@ -76,9 +76,9 @@ public class DropClassServlet extends HttpServlet {
                
             }
             DropStudentClasses finalResult =dropClassControler.studentDropClass(checkClasses);
-            out.println(finalResult.getStudentid());
+            out.println("StudentID:"+finalResult.getStudentid());
             for (ClassResult result :finalResult.getClassResult()){
-                 out.println(result.getClassid());
+                 out.println("<br/>"+result.getClassid());
                  out.println(result.getReason());
                  out.println(result.getResult());
             }
