@@ -16,6 +16,14 @@
         <servlet-name>DropClassServlet</servlet-name>
         <url-pattern>/DropClassServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>StudentRegistration</servlet-name>
+        <servlet-class>team.soa.cmsc.servlet.student.StudentRegistration</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentRegistration</servlet-name>
+        <url-pattern>/StudentRegistration</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
