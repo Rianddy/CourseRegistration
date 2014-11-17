@@ -38,7 +38,8 @@ public class CheckPermsReqServlet extends HttpServlet {
 
         MsgQueueReceiver receiver = new MsgQueueReceiver("stuclassqcf", "stuclassqueue");
         List<Message> msgList = new ArrayList<Message>();
-        msgList = receiver.browserMessage();
+        String selector = "PermId = '"+permsId+"'";
+        msgList = receiver.browserMessage(selector);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
