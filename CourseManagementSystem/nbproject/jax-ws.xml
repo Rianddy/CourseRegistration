@@ -28,6 +28,27 @@
     <service name="RequestPermission">
       <implementation-class>team.soa.cms.ws.RequestPermission</implementation-class>
     </service>
+    <service name="PermsReqMailService">
+      <implementation-class>team.soa.cms.mail.PermsReqMailService</implementation-class>
+    </service>
+    <service name="MessageStuClassInfo">
+      <implementation-class>team.soa.cms.message.MessageStuClassInfo</implementation-class>
+    </service>
+    <service name="MessageStudent">
+      <implementation-class>team.soa.cms.message.MessageStudent</implementation-class>
+    </service>
+    <service name="GetStudentMessage">
+      <implementation-class>team.soa.cms.message.GetStudentMessage</implementation-class>
+    </service>
+    <service name="GetFacultMessage">
+      <implementation-class>team.soa.cms.message.GetFacultMessage</implementation-class>
+    </service>
+    <service name="MessageFaculty">
+      <implementation-class>team.soa.cms.message.MessageFaculty</implementation-class>
+    </service>
+    <service name="PermissionRequestService">
+      <implementation-class>team.soa.cms.ws.permission.PermissionRequestService</implementation-class>
+    </service>
   </services>
   <clients/>
   <jsr109>true</jsr109>
