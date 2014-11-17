@@ -8,6 +8,14 @@
         <servlet-name>CheckPermsReqServlet</servlet-name>
         <url-pattern>/CheckPermsReqServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>DropClassServlet</servlet-name>
+        <servlet-class>team.soa.cmsc.servlet.student.DropClassServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DropClassServlet</servlet-name>
+        <url-pattern>/DropClassServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
