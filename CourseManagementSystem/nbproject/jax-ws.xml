@@ -25,6 +25,9 @@
     <service name="PrereqMeetService">
       <implementation-class>team.soa.cms.ws.basicCheck.PrereqMeetService</implementation-class>
     </service>
+    <service name="PermissionRequestService">
+      <implementation-class>team.soa.cms.ws.permission.PermissionRequestService</implementation-class>
+    </service>
     <service name="RequestPermission">
       <implementation-class>team.soa.cms.ws.RequestPermission</implementation-class>
     </service>
