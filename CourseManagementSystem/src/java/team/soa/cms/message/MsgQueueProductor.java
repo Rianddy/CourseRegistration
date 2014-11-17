@@ -49,6 +49,7 @@ public class MsgQueueProductor {
             ses = conn.createSession(true, Session.SESSION_TRANSACTED);
             queue = (Queue) ctx.lookup(queueSrc);
             producer = ses.createProducer((Destination) queue);
+            conn.start();
         } catch (NamingException ex) {
             System.out.println("JNDI API lookup failed: "
                     + ex.toString());
