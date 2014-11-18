@@ -40,6 +40,9 @@ public class CheckPermsReqServlet extends HttpServlet {
         List<Message> msgList = new ArrayList<Message>();
         String selector = "PermId = '"+permsId+"'";
         msgList = receiver.browserMessage(selector);
+        for(Message msg:msgList){
+            msg
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
