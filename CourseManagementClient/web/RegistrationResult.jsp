@@ -48,14 +48,18 @@
                         if(classInfo.isClassvalid()){
                             out.println("<div class='col-sm-6'>"+true+"</div>");
                             out.println("<div class='col-sm-6' >Class Full</div>");
-                            if((Integer.valueOf(classInfo.getClassstatus())<=0))
+                            int leftSpace = Integer.valueOf(classInfo.getClassstatus());
+                            boolean requestPermission = false;
+                            if(leftSpace<=0){
                                 out.println("<div class='col-sm-6'  style='background-color:#FF0000'>"+true+"</div>");
-                            else
+                                requestPermission = true;
+                            }else
                                 out.println("<div class='col-sm-6'  style='background-color:#00CC66'>"+false+"</div>");
 
                             // Whether this class meet the prerequisite classes requirements                           
                             out.println("<div class='col-sm-6'>Prerequisite Classes Meet:</div>");
                             if(!classInfo.isCanTake()){
+                                requestPermission = true;
                                 out.println("<div class='col-sm-6' style='background-color:#FF0000'>"+false+"</div>");
                                 out.println("<div class='col-sm-6' >Prerequisite Courses:</div>");
                                 out.println("<div class='col-sm-6' ");
@@ -65,6 +69,15 @@
                                 out.println("</div>");
                             }else{
                                 out.println("<div class='col-sm-6' style='background-color:#00CC66'>"+classInfo.isCanTake()+"</div>"); 
+                            }
+                            
+                            // Generate requestpermission button
+                            if(requestPermission){
+                                out.println("<div class='col-sm-6'>Request Permission: </div>");
+                                out.println("<div class='col-sm-6'><form action = 'RequestPermission' method = 'POST'>");
+                                //out.println("<input type='hidden' value = '"+classInfo.getPermID+"'>");
+                                out.println("<input type = 'submit' value = 'Request'></button>");
+                                out.println("</form></div>");
                             }
                         }else{
                             out.println("<div class='col-sm-6' style='background-color:#FF0000 '>"+false+"</div>");

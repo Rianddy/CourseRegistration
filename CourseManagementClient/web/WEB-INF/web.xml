@@ -4,6 +4,10 @@
         <servlet-name>CheckPermsReqServlet</servlet-name>
         <servlet-class>team.soa.cmsc.servlet.faculty.CheckPermsReqServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RequestPermission</servlet-name>
+        <servlet-class>team.soa.cmsc.servlet.student.RequestPermission</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckPermsReqServlet</servlet-name>
         <url-pattern>/CheckPermsReqServlet</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>StudentRegistration</servlet-name>
         <url-pattern>/StudentRegistration</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RequestPermission</servlet-name>
+        <url-pattern>/RequestPermission</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
