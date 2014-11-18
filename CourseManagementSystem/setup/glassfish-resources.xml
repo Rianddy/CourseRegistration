@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE resources PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Resource Definitions//EN" "http://glassfish.org/dtds/glassfish-resources_1_5.dtd">
 <resources>
-  <admin-object-resource enabled="true" jndi-name="jms/PermmissionQueue" object-type="user" res-adapter="jmsra" res-type="javax.jms.Queue">
+  <admin-object-resource enabled="true" jndi-name="jms/stuclassqueue" object-type="user" res-adapter="jmsra" res-type="javax.jms.Queue">
     <description/>
-    <property name="PermsID" value=""/>
-    <property name="StuID" value=""/>
-    <property name="FacultyID" value=""/>
-    <property name="ClassID" value=""/>
-    <property name="Status" value=""/>
+    <property name="Name" value="stuclassqueue"/>
   </admin-object-resource>
+  <admin-object-resource enabled="true" jndi-name="jms/studentmq" object-type="user" res-adapter="jmsra" res-type="javax.jms.Queue">
+    <description/>
+    <property name="Name" value="studentmq"/>
+  </admin-object-resource>
+  <admin-object-resource enabled="true" jndi-name="jms/facultymq" object-type="user" res-adapter="jmsra" res-type="javax.jms.Queue">
+    <description/>
+    <property name="Name" value="facultymq"/>
+  </admin-object-resource>
+  <connector-resource enabled="true" jndi-name="jms/stuclassqcf" object-type="user" pool-name="jms/stuclassqcf-Connection-Pool">
+    <description/>
+  </connector-resource>
+  <connector-resource enabled="true" jndi-name="jms/studentmqFactory" object-type="user" pool-name="jms/studentmqFactory-Connection-Pool">
+    <description/>
+  </connector-resource>
+  <connector-resource enabled="true" jndi-name="jms/facultymqFactory" object-type="user" pool-name="jms/facultymqFactory-Connection-Pool">
+    <description/>
+  </connector-resource>
+  <connector-connection-pool associate-with-thread="false" connection-creation-retry-attempts="0" connection-creation-retry-interval-in-seconds="10" connection-definition-name="javax.jms.QueueConnectionFactory" connection-leak-reclaim="false" connection-leak-timeout-in-seconds="0" fail-all-connections="false" idle-timeout-in-seconds="300" is-connection-validation-required="false" lazy-connection-association="false" lazy-connection-enlistment="false" match-connections="true" max-connection-usage-count="0" max-pool-size="32" max-wait-time-in-millis="60000" name="jms/stuclassqcf-Connection-Pool" ping="false" pool-resize-quantity="2" pooling="true" resource-adapter-name="jmsra" steady-pool-size="8" validate-atmost-once-period-in-seconds="0"/>
+  <connector-connection-pool associate-with-thread="false" connection-creation-retry-attempts="0" connection-creation-retry-interval-in-seconds="10" connection-definition-name="javax.jms.QueueConnectionFactory" connection-leak-reclaim="false" connection-leak-timeout-in-seconds="0" fail-all-connections="false" idle-timeout-in-seconds="300" is-connection-validation-required="false" lazy-connection-association="false" lazy-connection-enlistment="false" match-connections="true" max-connection-usage-count="0" max-pool-size="32" max-wait-time-in-millis="60000" name="jms/studentmqFactory-Connection-Pool" ping="false" pool-resize-quantity="2" pooling="true" resource-adapter-name="jmsra" steady-pool-size="8" validate-atmost-once-period-in-seconds="0"/>
+  <connector-connection-pool associate-with-thread="false" connection-creation-retry-attempts="0" connection-creation-retry-interval-in-seconds="10" connection-definition-name="javax.jms.QueueConnectionFactory" connection-leak-reclaim="false" connection-leak-timeout-in-seconds="0" fail-all-connections="false" idle-timeout-in-seconds="300" is-connection-validation-required="false" lazy-connection-association="false" lazy-connection-enlistment="false" match-connections="true" max-connection-usage-count="0" max-pool-size="32" max-wait-time-in-millis="60000" name="jms/facultymqFactory-Connection-Pool" ping="false" pool-resize-quantity="2" pooling="true" resource-adapter-name="jmsra" steady-pool-size="8" validate-atmost-once-period-in-seconds="0"/>
 </resources>

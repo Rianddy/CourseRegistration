@@ -30,8 +30,8 @@ public class PermsReqMailService {
     @WebMethod(operationName = "PermsRequest")
     public String PermsRequest(@WebParam(name = "PermsId") String PermsId, @WebParam(name = "FacultyEmail") String FacultyEmail) {
         //TODO write your implementation code here:
-        String ServletURL ="CheckPermsReqServlet?permsId="+PermsId;
-        String Content="You have a permission request! Please click this URL: "+ServletURL;
+        String ServletURL ="http://localhost:8080/CourseManagementClient/CheckPermsReqServlet?permsId="+PermsId;
+        String Content="You have a permission request! Please click this URL: <a href='"+ServletURL+"'>"+ServletURL+"</a>";
         String status = MailUtil.Sender(FacultyEmail,Content);      
         return status;
     }

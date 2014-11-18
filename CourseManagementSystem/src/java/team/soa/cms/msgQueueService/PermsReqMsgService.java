@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package team.soa.cms.msgQueueService;
 
 import team.soa.cms.msgUtil.*;
@@ -17,8 +16,8 @@ import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import org.netbeans.xml.schema.stuclassmessagexmlschema.Stuclassmessage;
+import team.soa.cms.mail.PermsReqMailService;
 import team.soa.cms.serializableObj.StuClassInfoMQSerialObj;
-
 
 /**
  *
@@ -30,45 +29,56 @@ public class PermsReqMsgService {
     public String permsProp = "PermsId";
     public String permsConnPath = "stuclassqcf";
     public String permsQueuePath = "stuclassqueue";
-     /**
-     * Web service operation
+
+    /**
+     * @param PermsID permission id
+     * @param facultyMail send email to faculty
+     * @param stuclassInfo permsInfo
+     * 
+     * @return sending status
      */
     @WebMethod(operationName = "setPermsInfo")
-    public String setPermsInfo(@WebParam(name = "stuclassInfo") Stuclassmessage stuclassInfo) {
+    public String setPermsInfo(@WebParam(name = "PermsID") String PermsID, @WebParam(name = "facultyMail") String facultyMail, @WebParam(name = "stuclassInfo") Stuclassmessage stuclassInfo) {
+       
+        StuClassInfoMQSerialObj sobj = new StuClassInfoMQSerialObj(stuclassInfo);
+        MsgQueueProducer producer = new MsgQueueProducer(permsConnPath, permsQueuePath);
+        List<String> propList = new ArrayList<String>();
+        propList.add(permsProp + ":" + PermsID);
         
-        /*****************************************************************/
-          String permissionID = "1000";
-         /*****************************************************************/
-         StuClassInfoMQSerialObj sobj = new StuClassInfoMQSerialObj(stuclassInfo);           
-         MsgQueueProducer producer = new MsgQueueProducer(permsConnPath, permsQueuePath);
-         List<String> propList = new ArrayList<String>();
-         propList.add(permsProp+":"+permissionID);
-         String status = producer.setObjMsg(sobj, propList);
-      
+        // set permsInfo into MQ
+        String status = producer.setObjMsg(sobj, propList);
+        
+        // call mail service
+        PermsReqMailService mail = new PermsReqMailService();
+        status+=" "+mail.PermsRequest(PermsID, facultyMail);
+
         return status;
 
     }
 
     /**
-     * Web service operation
+     * Faculty get permission info from msg queue
+     * @param permsID Permission ID to get msg 
+     * 
+     * @return list of permission info
      */
     @WebMethod(operationName = "getPermsInfo")
     public List<StuClassInfoMQSerialObj> getPermsInfo(@WebParam(name = "PermsID") String PermsID) {
         //TODO write your implementation code here:
-        List<StuClassInfoMQSerialObj> permsObj = new VirtualFlow.ArrayLinkedList<>();
+        List<StuClassInfoMQSerialObj> permsObj = new ArrayList<StuClassInfoMQSerialObj>();
         MsgQueueReceiver receiver = new MsgQueueReceiver(permsConnPath, permsQueuePath);
         List<Message> msgList = new ArrayList<Message>();
-        String selector = permsProp+" = '"+PermsID+"'";
+        String selector = permsProp + " = '" + PermsID + "'";
         msgList = receiver.browserMessage(selector);
-        for(Message msg:msgList){
-            ObjectMessage objMsg = (ObjectMessage)msg;
+        for (Message msg : msgList) {
+            ObjectMessage objMsg = (ObjectMessage) msg;
             try {
-                permsObj.add((StuClassInfoMQSerialObj)objMsg.getObject());
+                permsObj.add((StuClassInfoMQSerialObj) objMsg.getObject());
             } catch (JMSException ex) {
                 permsObj.add(null);
             }
-        }    
+        }
         return permsObj;
-    }   
-    
+    }
+
 }

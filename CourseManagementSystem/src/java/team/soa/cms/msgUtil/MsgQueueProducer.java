@@ -79,7 +79,7 @@ public class MsgQueueProducer {
             producer.close();
             ses.close();
             conn.close();
-            status = " MQ Success!";
+            status = "set Text MQ Success!";
         } catch (JMSException ex) {
             System.out.println("JMS Connection failed: "
                     + ex.toString());
@@ -99,7 +99,7 @@ public class MsgQueueProducer {
             producer.close();
             ses.close();
             conn.close();
-            status = " MQ Success!";
+            status = "set Obj MQ Success!";
         } catch (JMSException ex) {
             System.out.println("JMS Connection failed: "
                     + ex.toString());
