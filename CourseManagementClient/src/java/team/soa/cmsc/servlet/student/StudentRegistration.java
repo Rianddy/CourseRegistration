@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Servlets;
+package team.soa.cmsc.servlet.student;
 
 import Controllers.ClassController;
 import Controllers.PrereqController;
 import Controllers.StudentController;
 import Controllers.RegCheckController;
-import Model.RegClassInfo;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,7 +41,6 @@ public class StudentRegistration extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        ArrayList<RegClassInfo> regClassInfoList = new ArrayList<RegClassInfo>();
         String studentId = request.getParameter("stuID");
         int stuID = Integer.valueOf(studentId);
         boolean studentValid = StudentController.studentIsValid(stuID);
@@ -59,41 +57,16 @@ public class StudentRegistration extends HttpServlet {
             while (request.getParameter("class" + i) != null) {
                 
                 // Create current class information object
-                RegClassInfo curRegClassInfo = new RegClassInfo();
                 
                 // Get classid from request
                 int classID = Integer.valueOf(request.getParameter("class" + i));
-                curRegClassInfo.setClassID(classID);
                 
-                // Valid each class
-                boolean curClassIsValid = ClassController.classIsValid(classID);
-                curRegClassInfo.setClassValid(curClassIsValid);
-                
-                if(curClassIsValid){
-                    
-                    webservice.basic.Class curClass = ClassController.getClassInfo(classID);
-                    
-                    // Whether class is full or not
-                    int leftSpace = ClassController.classRegisterLeftSpace(classID);
-                    curRegClassInfo.setIsFull(leftSpace<=0);
-                    
-                    
-                    StudentClass stuClass = PrereqController.studentMeetsPrereq(stuID, classID);
-                    curRegClassInfo.setStudentClass(stuClass);
-                    
-                }
-                
-                regClassInfoList.add(curRegClassInfo);
-                classIDList.add(curRegClassInfo.getClassID());
+                classIDList.add(classID);
                 i++;
             }
             StuRegCheckInfo srci = RegCheckController.checkStudentRegistration(stuID, classIDList);
-            StudentInformation si = srci.getStudentInfo();
-            ClassList cl = srci.getClazzInfo();
             // Redirect to successful page with some attributes
-            request.setAttribute("RegClassInfoList", regClassInfoList);
-            request.setAttribute("StudentInformation", student);
-            request.setAttribute("ClassList", cl);
+            request.setAttribute("StuRegCheckInfo", srci);
             request.getRequestDispatcher("/RegistrationResult.jsp").forward(request, response);
 
         } else {
