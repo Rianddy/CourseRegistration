@@ -8,12 +8,15 @@ package team.soa.cms.ws.daoService;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import org.netbeans.xml.schema.facultyxmlschema.Faculty;
 import org.netbeans.xml.schema.prerequestxmlschema.Prerequestment;
 import org.netbeans.xml.schema.studentxmlschema.Student;
 import org.netbeans.xml.schema.stuenrolxmlschema.StuEnrollList;
 import org.netbeans.xml.schema.stuenrolxmlschema.StuEnrollList.Oneenroll;
 import team.soa.cms.dao.ClassDAO;
+import team.soa.cms.dao.FacultyDAO;
 import team.soa.cms.dao.Implement.ClassDAOImpl;
+import team.soa.cms.dao.Implement.FacultyDAOImpl;
 import team.soa.cms.dao.Implement.PrerequestmentDAOImpl;
 import team.soa.cms.dao.Implement.StudentDAOImpl;
 import team.soa.cms.dao.Implement.StudentEnrollDAOImpl;
@@ -42,6 +45,23 @@ public class DAOService {
         org.netbeans.xml.schema.classxmlschema.Class cls = classDAO.getOneClass(Class_ID);
         System.out.println("Service success!");
         return cls;
+    }
+    
+    @WebMethod(operationName = "getFacultyEmail")
+    public String getFacultyEmail(@WebParam(name="Class_ID") final int Class_ID){
+        ClassDAO classDAO = new ClassDAOImpl();
+        String email = classDAO.getFacultyEmailFromClass(Class_ID);
+        System.out.println("Service success!");
+        return email;
+    }
+    
+    
+    @WebMethod(operationName = "getFacultyInfo")
+    public Faculty getFacultyInfo(@WebParam(name="Fac_ID") final int Fac_ID){
+        FacultyDAO facultyDAO = new FacultyDAOImpl();
+        Faculty fac = facultyDAO.getOneFaculty(Fac_ID);
+        System.out.println("Service success!");
+        return fac;
     }
 
     /**

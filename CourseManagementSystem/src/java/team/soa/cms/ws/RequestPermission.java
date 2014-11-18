@@ -43,7 +43,6 @@ public class RequestPermission {
     public Integer rejectStudentPermission(@WebParam(name = "studentID") int studentID, @WebParam(name = "classID") int classID, @WebParam(name = "facultyID") int facultyID) {
    
         PermissionDAOImpl impl = new PermissionDAOImpl();
-        
         return impl.insertRejectPerm(studentID, classID, facultyID);
     }
 }

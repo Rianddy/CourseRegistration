@@ -92,6 +92,36 @@ public class ClassDAOImpl extends GeneralDAO implements ClassDAO{
         }
         return cls; //To change body of generated methods, choose Tools | Templates.
     }
+    
+    @Override
+    public String getFacultyEmailFromClass(int class_id) {
+        Class cls = new Class();
+        try {
+            this.OpenConnection();
+            this.sql = "select * from Class where cls_id="+class_id;
+            rs =stmt.executeQuery(sql);
+            String fac_ID="",Open_Sem_ID="";
+            while (rs.next()){
+                cls.setClassid(rs.getString("cls_ID"));
+                cls.setCosid(rs.getString("cos_ID"));
+                cls.setCursize(Integer.parseInt(rs.getString("Cur_Size")));
+                cls.setCurwaitlist(Integer.parseInt(rs.getString("Cur_WaitList")));
+                cls.setMaxsize(Integer.parseInt(rs.getString("Max_Size")));
+                cls.setMaxwaitlist(Integer.parseInt(rs.getString("Max_WaitList")));
+                fac_ID =rs.getString("Fac_ID");
+                Open_Sem_ID =rs.getString("Open_Sem_ID");   
+            }
+            Faculty fac= new Faculty();
+            FacultyDAO facDAO = new FacultyDAOImpl();
+            fac =facDAO.getOneFaculty(Integer.parseInt(fac_ID));
+            return fac.getFacemail();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ClassDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+
 
     @Override
     public void insert(Class cls) {

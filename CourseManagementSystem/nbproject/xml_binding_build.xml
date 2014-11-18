@@ -137,20 +137,6 @@
         <copy todir="${build.generated.sources.dir}/jaxb">
             <fileset dir="build/generated/jaxbCache/permissionxmlschema"/>
         </copy>
-        <mkdir dir="build/generated/jaxbCache/stuclassmessagexmlschema"/>
-        <xjc destdir="build/generated/jaxbCache/stuclassmessagexmlschema" catalog="catalog.xml">
-            <classpath>
-                <pathelement location="${src.dir}"/>
-                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
-            </classpath>
-            <arg value="-xmlschema"/>
-            <schema file="src/conf/xml-resources/jaxb/stuclassmessagexmlschema/stuclassmessageXmlSchema.xsd"/>
-            <depends file="src/conf/xml-resources/jaxb/stuclassmessagexmlschema/stuclassmessageXmlSchema.xsd"/>
-            <produces dir="build/generated/jaxbCache/stuclassmessagexmlschema"/>
-        </xjc>
-        <copy todir="${build.generated.sources.dir}/jaxb">
-            <fileset dir="build/generated/jaxbCache/stuclassmessagexmlschema"/>
-        </copy>
         <mkdir dir="build/generated/jaxbCache/dropclassesschema"/>
         <xjc destdir="build/generated/jaxbCache/dropclassesschema" catalog="catalog.xml">
             <classpath>
@@ -164,6 +150,20 @@
         </xjc>
         <copy todir="${build.generated.sources.dir}/jaxb">
             <fileset dir="build/generated/jaxbCache/dropclassesschema"/>
+        </copy>
+        <mkdir dir="build/generated/jaxbCache/stuclassmessagexmlschema"/>
+        <xjc destdir="build/generated/jaxbCache/stuclassmessagexmlschema" catalog="catalog.xml">
+            <classpath>
+                <pathelement location="${src.dir}"/>
+                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
+            </classpath>
+            <arg value="-xmlschema"/>
+            <schema file="src/conf/xml-resources/jaxb/stuclassmessagexmlschema/stuclassmessageXmlSchema.xsd"/>
+            <depends file="src/conf/xml-resources/jaxb/stuclassmessagexmlschema/stuclassmessageXmlSchema.xsd"/>
+            <produces dir="build/generated/jaxbCache/stuclassmessagexmlschema"/>
+        </xjc>
+        <copy todir="${build.generated.sources.dir}/jaxb">
+            <fileset dir="build/generated/jaxbCache/stuclassmessagexmlschema"/>
         </copy>
         <mkdir dir="build/generated/jaxbCache/studentregscheck"/>
         <xjc destdir="build/generated/jaxbCache/studentregscheck" catalog="catalog.xml">

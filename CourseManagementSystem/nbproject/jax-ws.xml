@@ -46,6 +46,15 @@
     <service name="MessageFaculty">
       <implementation-class>team.soa.cms.message.MessageFaculty</implementation-class>
     </service>
+    <service name="AcceptStudentPermission">
+      <implementation-class>team.soa.cms.ws.permission.AcceptStudentPermission</implementation-class>
+    </service>
+    <service name="CheckStudentRegistration">
+      <implementation-class>team.soa.cms.ws.permission.CheckStudentRegistration</implementation-class>
+    </service>
+    <service name="CheckPermissionCode">
+      <implementation-class>team.soa.cms.ws.permission.CheckPermissionCode</implementation-class>
+    </service>
   </services>
   <clients/>
   <jsr109>true</jsr109>

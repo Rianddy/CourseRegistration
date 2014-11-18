@@ -27,6 +27,7 @@
             <xsd:element name="classvalid" type="xsd:boolean"></xsd:element>
             <xsd:element name="classstatus" type="xsd:string"></xsd:element>
             <xsd:element name="canTake" type="xsd:boolean"></xsd:element>
+            <xsd:element name="permid" type="xsd:string"></xsd:element>
             <xsd:element name="PrereqClasses" type="tns:ClassPrereq" minOccurs="0" maxOccurs="unbounded"></xsd:element>
         </xsd:sequence>
     </xsd:complexType>
