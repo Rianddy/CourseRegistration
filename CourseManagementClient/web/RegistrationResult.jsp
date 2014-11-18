@@ -75,8 +75,9 @@
                             if(requestPermission){
                                 out.println("<div class='col-sm-6'>Request Permission: </div>");
                                 out.println("<div class='col-sm-6'><form action = 'RequestPermission' method = 'POST'>");
-                                //out.println("<input type='hidden' value = '"+classInfo.getPermID+"'>");
-                                out.println("<input type = 'submit' value = 'Request'></button>");
+                                out.println("<input type='hidden' name='permId' value = '"+classInfo.getPermid()+"'/>");
+                                out.println("<input type='hidden' name='email' value = '"+classInfo.getFacultyEmail()+"'/>");
+                                out.println("<input type = 'submit' value = 'Request'/>");
                                 out.println("</form></div>");
                             }
                         }else{

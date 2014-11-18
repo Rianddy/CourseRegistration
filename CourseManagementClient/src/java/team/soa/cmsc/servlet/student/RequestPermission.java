@@ -30,6 +30,8 @@ public class RequestPermission extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        String email = request.getParameter("email");
+        String permId = request.getParameter("permId");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -38,7 +40,7 @@ public class RequestPermission extends HttpServlet {
             out.println("<title>Servlet RequestPermission</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet RequestPermission at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet RequestPermission at " + email + permId + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
