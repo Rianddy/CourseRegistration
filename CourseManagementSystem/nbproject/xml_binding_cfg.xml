@@ -100,4 +100,24 @@
 		</bindings>
 		<catalog/>
 	</schema>
+	<schema type='-xmlschema' package='' name='stuclassmessagexmlschema'>
+		<xjc-options>
+		</xjc-options>
+		<schema-sources>
+			<schema-source location='src/conf/xml-resources/jaxb/stuclassmessagexmlschema/stuclassmessageXmlSchema.xsd' origLocation='src/java/team/soa/cms/xml/stuclassmessageXmlSchema.xsd'/>
+		</schema-sources>
+		<bindings>
+		</bindings>
+		<catalog/>
+	</schema>
+	<schema type='-xmlschema' package='' name='dropclassesschema'>
+		<xjc-options>
+		</xjc-options>
+		<schema-sources>
+			<schema-source location='src/conf/xml-resources/jaxb/dropclassesschema/dropClassesSchema.xsd' origLocation='src/java/team/soa/cms/xml/dropClassesSchema.xsd'/>
+		</schema-sources>
+		<bindings>
+		</bindings>
+		<catalog/>
+	</schema>
 </schemas>

@@ -25,23 +25,35 @@
     <service name="PrereqMeetService">
       <implementation-class>team.soa.cms.ws.basicCheck.PrereqMeetService</implementation-class>
     </service>
-    <service name="PermissionRequestService">
-      <implementation-class>team.soa.cms.ws.permission.PermissionRequestService</implementation-class>
-    </service>
-    <service name="RequestPermission">
-      <implementation-class>team.soa.cms.ws.RequestPermission</implementation-class>
-    </service>
     <service name="PermsReqMailService">
       <implementation-class>team.soa.cms.mail.PermsReqMailService</implementation-class>
     </service>
+    <service name="StudentDropClass">
+      <implementation-class>team.soa.cms.ws.StudentDropClass</implementation-class>
+    </service>
+    <service name="RejectStudentPermission">
+      <implementation-class>team.soa.cms.ws.permission.RejectStudentPermission</implementation-class>
+    </service>
+    <service name="CheckStudentRegistration">
+      <implementation-class>team.soa.cms.ws.permission.CheckStudentRegistration</implementation-class>
+    </service>
+    <service name="CheckPermissionCode">
+      <implementation-class>team.soa.cms.ws.permission.CheckPermissionCode</implementation-class>
+    </service>
+    <service name="AcceptStudentPermission">
+      <implementation-class>team.soa.cms.ws.permission.AcceptStudentPermission</implementation-class>
+    </service>
     <service name="MessageFaculty">
-      <implementation-class>team.soa.cms.message.MessageFaculty</implementation-class>
+      <implementation-class>team.soa.cms.msgQueueService.MessageFaculty</implementation-class>
     </service>
     <service name="MessageStudent">
-      <implementation-class>team.soa.cms.message.MessageStudent</implementation-class>
+      <implementation-class>team.soa.cms.msgQueueService.MessageStudent</implementation-class>
     </service>
-    <service name="MessageStuClassInfo">
-      <implementation-class>team.soa.cms.message.MessageStuClassInfo</implementation-class>
+    <service name="PermsReqMsgService">
+      <implementation-class>team.soa.cms.msgQueueService.PermsReqMsgService</implementation-class>
+    </service>
+    <service name="PermissionService">
+      <implementation-class>team.soa.cms.ws.PermissionService</implementation-class>
     </service>
   </services>
   <clients/>
