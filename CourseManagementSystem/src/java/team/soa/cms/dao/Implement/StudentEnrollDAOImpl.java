@@ -68,7 +68,7 @@ public class StudentEnrollDAOImpl extends GeneralDAO implements StudentEnrollDAO
                 Oneenroll enroll = new Oneenroll();
                 enroll.setClassid(rs.getString("Cls_ID"));
                 enroll.setGrade(rs.getString("Grade"));
-                enroll.setScore(Float.valueOf(rs.getString("Score")));
+                enroll.setScore(Float.valueOf(rs.getString("Score") == null ? "0" : rs.getString("Score")));
                 enroll.setStatus(rs.getString("Status"));
                 enroll.setStuenrollid(rs.getString("Stu_Enroll_ID"));
                 
