@@ -23,9 +23,4 @@ public class RegCheckController {
         team.soa.cms.ws.RegCheckService port = service.getRegCheckServicePort();
         return port.checkStudentRegistration(stuID, classIDList);
     }
-
-   
-
-    
-
 }

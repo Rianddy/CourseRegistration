@@ -27,16 +27,16 @@
 <xs:element name="classvalid" type="xs:boolean"/>
 <xs:element name="classstatus" type="xs:string"/>
 <xs:element name="canTake" type="xs:boolean"/>
-<xs:element name="classPrereq" nillable="true" minOccurs="0" maxOccurs="unbounded">
-<xs:complexType>
+<xs:element name="PrereqClasses" type="tns:ClassPrereq" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ClassPrereq">
 <xs:sequence>
 <xs:element name="classid" type="xs:string"/>
 <xs:element name="courseid" type="xs:string"/>
 <xs:element name="grade" type="xs:string"/>
 <xs:element name="reqMet" type="xs:boolean"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

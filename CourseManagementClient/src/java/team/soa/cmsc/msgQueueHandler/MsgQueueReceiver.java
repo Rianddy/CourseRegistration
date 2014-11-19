@@ -71,10 +71,11 @@ public class MsgQueueReceiver {
      * @param
      * @return Message list
      */
-    public List<Message> browserMessage() {
+    public List<Message> browserMessage(String selector) {
+        
         List<Message> messageList = null;
         try {
-            QueueBrowser browser = ses.createBrowser(queue);
+            QueueBrowser browser = ses.createBrowser(queue,selector);
             Message msg = null;
             Enumeration msgs = browser.getEnumeration();
             if (!msgs.hasMoreElements()) {

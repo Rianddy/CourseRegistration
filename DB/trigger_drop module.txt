@@ -1,0 +1,13 @@
+DELIMITER $$
+CREATE TRIGGER updateClassInfoAfterDropping AFTER DELETE ON studentenrollment
+FOR EACH ROW
+BEGIN 
+  IF OLD.status="enroll" THEN BEGIN
+             UPDATE  CLASS SET Cur_Size=Cur_Size+1 WHERE Cls_ID=OLD.Cls_ID;
+           END;
+  ELSEIF OLD.status="waitlist" THEN BEGIN
+             UPDATE  CLASS SET Cur_WaitList=Cur_WaitList+1 WHERE Cls_ID=OLD.Cls_ID;
+           END;  
+  END IF;
+END$$
+DELIMITER ;

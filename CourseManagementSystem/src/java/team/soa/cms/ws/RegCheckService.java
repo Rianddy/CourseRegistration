@@ -62,10 +62,12 @@ public class RegCheckService {
                 cls.setClassid(String.valueOf(Class_ID));
                 cls.setClassvalid(clsValid);
                 cls.setClassstatus(String.valueOf(classStatus));
-                stucls = prereqMeet.studentMeetsPrereq(Stu_ID, Class_ID);              
+                stucls = prereqMeet.studentMeetsPrereq(Stu_ID, Class_ID);
+                convertStuclspreqToRegcheckprerq(cls.getPrereqClasses(),stucls.getClassPrereq());
                 cls.setCanTake(stucls.isCanTake()); //waitng one more operation;
                 if(classStatus>0&&stucls.isCanTake()){
-                    daoService.insertStudentEnrollment(String.valueOf(Stu_ID), String.valueOf(Class_ID));
+                    if(daoService.getStudentEnrollmentRecord(Stu_ID, Class_ID).getStatus()==null||!daoService.getStudentEnrollmentRecord(Stu_ID, Class_ID).getStatus().equals("enroll"))
+                        daoService.insertStudentEnrollment(String.valueOf(Stu_ID), String.valueOf(Class_ID), "enroll");
                 }
                 System.out.print(cls.getClassid() + " " + cls.getClassstatus());
 
@@ -79,5 +81,15 @@ public class RegCheckService {
         System.out.print(info.getStudentInfo());
         return info;
 
+    }
+    
+    private void convertStuclspreqToRegcheckprerq(List<org.netbeans.xml.schema.studentregcheck.ClassPrereq> converTo, List<org.netbeans.xml.schema.studentprereqcheck.StudentClass.ClassPrereq> convertFrom){
+        for(org.netbeans.xml.schema.studentprereqcheck.StudentClass.ClassPrereq convertFromCur: convertFrom){
+            org.netbeans.xml.schema.studentregcheck.ClassPrereq convertToCur = new org.netbeans.xml.schema.studentregcheck.ClassPrereq();
+            convertToCur.setClassid(convertFromCur.getClassid());
+            convertToCur.setCourseid(convertFromCur.getCourseid());
+            convertToCur.setGrade(convertFromCur.getGrade());
+            converTo.add(convertToCur);
+        }
     }
 }
