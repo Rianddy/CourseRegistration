@@ -27,6 +27,11 @@
 <xs:element name="classvalid" type="xs:boolean"/>
 <xs:element name="classstatus" type="xs:string"/>
 <xs:element name="canTake" type="xs:boolean"/>
+<<<<<<< HEAD
+=======
+<xs:element name="permid" type="xs:string"/>
+<xs:element name="facultyEmail" type="xs:string"/>
+>>>>>>> FETCH_HEAD
 <xs:element name="PrereqClasses" type="tns:ClassPrereq" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>

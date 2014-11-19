@@ -246,6 +246,7 @@
         </wsimport-option>
       </wsimport-options>
     </client>
+<<<<<<< HEAD
     <client name="PermsReqMsgService">
       <wsdl-url>http://localhost:8080/CourseManagementSystem/PermsReqMsgService?wsdl</wsdl-url>
       <local-wsdl-file>localhost_8080/CourseManagementSystem/PermsReqMsgService.wsdl</local-wsdl-file>
@@ -278,5 +279,7 @@
         </wsimport-option>
       </wsimport-options>
     </client>
+=======
+>>>>>>> FETCH_HEAD
   </clients>
 </jax-ws>

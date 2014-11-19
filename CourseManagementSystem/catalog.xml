@@ -13,5 +13,8 @@
     <system systemId="file:/Users/birui/GitHub/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/xml/permissionXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/permissionxmlschema/permissionXmlSchema.xsd"/>
     <system systemId="file:/C:/Users/riand_000/Documents/NetBeansProjects/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/xml/stuclassmessageXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/stuclassmessagexmlschema/stuclassmessageXmlSchema.xsd"/>
     <system systemId="file:/C:/Users/riand_000/Documents/NetBeansProjects/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/xml/dropClassesSchema.xsd" uri="src/conf/xml-resources/jaxb/dropclassesschema/dropClassesSchema.xsd"/>
+<<<<<<< HEAD
     <system systemId="file:/Users/birui/GitHub/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/xml/studentPrereqCheck.xsd" uri="src/conf/xml-resources/jaxb/studentprereqcheck/studentPrereqCheck.xsd"/>
+=======
+>>>>>>> FETCH_HEAD
 </catalog>

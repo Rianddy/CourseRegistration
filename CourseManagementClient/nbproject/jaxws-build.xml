@@ -14,6 +14,7 @@
                 ===================
                 JAX-WS WSIMPORT SECTION
                 ===================
+<<<<<<< HEAD
             -->
     <target name="wsimport-init" depends="init">
         <fail if="${wsimport.bad.version}" message="WsImport ant task defined in the classpath ${j2ee.platform.wsimport.classpath} has a serious bug. See http://wiki.netbeans.org/MetroIssue for details."/>
@@ -156,3 +157,131 @@
     </target>
     <target name="wsimport-client-generate" depends="wsimport-client-StudentValidService, wsimport-client-DAOService, wsimport-client-ClassValidService, wsimport-client-ClassCanRegisterService, wsimport-client-PrereqMeetService, wsimport-client-RegCheckService, wsimport-client-StudentDropClass, wsimport-client-PermsReqMsgService"/>
 </project>
+=======
+            -->
+    <target name="wsimport-init" depends="init">
+        <fail if="${wsimport.bad.version}" message="WsImport ant task defined in the classpath ${j2ee.platform.wsimport.classpath} has a serious bug. See http://wiki.netbeans.org/MetroIssue for details."/>
+        <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
+        <property name="j2ee.platform.wsimport.classpath" value="${libs.jaxws21.classpath}"/>
+        <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+            <classpath path="${java.home}/../lib/tools.jar:${j2ee.platform.wsimport.classpath}:${javac.classpath}"/>
+        </taskdef>
+        <condition property="conf-dir" value="${conf.dir}/" else="">
+            <isset property="conf.dir"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-StudentValidService" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/StudentValidService"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/StudentValidService" destdir="${build.generated.dir}/jax-wsCache/StudentValidService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/StudentValidService/wsdl/localhost_8080/CourseManagementSystem/StudentValidService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/CourseManagementSystem/StudentValidService?wsdl" xnocompile="true" xendorsed="true" package="webservice.checkstudent">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/StudentValidService/wsdl/localhost_8080/CourseManagementSystem/StudentValidService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/StudentValidService"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/StudentValidService">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-StudentValidService" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/webservice/checkstudent"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/StudentValidService"/>
+    </target>
+    <target name="wsimport-client-DAOService" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/DAOService"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/DAOService" destdir="${build.generated.dir}/jax-wsCache/DAOService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/DAOService/wsdl/localhost_8080/CourseManagementSystem/DAOService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/CourseManagementSystem/DAOService?wsdl" xnocompile="true" xendorsed="true" package="webservice.basic">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/DAOService/wsdl/localhost_8080/CourseManagementSystem/DAOService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/DAOService"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/DAOService">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-DAOService" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/webservice/basic"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/DAOService"/>
+    </target>
+    <target name="wsimport-client-ClassValidService" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ClassValidService"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ClassValidService" destdir="${build.generated.dir}/jax-wsCache/ClassValidService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/ClassValidService/wsdl/localhost_8080/CourseManagementSystem/ClassValidService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/CourseManagementSystem/ClassValidService?wsdl" xnocompile="true" xendorsed="true" package="webservice.classvalid">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/ClassValidService/wsdl/localhost_8080/CourseManagementSystem/ClassValidService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ClassValidService"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ClassValidService">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-ClassValidService" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/webservice/classvalid"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/ClassValidService"/>
+    </target>
+    <target name="wsimport-client-ClassCanRegisterService" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ClassCanRegisterService"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ClassCanRegisterService" destdir="${build.generated.dir}/jax-wsCache/ClassCanRegisterService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/ClassCanRegisterService/wsdl/localhost_8080/CourseManagementSystem/ClassCanRegisterService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/CourseManagementSystem/ClassCanRegisterService?wsdl" xnocompile="true" xendorsed="true" package="webservice.classregister">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/ClassCanRegisterService/wsdl/localhost_8080/CourseManagementSystem/ClassCanRegisterService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ClassCanRegisterService"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ClassCanRegisterService">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-ClassCanRegisterService" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/webservice/classregister"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/ClassCanRegisterService"/>
+    </target>
+    <target name="wsimport-client-PrereqMeetService" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/PrereqMeetService"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/PrereqMeetService" destdir="${build.generated.dir}/jax-wsCache/PrereqMeetService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/PrereqMeetService/wsdl/localhost_8080/CourseManagementSystem/PrereqMeetService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/CourseManagementSystem/PrereqMeetService?wsdl" xnocompile="true" xendorsed="true" package="webservice.prereqmeet">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/PrereqMeetService/wsdl/localhost_8080/CourseManagementSystem/PrereqMeetService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/PrereqMeetService"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/PrereqMeetService">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-PrereqMeetService" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/webservice/prereqmeet"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/PrereqMeetService"/>
+    </target>
+    <target name="wsimport-client-RegCheckService" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/RegCheckService"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/RegCheckService" destdir="${build.generated.dir}/jax-wsCache/RegCheckService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/RegCheckService/wsdl/localhost_8080/CourseManagementSystem/RegCheckService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/CourseManagementSystem/RegCheckService?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/RegCheckService/wsdl/localhost_8080/CourseManagementSystem/RegCheckService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/RegCheckService"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/RegCheckService">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-RegCheckService" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/team/soa/cms/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/RegCheckService"/>
+    </target>
+    <target name="wsimport-client-StudentDropClass" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/StudentDropClass"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/StudentDropClass" destdir="${build.generated.dir}/jax-wsCache/StudentDropClass" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/StudentDropClass/wsdl/localhost_8080/CourseManagementSystem/StudentDropClass.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/CourseManagementSystem/StudentDropClass?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/StudentDropClass/wsdl/localhost_8080/CourseManagementSystem/StudentDropClass.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/StudentDropClass"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/StudentDropClass">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-StudentDropClass" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/team/soa/cms/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/StudentDropClass"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-StudentValidService, wsimport-client-DAOService, wsimport-client-ClassValidService, wsimport-client-ClassCanRegisterService, wsimport-client-PrereqMeetService, wsimport-client-RegCheckService, wsimport-client-StudentDropClass"/>
+</project>
+>>>>>>> FETCH_HEAD

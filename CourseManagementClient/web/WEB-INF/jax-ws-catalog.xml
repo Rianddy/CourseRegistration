@@ -21,7 +21,10 @@
     <system systemId="http://localhost:8080/CourseManagementSystem/StudentDropClass?wsdl" uri="wsdl/localhost_8080/CourseManagementSystem/StudentDropClass.wsdl"/>
     <system systemId="http://localhost:8080/CourseManagementSystem/StudentDropClass?xsd=1" uri="wsdl/localhost_8080/CourseManagementSystem/StudentDropClass.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/CourseManagementSystem/StudentDropClass?xsd=2" uri="wsdl/localhost_8080/CourseManagementSystem/StudentDropClass.xsd_2.xsd"/>
+<<<<<<< HEAD
     <system systemId="http://localhost:8080/CourseManagementSystem/PermsReqMsgService?wsdl" uri="wsdl/localhost_8080/CourseManagementSystem/PermsReqMsgService.wsdl"/>
     <system systemId="http://localhost:8080/CourseManagementSystem/PermsReqMsgService?xsd=1" uri="wsdl/localhost_8080/CourseManagementSystem/PermsReqMsgService.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/CourseManagementSystem/PermsReqMsgService?xsd=2" uri="wsdl/localhost_8080/CourseManagementSystem/PermsReqMsgService.xsd_2.xsd"/>
+=======
+>>>>>>> FETCH_HEAD
 </catalog>

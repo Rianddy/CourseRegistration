@@ -27,24 +27,49 @@
     </service>
     <service name="StudentDropClass">
       <implementation-class>team.soa.cms.ws.StudentDropClass</implementation-class>
+<<<<<<< HEAD
+=======
+    </service>
+    <service name="MessageStuClassInfo">
+      <implementation-class>team.soa.cms.message.MessageStuClassInfo</implementation-class>
+>>>>>>> FETCH_HEAD
     </service>
     <service name="RequestPermission">
       <implementation-class>team.soa.cms.ws.RequestPermission</implementation-class>
     </service>
+<<<<<<< HEAD
     <service name="PermissionRequestService">
       <implementation-class>team.soa.cms.ws.permission.PermissionRequestService</implementation-class>
     </service>
     <service name="DAOService">
       <implementation-class>team.soa.cms.ws.daoService.DAOService</implementation-class>
+=======
+    <service name="MessageStudent">
+      <implementation-class>team.soa.cms.message.MessageStudent</implementation-class>
+    </service>
+    <service name="PermissionRequestService">
+      <implementation-class>team.soa.cms.ws.permission.PermissionRequestService</implementation-class>
+>>>>>>> FETCH_HEAD
     </service>
     <service name="MessageFaculty">
       <implementation-class>team.soa.cms.msgQueueService.MessageFaculty</implementation-class>
     </service>
+<<<<<<< HEAD
     <service name="MessageStudent">
       <implementation-class>team.soa.cms.msgQueueService.MessageStudent</implementation-class>
     </service>
     <service name="PermsReqMsgService">
       <implementation-class>team.soa.cms.msgQueueService.PermsReqMsgService</implementation-class>
+=======
+    <service name="AcceptStudentPermission">
+      <implementation-class>team.soa.cms.ws.permission.AcceptStudentPermission</implementation-class>
+    </service>
+    <service name="CheckStudentRegistration">
+      <implementation-class>team.soa.cms.ws.permission.CheckStudentRegistration</implementation-class>
+    </service>
+    <service name="CheckPermissionCode">
+      <implementation-class>team.soa.cms.ws.permission.CheckPermissionCode</implementation-class>
+>>>>>>> FETCH_HEAD
     </service>
   </services>
   <clients/>

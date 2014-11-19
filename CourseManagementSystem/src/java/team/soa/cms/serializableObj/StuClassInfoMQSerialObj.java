@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package team.soa.cms.serializableObj;
 
 import java.io.Serializable;
@@ -11,76 +10,70 @@ import java.util.ArrayList;
 import java.util.List;
 import org.netbeans.xml.schema.stuclassmessagexmlschema.Stuclassmessage;
 
-
 /**
  *
  * @author YIYI
  */
-public class StuClassInfoMQSerialObj implements Serializable{
-    
-   private int stuid;
-   private String stuname;
-   private String stuemail;
-   private String department;
-   private String major;
-   private String concentration;
-   private String birthday;
-   private String address;
-   private String cell;
+public class StuClassInfoMQSerialObj implements Serializable {
 
-   private List<Requestclassinfo> requestclasslist;
-   
-   public StuClassInfoMQSerialObj(){}
-   
-   public StuClassInfoMQSerialObj(Stuclassmessage scmg){
-   
-   this.stuid = Integer.valueOf(scmg.getStudentinfo().getStuid());
-   this.stuname = scmg.getStudentinfo().getStuname();
-   this.stuemail = scmg.getStudentinfo().getStuemail();
-   this.department = scmg.getStudentinfo().getDepartment();
-   this.major = scmg.getStudentinfo().getMajor();
-   this.concentration = scmg.getStudentinfo().getConcentration();
-   this.birthday = null;//scmg.getStudentinfo().getBirthday().toString();
-   this.address = scmg.getStudentinfo().getAddress();
-   this.cell = scmg.getStudentinfo().getCell();
-   
-   this.requestclasslist = new ArrayList<Requestclassinfo>();
-   
-   int size = scmg.getRequestclassinfo().size();
-   System.out.println("In StuClassInfoMQSerialObj, "+stuname+" has "+size +" courses which needs permission code.");
-   for(int i=0;i<size;i++){
-       
-      Requestclassinfo one = new Requestclassinfo();
-      one.setClassid(Integer.valueOf(scmg.getRequestclassinfo().get(i).getClassid()));
-      System.out.println("Class id: "+one.getClassid());
-      one.setCourseid(scmg.getRequestclassinfo().get(i).getCourseid());
-      System.out.println("Course id : "+one.getCourseid());
-      one.setCoursename(scmg.getRequestclassinfo().get(i).getCoursename());
-      System.out.println("Course name: "+one.getCoursename());
-      one.setMaxsize(scmg.getRequestclassinfo().get(i).getMaxsize());
-      System.out.println("Max size: "+one.getMaxsize());
-      one.setCurrsize(scmg.getRequestclassinfo().get(i).getCurrsize());
-      System.out.println("Current size: "+one.getCurrsize());
-      one.setMaxwaitlist(scmg.getRequestclassinfo().get(i).getMaxwaitlist());
-      System.out.println("Max waitlist: "+one.getMaxwaitlist());
-      one.setCurwaitlist(scmg.getRequestclassinfo().get(i).getCurwaitlist());
-      System.out.println("Current waitlist: "+one.getCurwaitlist());
-      one.setOpensemester(scmg.getRequestclassinfo().get(i).getOpensemester());
-      System.out.println("Open semester: "+one.getOpensemester());
-      one.setFacultyid(Integer.valueOf(scmg.getRequestclassinfo().get(i).getFacultyid()));
-      System.out.println("Faculty id: "+one.getFacultyid());
-      one.setFacultyname(scmg.getRequestclassinfo().get(i).getFacultyname());
-      System.out.println("Faculty name: "+one.getFacultyname());
-      
-      
-   }
-   
-   }
-   
-   
-   
-   
-   
+    private int stuid;
+    private String stuname;
+    private String stuemail;
+    private String department;
+    private String major;
+    private String concentration;
+    private String birthday;
+    private String address;
+    private String cell;
+
+    private List<Requestclassinfo> requestclasslist;
+
+    public StuClassInfoMQSerialObj() {
+    }
+
+    public StuClassInfoMQSerialObj(Stuclassmessage scmg) {
+
+//        this.stuid = Integer.valueOf(scmg.getStudentinfo().getStuid());
+//        this.stuname = scmg.getStudentinfo().getStuname();
+//        this.stuemail = scmg.getStudentinfo().getStuemail();
+//        this.department = scmg.getStudentinfo().getDepartment();
+//        this.major = scmg.getStudentinfo().getMajor();
+//        this.concentration = scmg.getStudentinfo().getConcentration();
+//        this.birthday = null;//scmg.getStudentinfo().getBirthday().toString();
+//        this.address = scmg.getStudentinfo().getAddress();
+//        this.cell = scmg.getStudentinfo().getCell();
+//
+//        this.requestclasslist = new ArrayList<Requestclassinfo>();
+//
+//        int size = scmg.getRequestclassinfo().size();
+//        System.out.println("In StuClassInfoMQSerialObj, " + stuname + " has " + size + " courses which needs permission code.");
+//        for (int i = 0; i < size; i++) {
+//
+//            Requestclassinfo one = new Requestclassinfo();
+//            one.setClassid(Integer.valueOf(scmg.getRequestclassinfo().get(i).getClassid()));
+//            System.out.println("Class id: " + one.getClassid());
+//            one.setCourseid(scmg.getRequestclassinfo().get(i).getCourseid());
+//            System.out.println("Course id : " + one.getCourseid());
+//            one.setCoursename(scmg.getRequestclassinfo().get(i).getCoursename());
+//            System.out.println("Course name: " + one.getCoursename());
+//            one.setMaxsize(scmg.getRequestclassinfo().get(i).getMaxsize());
+//            System.out.println("Max size: " + one.getMaxsize());
+//            one.setCurrsize(scmg.getRequestclassinfo().get(i).getCurrsize());
+//            System.out.println("Current size: " + one.getCurrsize());
+//            one.setMaxwaitlist(scmg.getRequestclassinfo().get(i).getMaxwaitlist());
+//            System.out.println("Max waitlist: " + one.getMaxwaitlist());
+//            one.setCurwaitlist(scmg.getRequestclassinfo().get(i).getCurwaitlist());
+//            System.out.println("Current waitlist: " + one.getCurwaitlist());
+//            one.setOpensemester(scmg.getRequestclassinfo().get(i).getOpensemester());
+//            System.out.println("Open semester: " + one.getOpensemester());
+//            one.setFacultyid(Integer.valueOf(scmg.getRequestclassinfo().get(i).getFacultyid()));
+//            System.out.println("Faculty id: " + one.getFacultyid());
+//            one.setFacultyname(scmg.getRequestclassinfo().get(i).getFacultyname());
+//            System.out.println("Faculty name: " + one.getFacultyname());
+//
+//        }
+
+    }
 
     public int getStuid() {
         return stuid;
@@ -161,20 +154,28 @@ public class StuClassInfoMQSerialObj implements Serializable{
     public void setRequestclasslist(List<Requestclassinfo> requestclasslist) {
         this.requestclasslist = requestclasslist;
     }
-    
-    
-}
-class Requestclassinfo implements Serializable{
 
-  private int classid;
-  private String courseid;;
-  private String coursename;;
-  private int maxsize;;
-  private int currsize;;
-  private int maxwaitlist;;
-  private int curwaitlist;;
-  private String opensemester;;
-  private int facultyid;;
+}
+
+class Requestclassinfo implements Serializable {
+
+    private int classid;
+    private String courseid;
+    ;
+  private String coursename;
+    ;
+  private int maxsize;
+    ;
+  private int currsize;
+    ;
+  private int maxwaitlist;
+    ;
+  private int curwaitlist;
+    ;
+  private String opensemester;
+    ;
+  private int facultyid;
+    ;
   private String facultyname;
 
     public int getClassid() {
@@ -256,7 +257,5 @@ class Requestclassinfo implements Serializable{
     public void setFacultyname(String facultyname) {
         this.facultyname = facultyname;
     }
- 
 
-  
 }

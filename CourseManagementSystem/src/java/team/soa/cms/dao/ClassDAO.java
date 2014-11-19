@@ -19,6 +19,10 @@ public interface ClassDAO {
     
     public void update(int class_id, Class cls);
     
+<<<<<<< HEAD
     public String getFacultyEmailFromClass(int class_id);
     
+=======
+    public String getFacultyEmailFromClass(int class_id); 
+>>>>>>> FETCH_HEAD
 }

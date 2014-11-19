@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package team.soa.cms.ws.permissionService;
+package team.soa.cms.ws.permission;
 
 import java.util.List;
 import javax.jws.WebMethod;
