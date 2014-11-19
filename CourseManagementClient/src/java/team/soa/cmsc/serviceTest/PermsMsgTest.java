@@ -16,6 +16,8 @@ import org.netbeans.xml.schema.stuclassmessagexmlschema.Stuclassmessage;
 import org.netbeans.xml.schema.stuclassmessagexmlschema.Stuclassmessage.*;
 import team.soa.cms.msgqueueservice.StuClassInfoMQSerialObj;
 
+
+
 /**
  *
  * @author birui
@@ -24,7 +26,7 @@ public class PermsMsgTest {
 
     public static void main(String[] args) throws DatatypeConfigurationException {
         String permsID = "1000";
-        String email = "xmruibi@gmail.com";
+        String email = "xmruibi@hotmail.com";
         System.out.println(setPermsMsg(permsID,email));
         getPermsMsg(permsID);
 
@@ -34,8 +36,8 @@ public class PermsMsgTest {
         Stuclassmessage stuclassInfo = new Stuclassmessage();
         Studentinfo stuinfo = new Studentinfo();
         stuinfo.setStuid("66666");
-        stuinfo.setStuname("Rb");
-        stuinfo.setStuemail("RUY11@pitt.edu");
+        stuinfo.setStuname("R");
+        stuinfo.setStuemail("rub@pitt.edu");
         stuinfo.setDepartment("IS");
         stuinfo.setMajor("Web System");
         stuinfo.setConcentration("RUYConcentration");
@@ -92,13 +94,11 @@ public class PermsMsgTest {
         return str;
     }
 
-    public static void getPermsMsg(String permsId) {
+    public static List<StuClassInfoMQSerialObj> getPermsMsg(String permsId) {
          List<StuClassInfoMQSerialObj> permsObj = new ArrayList<StuClassInfoMQSerialObj>();
-        permsObj = getPermsInfo(permsId);
-
+        permsObj = (List<StuClassInfoMQSerialObj>) getPermsInfo(permsId);
+        return permsObj;
     }
-
-
 
     private static java.util.List<team.soa.cms.msgqueueservice.StuClassInfoMQSerialObj> getPermsInfo(java.lang.String permsID) {
         team.soa.cms.msgqueueservice.PermsReqMsgService_Service service = new team.soa.cms.msgqueueservice.PermsReqMsgService_Service();
@@ -111,6 +111,9 @@ public class PermsMsgTest {
         team.soa.cms.msgqueueservice.PermsReqMsgService port = service.getPermsReqMsgServicePort();
         return port.setPermsInfo(permsID, facultyMail, stuclassInfo);
     }
+
+
+
 
 
 

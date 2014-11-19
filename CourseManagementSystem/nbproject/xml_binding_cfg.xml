@@ -50,26 +50,6 @@
 		</bindings>
 		<catalog/>
 	</schema>
-	<schema type='-xmlschema' package='' name='studentprereqcheck'>
-		<xjc-options>
-		</xjc-options>
-		<schema-sources>
-			<schema-source location='src/conf/xml-resources/jaxb/studentprereqcheck/studentPrereqCheck.xsd' origLocation='src/java/team/soa/cms/xml/studentPrereqCheck.xsd'/>
-		</schema-sources>
-		<bindings>
-		</bindings>
-		<catalog/>
-	</schema>
-	<schema type='-xmlschema' package='' name='studentregscheck'>
-		<xjc-options>
-		</xjc-options>
-		<schema-sources>
-			<schema-source location='src/conf/xml-resources/jaxb/studentregscheck/studentRegCheck.xsd' origLocation='src/java/team/soa/cms/xml/studentRegCheck.xsd'/>
-		</schema-sources>
-		<bindings>
-		</bindings>
-		<catalog/>
-	</schema>
 	<schema type='-xmlschema' package='' name='stuenrolxmlschema'>
 		<xjc-options>
 		</xjc-options>
@@ -115,6 +95,26 @@
 		</xjc-options>
 		<schema-sources>
 			<schema-source location='src/conf/xml-resources/jaxb/dropclassesschema/dropClassesSchema.xsd' origLocation='src/java/team/soa/cms/xml/dropClassesSchema.xsd'/>
+		</schema-sources>
+		<bindings>
+		</bindings>
+		<catalog/>
+	</schema>
+	<schema type='-xmlschema' package='' name='studentregscheck'>
+		<xjc-options>
+		</xjc-options>
+		<schema-sources>
+			<schema-source location='src/conf/xml-resources/jaxb/studentregscheck/studentRegCheck.xsd' origLocation='src/java/team/soa/cms/xml/studentRegCheck.xsd'/>
+		</schema-sources>
+		<bindings>
+		</bindings>
+		<catalog/>
+	</schema>
+	<schema type='-xmlschema' package='' name='studentprereqcheck'>
+		<xjc-options>
+		</xjc-options>
+		<schema-sources>
+			<schema-source location='src/conf/xml-resources/jaxb/studentprereqcheck/studentPrereqCheck.xsd' origLocation='src/java/team/soa/cms/xml/studentPrereqCheck.xsd'/>
 		</schema-sources>
 		<bindings>
 		</bindings>

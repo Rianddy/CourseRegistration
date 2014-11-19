@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package team.soa.cms.ws;
 
 import javax.jws.WebService;
@@ -13,12 +14,12 @@ import team.soa.cms.dao.Implement.PermissionDAOImpl;
 
 /**
  *
- * @author birui
+ * @author rianddy
  */
-@WebService(serviceName = "PermissionService")
-public class PermissionService {
+@WebService(serviceName = "RequestPermission")
+public class RequestPermission {
 
-     @WebMethod(operationName = "acceptStudentPermission")
+    @WebMethod(operationName = "acceptStudentPermission")
     public Integer acceptStudentPermission(@WebParam(name = "studentID") int studentID, @WebParam(name = "classID") int classID, @WebParam(name = "facultyID") int facultyID) {
          PermissionDAOImpl impl = new PermissionDAOImpl();
         
@@ -32,6 +33,11 @@ public class PermissionService {
         return impl.acceptCodeExist(studentID, classID, permcode);
     }
     
+    @WebMethod(operationName = "PrereqMsgQueue")
+    public String PrereqMsgQueue(@WebParam(name = "parameter") Permission parameter) {
+        //TODO write your implementation code here:
+        return null;
+    }
     
     @WebMethod(operationName = "rejectStudentPermission")
     public Integer rejectStudentPermission(@WebParam(name = "studentID") int studentID, @WebParam(name = "classID") int classID, @WebParam(name = "facultyID") int facultyID) {

@@ -3,21 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package team.soa.cms.msgQueueService;
 
 import team.soa.cms.msgUtil.*;
 import com.sun.javafx.scene.control.skin.VirtualFlow;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.jms.Connection;
+import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.Message;
+import javax.jms.MessageProducer;
 import javax.jms.ObjectMessage;
+import javax.jms.Queue;
+import javax.jms.QueueConnectionFactory;
+import javax.jms.Session;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import org.netbeans.xml.schema.stuclassmessagexmlschema.Stuclassmessage;
 import team.soa.cms.mail.PermsReqMailService;
 import team.soa.cms.serializableObj.StuClassInfoMQSerialObj;
+
 
 /**
  *
@@ -26,7 +39,7 @@ import team.soa.cms.serializableObj.StuClassInfoMQSerialObj;
 @WebService(serviceName = "PermsReqMsgService")
 public class PermsReqMsgService {
 
-    public String permsProp = "PermsId";
+   public String permsProp = "PermsId";
     public String permsConnPath = "stuclassqcf";
     public String permsQueuePath = "stuclassqueue";
 
@@ -80,5 +93,5 @@ public class PermsReqMsgService {
         }
         return permsObj;
     }
-
+    
 }

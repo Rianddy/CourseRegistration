@@ -27,8 +27,8 @@ public class MailUtil {
         String password = "pitt_perms";
         String from = "perms_request@163.com";
         String to = mailto; 
-        String subject = "Permission Request Reminder";
-        String body = content;
+        String subject = "";
+        String body = "";
         try
         {
             Properties props = new Properties();
@@ -47,19 +47,19 @@ public class MailUtil {
             InternetAddress toAddress = new InternetAddress(to);
             message.addRecipient(Message.RecipientType.TO, toAddress);
             message.setSubject(subject);
-            message.setContent(body,"text/html; charset=utf-8");
+            message.setText(body);
 
             Transport transport = ssn.getTransport("smtp");
             transport.connect(smtphost, user, password);
             transport.sendMessage(message, message.getRecipients(Message.RecipientType.TO));
             //transport.send(message);
             transport.close();
-            status = "Send mail success!";
+            status = "Send success!";
         }
         catch(Exception m)
         {
             m.printStackTrace();
-            status = "Send mail failed!";
+            status = "Send failed!";
         }
         return status;
     }

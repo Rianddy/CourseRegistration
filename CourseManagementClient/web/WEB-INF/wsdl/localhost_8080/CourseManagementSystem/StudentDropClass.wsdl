@@ -7,31 +7,31 @@
 <xsd:import namespace="http://ws.cms.soa.team/" schemaLocation="http://localhost:8080/CourseManagementSystem/StudentDropClass?xsd=2"/>
 </xsd:schema>
 </types>
-<message name="isClassEnrolled">
-<part name="parameters" element="tns:isClassEnrolled"/>
-</message>
-<message name="isClassEnrolledResponse">
-<part name="parameters" element="tns:isClassEnrolledResponse"/>
-</message>
 <message name="studentDropClass">
 <part name="parameters" element="tns:studentDropClass"/>
 </message>
 <message name="studentDropClassResponse">
 <part name="parameters" element="tns:studentDropClassResponse"/>
 </message>
+<message name="isClassEnrolled">
+<part name="parameters" element="tns:isClassEnrolled"/>
+</message>
+<message name="isClassEnrolledResponse">
+<part name="parameters" element="tns:isClassEnrolledResponse"/>
+</message>
 <portType name="StudentDropClass">
-<operation name="isClassEnrolled">
-<input wsam:Action="http://ws.cms.soa.team/StudentDropClass/isClassEnrolledRequest" message="tns:isClassEnrolled"/>
-<output wsam:Action="http://ws.cms.soa.team/StudentDropClass/isClassEnrolledResponse" message="tns:isClassEnrolledResponse"/>
-</operation>
 <operation name="studentDropClass">
 <input wsam:Action="http://ws.cms.soa.team/StudentDropClass/studentDropClassRequest" message="tns:studentDropClass"/>
 <output wsam:Action="http://ws.cms.soa.team/StudentDropClass/studentDropClassResponse" message="tns:studentDropClassResponse"/>
 </operation>
+<operation name="isClassEnrolled">
+<input wsam:Action="http://ws.cms.soa.team/StudentDropClass/isClassEnrolledRequest" message="tns:isClassEnrolled"/>
+<output wsam:Action="http://ws.cms.soa.team/StudentDropClass/isClassEnrolledResponse" message="tns:isClassEnrolledResponse"/>
+</operation>
 </portType>
 <binding name="StudentDropClassPortBinding" type="tns:StudentDropClass">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="isClassEnrolled">
+<operation name="studentDropClass">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -40,7 +40,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="studentDropClass">
+<operation name="isClassEnrolled">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

@@ -65,13 +65,12 @@ public class PrereqMeetService {
                 
                 ClassPrereq clsprereq = new ClassPrereq();
                 clsprereq.setCourseid(prelist.getOnepre().get(i).getCourseid());
-                
                 classPrereq.add(clsprereq);
 
                 //go through the enrolllist to find the prereq course and set the fields
                 int len = enrollList.getOneenroll().size();
-
-                for (int j = 0; j < len; j++) {
+                int j = 0;
+                for (; j < len; j++) {
 
                     if (enrollList.getOneenroll().get(j).getCourseid().equals(prelist.getOnepre().get(i).getCourseid())) {
                         classPrereq.get(i).setClassid(enrollList.getOneenroll().get(j).getClassid());
@@ -80,18 +79,16 @@ public class PrereqMeetService {
                         
                         break;
                         //end if found the enrolled course
-                    } else {
-                        if (j == len - 1) {
-                            //the last enroll class but not is required
-                            //set the canTake to false
-                            classPrereq.get(i).setClassid("");
-                            classPrereq.get(i).setGrade("");
-                            classPrereq.get(i).setReqMet(false);
-                            studentClass.setCanTake(false);
-                        }
-                    }
-
+                    } 
                 }//end for loop enrolllist
+                if (len==0||j == len ) {
+                    //the last enroll class but not is required
+                    //set the canTake to false
+                    classPrereq.get(i).setClassid("");
+                    classPrereq.get(i).setGrade("");
+                    classPrereq.get(i).setReqMet(false);
+                    studentClass.setCanTake(false);
+                }
 
             }//end for loop classPrereq list    
 

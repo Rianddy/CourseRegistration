@@ -19,4 +19,6 @@ public interface ClassDAO {
     
     public void update(int class_id, Class cls);
     
+    public String getFacultyEmailFromClass(int class_id);
+    
 }

@@ -8,12 +8,15 @@ package team.soa.cms.ws.daoService;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import org.netbeans.xml.schema.facultyxmlschema.Faculty;
 import org.netbeans.xml.schema.prerequestxmlschema.Prerequestment;
 import org.netbeans.xml.schema.studentxmlschema.Student;
 import org.netbeans.xml.schema.stuenrolxmlschema.StuEnrollList;
 import org.netbeans.xml.schema.stuenrolxmlschema.StuEnrollList.Oneenroll;
 import team.soa.cms.dao.ClassDAO;
+import team.soa.cms.dao.FacultyDAO;
 import team.soa.cms.dao.Implement.ClassDAOImpl;
+import team.soa.cms.dao.Implement.FacultyDAOImpl;
 import team.soa.cms.dao.Implement.PrerequestmentDAOImpl;
 import team.soa.cms.dao.Implement.StudentDAOImpl;
 import team.soa.cms.dao.Implement.StudentEnrollDAOImpl;
@@ -23,12 +26,12 @@ import team.soa.cms.dao.StudentEnrollDAO;
 
 /**
  *
- * @author xmrui_000
+ * @author birui
  */
 @WebService(serviceName = "DAOService")
 public class DAOService {
 
-      @WebMethod(operationName = "getStudentInfo")
+     @WebMethod(operationName = "getStudentInfo")
     public Student getStudentInfo(@WebParam(name = "Stu_ID") final int Stu_ID) {
         StudentDAO stuDAO = new StudentDAOImpl();
         Student stu =stuDAO.getOneStudent(Stu_ID);
@@ -43,6 +46,23 @@ public class DAOService {
         System.out.println("Service success!");
         return cls;
     }
+    
+    @WebMethod(operationName = "getFacultyEmail")
+    public String getFacultyEmail(@WebParam(name="Class_ID") final int Class_ID){
+        ClassDAO classDAO = new ClassDAOImpl();
+        String email = classDAO.getFacultyEmailFromClass(Class_ID);
+        System.out.println("Service success!");
+        return email;
+    }
+    
+    
+    @WebMethod(operationName = "getFacultyInfo")
+    public Faculty getFacultyInfo(@WebParam(name="Fac_ID") final int Fac_ID){
+        FacultyDAO facultyDAO = new FacultyDAOImpl();
+        Faculty fac = facultyDAO.getOneFaculty(Fac_ID);
+        System.out.println("Service success!");
+        return fac;
+    }
 
     /**
      * Web service operation
@@ -51,6 +71,16 @@ public class DAOService {
     public String insertStudentEnrollment(@WebParam(name = "Student_ID") String Student_ID, @WebParam(name = "Class_ID") String Class_ID) {
         StudentEnrollDAO stuEnrollDAO = new StudentEnrollDAOImpl();
         String enroll_ID = stuEnrollDAO.insert(Integer.parseInt(Class_ID), Integer.parseInt(Student_ID));
+        return enroll_ID;
+    }
+    
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "insertStudentEnrollment")
+    public int insertStudentEnrollment(@WebParam(name = "Student_ID") String Student_ID, @WebParam(name = "Class_ID") String Class_ID, @WebParam(name = "Status") String Status) {
+        StudentEnrollDAO stuEnrollDAO = new StudentEnrollDAOImpl();
+        int enroll_ID = stuEnrollDAO.insertIDStatus(Integer.parseInt(Class_ID), Integer.parseInt(Student_ID), Status);
         return enroll_ID;
     }
 
