@@ -13,26 +13,59 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import org.netbeans.xml.schema.stuclassmessagexmlschema.Stuclassmessage;
-import org.netbeans.xml.schema.stuclassmessagexmlschema.Stuclassmessage.*;
+import org.netbeans.xml.schema.stuclassmessagexmlschema.Stuclassmessage.Studentinfo;
+import org.netbeans.xml.schema.stuclassmessagexmlschema.Stuclassmessage.RequestClass;
 import team.soa.cms.msgqueueservice.StuClassInfoMQSerialObj;
-
-
 
 /**
  *
  * @author birui
  */
-public class PermsMsgTest {
+public class PermsMsgTest{
 
+
+    
+
+
+
+    public static List<StuClassInfoMQSerialObj> getPermsMsg(String permsId) {
+        List<StuClassInfoMQSerialObj> permsObj = new ArrayList<StuClassInfoMQSerialObj>();
+        permsObj = (List<StuClassInfoMQSerialObj>) getPermsInfo(permsId);
+        return permsObj;
+    }
+
+    private static java.util.List<team.soa.cms.msgqueueservice.StuClassInfoMQSerialObj> getPermsInfo(java.lang.String permsID) {
+        team.soa.cms.msgqueueservice.PermsReqMsgService_Service service = new team.soa.cms.msgqueueservice.PermsReqMsgService_Service();
+        team.soa.cms.msgqueueservice.PermsReqMsgService port = service.getPermsReqMsgServicePort();
+        return port.getPermsInfo(permsID);
+    }
+
+    private static String setPermsInfo(java.lang.String permsID, java.lang.String facultyMail, org.netbeans.xml.schema.stuclassmessagexmlschema.Stuclassmessage stuclassInfo) {
+        team.soa.cms.msgqueueservice.PermsReqMsgService_Service service = new team.soa.cms.msgqueueservice.PermsReqMsgService_Service();
+        team.soa.cms.msgqueueservice.PermsReqMsgService port = service.getPermsReqMsgServicePort();
+        return port.setPermsInfo(permsID, facultyMail, stuclassInfo);
+    }
+
+    private static String setPermsConfirm(java.lang.String permsID, java.lang.String studentMail, org.netbeans.xml.schema.stuclassmessagexmlschema.Stuclassmessage stuclassInfo) {
+        team.soa.cms.msgqueueservice.PermsConfmMsgService_Service service = new team.soa.cms.msgqueueservice.PermsConfmMsgService_Service();
+        team.soa.cms.msgqueueservice.PermsConfmMsgService port = service.getPermsConfmMsgServicePort();
+        return port.setPermsConfirm(permsID, studentMail, stuclassInfo);
+    }
+
+    private static String setMsgListener(java.lang.String permsID) {
+        team.soa.cms.msgqueueservice.PermsConfmMsgService_Service service = new team.soa.cms.msgqueueservice.PermsConfmMsgService_Service();
+        team.soa.cms.msgqueueservice.PermsConfmMsgService port = service.getPermsConfmMsgServicePort();
+        return port.setMsgListener(permsID);
+    }
+
+
+    
+    
+    
     public static void main(String[] args) throws DatatypeConfigurationException {
         String permsID = "1000";
         String email = "xmruibi@hotmail.com";
-        System.out.println(setPermsMsg(permsID,email));
-        getPermsMsg(permsID);
 
-    }
-
-    public static String setPermsMsg(String permID, String facultyEmail) throws DatatypeConfigurationException {
         Stuclassmessage stuclassInfo = new Stuclassmessage();
         Studentinfo stuinfo = new Studentinfo();
         stuinfo.setStuid("66666");
@@ -58,63 +91,18 @@ public class PermsMsgTest {
         stuinfo.setCell("RUYCell");
         stuclassInfo.setStudentinfo(stuinfo);
 
-        Requestclassinfo reclassInfo = new Requestclassinfo();
+        RequestClass classInfo = new RequestClass();
 
-        reclassInfo.setClassid("20002");
-        reclassInfo.setCourseid("2220005");
-        reclassInfo.setCoursename("Web service");
-        reclassInfo.setMaxsize(30);
-        reclassInfo.setCurrsize(20);
-        reclassInfo.setMaxwaitlist(10);
-        reclassInfo.setCurwaitlist(0);
-        reclassInfo.setOpensemester("Fall2014");
-        reclassInfo.setFacultyid("9009");
-        reclassInfo.setFacultyname("Spring");
+        classInfo.setClassid("20002");
+        classInfo.setClassvalid(true);
 
-        stuclassInfo.getRequestclassinfo().add(reclassInfo);
+        stuclassInfo.setRequestClass(classInfo);
 
-        Requestclassinfo reclassInfo2 = new Requestclassinfo();
+        System.out.println(setPermsConfirm(permsID, email, stuclassInfo));
 
-        reclassInfo2.setClassid("20003");
-        reclassInfo2.setCourseid("2220006");
-        reclassInfo2.setCoursename("Web Tech");
-        reclassInfo2.setMaxsize(30);
-        reclassInfo2.setCurrsize(20);
-        reclassInfo2.setMaxwaitlist(10);
-        reclassInfo2.setCurwaitlist(0);
-        reclassInfo2.setOpensemester("Fall2014");
-        reclassInfo2.setFacultyid("9009");
-        reclassInfo2.setFacultyname("Spring");
+       
 
-        stuclassInfo.getRequestclassinfo().add(reclassInfo2);
 
-        System.out.println("In PermsMsgTest.java : student name = " + stuclassInfo.getStudentinfo().getStuname());
-
-        String str = setPermsInfo(permID,facultyEmail,stuclassInfo);
-        return str;
     }
-
-    public static List<StuClassInfoMQSerialObj> getPermsMsg(String permsId) {
-         List<StuClassInfoMQSerialObj> permsObj = new ArrayList<StuClassInfoMQSerialObj>();
-        permsObj = (List<StuClassInfoMQSerialObj>) getPermsInfo(permsId);
-        return permsObj;
-    }
-
-    private static java.util.List<team.soa.cms.msgqueueservice.StuClassInfoMQSerialObj> getPermsInfo(java.lang.String permsID) {
-        team.soa.cms.msgqueueservice.PermsReqMsgService_Service service = new team.soa.cms.msgqueueservice.PermsReqMsgService_Service();
-        team.soa.cms.msgqueueservice.PermsReqMsgService port = service.getPermsReqMsgServicePort();
-        return port.getPermsInfo(permsID);
-    }
-
-    private static String setPermsInfo(java.lang.String permsID, java.lang.String facultyMail, org.netbeans.xml.schema.stuclassmessagexmlschema.Stuclassmessage stuclassInfo) {
-        team.soa.cms.msgqueueservice.PermsReqMsgService_Service service = new team.soa.cms.msgqueueservice.PermsReqMsgService_Service();
-        team.soa.cms.msgqueueservice.PermsReqMsgService port = service.getPermsReqMsgServicePort();
-        return port.setPermsInfo(permsID, facultyMail, stuclassInfo);
-    }
-
-
-
-
-
-
 }
+

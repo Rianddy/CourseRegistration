@@ -154,5 +154,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/team/soa/cms/msgqueueservice"/>
         <delete dir="${build.generated.dir}/jax-wsCache/PermsReqMsgService"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-StudentValidService, wsimport-client-DAOService, wsimport-client-ClassValidService, wsimport-client-ClassCanRegisterService, wsimport-client-PrereqMeetService, wsimport-client-RegCheckService, wsimport-client-StudentDropClass, wsimport-client-PermsReqMsgService"/>
+    <target name="wsimport-client-PermsConfmMsgService" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/PermsConfmMsgService"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/PermsConfmMsgService" destdir="${build.generated.dir}/jax-wsCache/PermsConfmMsgService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/PermsConfmMsgService/wsdl/localhost_8080/CourseManagementSystem/PermsConfmMsgService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/CourseManagementSystem/PermsConfmMsgService?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/PermsConfmMsgService/wsdl/localhost_8080/CourseManagementSystem/PermsConfmMsgService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/PermsConfmMsgService"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/PermsConfmMsgService">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-PermsConfmMsgService" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/team/soa/cms/msgqueueservice"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/PermsConfmMsgService"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-StudentValidService, wsimport-client-DAOService, wsimport-client-ClassValidService, wsimport-client-ClassCanRegisterService, wsimport-client-PrereqMeetService, wsimport-client-RegCheckService, wsimport-client-StudentDropClass, wsimport-client-PermsReqMsgService, wsimport-client-PermsConfmMsgService"/>
 </project>

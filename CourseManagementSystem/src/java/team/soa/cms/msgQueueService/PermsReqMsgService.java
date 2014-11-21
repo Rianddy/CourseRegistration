@@ -40,8 +40,8 @@ import team.soa.cms.serializableObj.StuClassInfoMQSerialObj;
 public class PermsReqMsgService {
 
    public String permsProp = "PermsId";
-    public String permsConnPath = "stuclassqcf";
-    public String permsQueuePath = "stuclassqueue";
+    public String permsConnPath = "permsPool";
+    public String permsQueuePath = "permsFal";
 
     /**
      * @param PermsID permission id
