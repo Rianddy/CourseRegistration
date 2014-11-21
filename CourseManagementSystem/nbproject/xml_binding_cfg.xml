@@ -80,16 +80,6 @@
 		</bindings>
 		<catalog/>
 	</schema>
-	<schema type='-xmlschema' package='' name='stuclassmessagexmlschema'>
-		<xjc-options>
-		</xjc-options>
-		<schema-sources>
-			<schema-source location='src/conf/xml-resources/jaxb/stuclassmessagexmlschema/stuclassmessageXmlSchema.xsd' origLocation='src/java/team/soa/cms/xml/stuclassmessageXmlSchema.xsd'/>
-		</schema-sources>
-		<bindings>
-		</bindings>
-		<catalog/>
-	</schema>
 	<schema type='-xmlschema' package='' name='dropclassesschema'>
 		<xjc-options>
 		</xjc-options>
@@ -110,11 +100,21 @@
 		</bindings>
 		<catalog/>
 	</schema>
-	<schema type='-xmlschema' package='' name='studentprereqcheck'>
+	<schema type='-xmlschema' package='' name='stuclassmessageschema'>
 		<xjc-options>
 		</xjc-options>
 		<schema-sources>
-			<schema-source location='src/conf/xml-resources/jaxb/studentprereqcheck/studentPrereqCheck.xsd' origLocation='src/java/team/soa/cms/xml/studentPrereqCheck.xsd'/>
+			<schema-source location='src/conf/xml-resources/jaxb/stuclassmessageschema/stuclassmessageXmlSchema.xsd' origLocation='src/java/team/soa/cms/xml/stuclassmessageXmlSchema.xsd'/>
+		</schema-sources>
+		<bindings>
+		</bindings>
+		<catalog/>
+	</schema>
+	<schema type='-xmlschema' package='' name='studentprereqcheckschema'>
+		<xjc-options>
+		</xjc-options>
+		<schema-sources>
+			<schema-source location='src/conf/xml-resources/jaxb/studentprereqcheckschema/studentPrereqCheck.xsd' origLocation='src/java/team/soa/cms/xml/studentPrereqCheck.xsd'/>
 		</schema-sources>
 		<bindings>
 		</bindings>
