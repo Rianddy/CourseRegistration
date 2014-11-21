@@ -67,7 +67,7 @@ public class RegCheckService {
                 cls.setCanTake(stucls.isCanTake()); //waitng one more operation;
                 if(classStatus>0&&stucls.isCanTake()){
                     if(daoService.getStudentEnrollmentRecord(Stu_ID, Class_ID).getStatus()==null||!daoService.getStudentEnrollmentRecord(Stu_ID, Class_ID).getStatus().equals("enroll"))
-                        daoService.insertStudentEnrollment(String.valueOf(Stu_ID), String.valueOf(Class_ID), "enroll");
+                        daoService.insertStudentEnrollmentWithStatus(String.valueOf(Stu_ID), String.valueOf(Class_ID), "enroll");
                 }
                 System.out.print(cls.getClassid() + " " + cls.getClassstatus());
 

@@ -77,8 +77,8 @@ public class DAOService {
     /**
      * Web service operation
      */
-    @WebMethod(operationName = "insertStudentEnrollment")
-    public int insertStudentEnrollment(@WebParam(name = "Student_ID") String Student_ID, @WebParam(name = "Class_ID") String Class_ID, @WebParam(name = "Status") String Status) {
+    @WebMethod(operationName = "insertStudentEnrollmentWithStatus")
+    public int insertStudentEnrollmentWithStatus(@WebParam(name = "Student_ID") String Student_ID, @WebParam(name = "Class_ID") String Class_ID, @WebParam(name = "Status") String Status) {
         StudentEnrollDAO stuEnrollDAO = new StudentEnrollDAOImpl();
         int enroll_ID = stuEnrollDAO.insertIDStatus(Integer.parseInt(Class_ID), Integer.parseInt(Student_ID), Status);
         return enroll_ID;
