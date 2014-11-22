@@ -24,4 +24,9 @@
     <system systemId="http://localhost:8080/CourseManagementSystem/StudentDropClass?xsd=2" uri="src/conf/xml-resources/web-service-references/StudentDropClass/wsdl/localhost_8080/CourseManagementSystem/StudentDropClass.xsd_2.xsd"/>
     <system systemId="http://localhost:8080/CourseManagementSystem/StudentDropClass?xsd=3" uri="src/conf/xml-resources/web-service-references/StudentDropClass/wsdl/localhost_8080/CourseManagementSystem/StudentDropClass.xsd_3.xsd"/>
     <system systemId="http://localhost:8080/CourseManagementSystem/StudentDropClass?xsd=4" uri="src/conf/xml-resources/web-service-references/StudentDropClass/wsdl/localhost_8080/CourseManagementSystem/StudentDropClass.xsd_4.xsd"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/getWaitlist?wsdl" uri="src/conf/xml-resources/web-service-references/getWaitlist/wsdl/localhost_8080/CourseManagementSystem/getWaitlist.wsdl"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/getWaitlist?xsd=1" uri="src/conf/xml-resources/web-service-references/getWaitlist/wsdl/localhost_8080/CourseManagementSystem/getWaitlist.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/getWaitlist?xsd=2" uri="src/conf/xml-resources/web-service-references/getWaitlist/wsdl/localhost_8080/CourseManagementSystem/getWaitlist.xsd_2.xsd"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/getWaitlist?xsd=3" uri="src/conf/xml-resources/web-service-references/getWaitlist/wsdl/localhost_8080/CourseManagementSystem/getWaitlist.xsd_3.xsd"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/getWaitlist?xsd=4" uri="src/conf/xml-resources/web-service-references/getWaitlist/wsdl/localhost_8080/CourseManagementSystem/getWaitlist.xsd_4.xsd"/>
 </catalog>
