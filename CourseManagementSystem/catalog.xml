@@ -14,4 +14,5 @@
     <system systemId="file:/C:/Users/seven/Git/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/xml/checkDropClasses.xsd" uri="src/conf/xml-resources/jaxb/CheckClasses/checkDropClasses.xsd"/>
     <system systemId="file:/C:/Users/seven/Git/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/xml/dropClasses.xsd" uri="src/conf/xml-resources/jaxb/DropStudentClasses/dropClasses.xsd"/>
     <system systemId="file:/Users/Edison/NetBeansProjects/CourseRegistration_drop/CourseManagementSystem/src/java/team/soa/cms/xml/dropClassInput.xsd" uri="src/conf/xml-resources/jaxb/dropClassInput/dropClassInput.xsd"/>
+    <system systemId="file:/C:/Users/seven/Git/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/xml/studentInWaitlist.xsd" uri="src/conf/xml-resources/jaxb/studentinwaitlist/studentInWaitlist.xsd"/>
 </catalog>

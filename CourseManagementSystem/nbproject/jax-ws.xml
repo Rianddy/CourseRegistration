@@ -28,6 +28,9 @@
     <service name="StudentDropClass">
       <implementation-class>team.soa.cms.ws.StudentDropClass</implementation-class>
     </service>
+    <service name="getWaitlist">
+      <implementation-class>team.soa.cms.ws.getWaitlist</implementation-class>
+    </service>
   </services>
   <clients/>
   <jsr109>true</jsr109>

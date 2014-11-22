@@ -107,4 +107,13 @@ public class DAOService {
         StudentEnrollDAO stuEnrollDAO = new StudentEnrollDAOImpl();
         return stuEnrollDAO.getOneEnrollmentInfo(studentid,classid);
     }
+    
+     /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "firstStudentInWaitlist")
+    public Oneenroll firstStudentInWaitlist(@WebParam(name = "classID") int classID, @WebParam(name = "status") String status) {
+       StudentEnrollDAO stuEnrollDAO = new StudentEnrollDAOImpl();
+       return stuEnrollDAO.getFirstStudentInWaitlist(classID, status);
+    }
 }

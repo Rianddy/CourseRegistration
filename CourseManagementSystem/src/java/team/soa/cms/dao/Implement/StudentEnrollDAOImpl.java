@@ -170,5 +170,32 @@ public class StudentEnrollDAOImpl extends GeneralDAO implements StudentEnrollDAO
         
     }
 
+    @Override
+   public Oneenroll getFirstStudentInWaitlist(int Class_ID, String status) {
+ Oneenroll onee = new Oneenroll();
+ onee=null;
+        try {
+               this.OpenConnection();
+               //just return 1 record if exists
+               System.out.println("SELECT * FROM StudentEnrollment where Cls_ID="+Class_ID+" AND Status='"+status+"'"+" order by Stu_Enroll_Time LIMIT 1");
+               this.sql ="SELECT * FROM StudentEnrollment where Cls_ID="+Class_ID+" AND Status='"+status+"'"+" order by Stu_Enroll_Time LIMIT 1";//"SELECT * FROM StudentEnrollment where Cls_ID="+Class_ID+" AND Status="+status+" order by Stu_Enroll_Time LIMIT 1";
+               rs = stmt.executeQuery(sql);
+
+               while (rs.next()){
+                   onee = new Oneenroll();
+                   onee.setStuenrollid(rs.getString("Stu_Enroll_ID"));
+                   onee.setStuid(rs.getString("Stu_ID"));
+                   onee.setClassid(rs.getString("Cls_ID"));
+                   onee.setGrade(rs.getString("Grade"));
+                   onee.setStatus(rs.getString("Status"));
+
+                }
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentEnrollDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return onee;
+    
+    }
+
 
 }

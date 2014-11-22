@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://xml.netbeans.org/schema/studentInWaitlist"
+    xmlns:tns="http://xml.netbeans.org/schema/studentInWaitlist"
+    elementFormDefault="qualified">
+    <xsd:complexType name="waitlist">
+        <xsd:sequence>
+            <xsd:element name="student" maxOccurs="unbounded" minOccurs="0">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="classID" type="xsd:string"></xsd:element>
+                        <xsd:element name="studentID" type="xsd:string"></xsd:element>
+                        <xsd:element name="email" type="xsd:string"></xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
