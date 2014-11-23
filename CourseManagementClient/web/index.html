@@ -36,6 +36,7 @@ and open the template in the editor.
                                         <TD><INPUT type="checkbox" name="chk"/></TD>
                                         <TD> 1 </TD>
                                         <TD> <INPUT type="text" name="class0" placeholder="classID"/> </TD>
+                                        <TD> <INPUT type="text" name="PremssionCode0" placeholder="Premission Code"/> </TD>
                                     </TR>
                                 </TABLE>
                             </div>
@@ -80,7 +81,12 @@ and open the template in the editor.
                     element2.placeholder = "classID";
                     cell3.appendChild(element2);
 
-
+                    var cell4 = row.insertCell(3);
+                    var element3 = document.createElement("input");
+                    element3.type = "text";
+                    element3.name = "PremissionCode" + rowCount;
+                    element3.placeholder = "Premission Code";
+                    cell4.appendChild(element3);
                 }
 
                 function deleteRow(tableID) {

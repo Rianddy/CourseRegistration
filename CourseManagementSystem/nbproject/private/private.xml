@@ -3,14 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/rianddy/NetBeansProjects/CourseRegistration/CourseManagementSystem/nbproject/jax-ws.xml</file>
-            <file>file:/Users/rianddy/NetBeansProjects/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/ws/basicCheck/PrereqMeetService.java</file>
-            <file>file:/Users/rianddy/NetBeansProjects/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/ws/RegCheckService.java</file>
-            <file>file:/Users/rianddy/NetBeansProjects/CourseRegistration/CourseManagementSystem/nbproject/xml_binding_build.xml</file>
-            <file>file:/Users/rianddy/NetBeansProjects/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/msgQueueService/PermsReqMsgService.java</file>
-            <file>file:/Users/rianddy/NetBeansProjects/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/xml/studentRegCheck.xsd</file>
-            <file>file:/Users/rianddy/NetBeansProjects/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/ws/permission/CheckStudentRegistration.java</file>
-            <file>file:/Users/rianddy/NetBeansProjects/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/serializableObj/StuClassInfoMQSerialObj.java</file>
+            <file>file:/C:/Users/KevinZhou/Documents/GitHub/CourseRegistration/CourseManagementSystem/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/KevinZhou/Documents/GitHub/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/dao/Implement/StudentEnrollDAOImpl.java</file>
+            <file>file:/C:/Users/KevinZhou/Documents/GitHub/CourseRegistration/CourseManagementSystem/setup/glassfish-resources.xml</file>
+            <file>file:/C:/Users/KevinZhou/Documents/GitHub/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/xml/studentRegCheck.xsd</file>
+            <file>file:/C:/Users/KevinZhou/Documents/GitHub/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/dao/GeneralDAO.java</file>
+            <file>file:/C:/Users/KevinZhou/Documents/GitHub/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/mail/MailUtil.java</file>
+            <file>file:/C:/Users/KevinZhou/Documents/GitHub/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/msgUtil/MsgQueueReceiver.java</file>
+            <file>file:/C:/Users/KevinZhou/Documents/GitHub/CourseRegistration/CourseManagementSystem/nbproject/private/private.properties</file>
+            <file>file:/C:/Users/KevinZhou/Documents/GitHub/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/ws/RegCheckService.java</file>
+            <file>file:/C:/Users/KevinZhou/Documents/GitHub/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/ws/daoService/DAOService.java</file>
         </group>
     </open-files>
 </project-private>

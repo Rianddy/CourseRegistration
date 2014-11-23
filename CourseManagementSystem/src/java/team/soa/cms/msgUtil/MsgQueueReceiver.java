@@ -133,17 +133,17 @@ public class MsgQueueReceiver {
         return messageList;
     }
 
-    public void msgListener(String IDProp, String queueID) {
-        MsgQueueListener listener = new MsgQueueListener();
-        try {
-            MessageConsumer consumer = ses.createConsumer(queue, "'" + IDProp + "' = '" + queueID + "'");
-            consumer.setMessageListener(listener);
-            conn.setExceptionListener(listener);
-            conn.start();
-        } catch (JMSException ex) {
-            System.out.println("JMS Connection failed: "
-                    + ex.toString());
-            System.exit(1);  
-        }
-    }
+//    public void msgListener(String IDProp, String queueID) {
+//        MsgQueueListener listener = new MsgQueueListener();
+//        try {
+//            MessageConsumer consumer = ses.createConsumer(queue, "'" + IDProp + "' = '" + queueID + "'");
+//            consumer.setMessageListener(listener);
+//            conn.setExceptionListener(listener);
+//            conn.start();
+//        } catch (JMSException ex) {
+//            System.out.println("JMS Connection failed: "
+//                    + ex.toString());
+//            System.exit(1);  
+//        }
+//    }
 }

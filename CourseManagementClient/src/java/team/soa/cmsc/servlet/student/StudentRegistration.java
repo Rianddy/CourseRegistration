@@ -51,20 +51,29 @@ public class StudentRegistration extends HttpServlet {
             
             // Get all classes that the students want to register from request
             List<Integer> classIDList = new ArrayList<Integer>();
-            int i = 0;
             
+            // Get all premission codes asscociated with classId, if none, set as 0
+            List<Integer> PremissionCodeList = new ArrayList<Integer>();
+            
+            int i = 0;            
             
             while (request.getParameter("class" + i) != null) {
+                int PremissionCode = 0;
+                if (request.getParameter("PremssionCode" + i) != null && !request.getParameter("PremssionCode" + i).equals("")) {
+                    PremissionCode = Integer.valueOf(request.getParameter("PremssionCode" + i));
+                }
+
+                PremissionCodeList.add(PremissionCode);
                 
                 // Create current class information object
-                
+
                 // Get classid from request
                 int classID = Integer.valueOf(request.getParameter("class" + i));
-                
+
                 classIDList.add(classID);
                 i++;
             }
-            StuRegCheckInfo srci = RegCheckController.checkStudentRegistration(stuID, classIDList);
+            StuRegCheckInfo srci = RegCheckController.checkStudentRegistration(stuID, classIDList, PremissionCodeList);
             // Redirect to successful page with some attributes
             request.setAttribute("StuRegCheckInfo", srci);
             request.getRequestDispatcher("/RegistrationResult.jsp").forward(request, response);

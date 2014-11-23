@@ -18,9 +18,13 @@ import team.soa.cms.ws.CheckStudentRegistrationResponse;
  */
 public class RegCheckController {
 
-    public static StuRegCheckInfo checkStudentRegistration(int stuID, java.util.List<java.lang.Integer> classIDList) {
+    public static StuRegCheckInfo checkStudentRegistration(int stuID, java.util.List<java.lang.Integer> classIDList, java.util.List<java.lang.Integer> premissionCodeList) {
         team.soa.cms.ws.RegCheckService_Service service = new team.soa.cms.ws.RegCheckService_Service();
         team.soa.cms.ws.RegCheckService port = service.getRegCheckServicePort();
-        return port.checkStudentRegistration(stuID, classIDList);
+        return port.checkStudentRegistration(stuID, classIDList, premissionCodeList);
     }
+
+
+
+
 }

@@ -9,6 +9,7 @@ import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import org.netbeans.xml.schema.facultyxmlschema.Faculty;
+import org.netbeans.xml.schema.permissionxmlschema.Permission;
 import org.netbeans.xml.schema.prerequestxmlschema.Prerequestment;
 import org.netbeans.xml.schema.studentxmlschema.Student;
 import org.netbeans.xml.schema.stuenrolxmlschema.StuEnrollList;
@@ -17,16 +18,18 @@ import team.soa.cms.dao.ClassDAO;
 import team.soa.cms.dao.FacultyDAO;
 import team.soa.cms.dao.Implement.ClassDAOImpl;
 import team.soa.cms.dao.Implement.FacultyDAOImpl;
+import team.soa.cms.dao.Implement.PermissionDAOImpl;
 import team.soa.cms.dao.Implement.PrerequestmentDAOImpl;
 import team.soa.cms.dao.Implement.StudentDAOImpl;
 import team.soa.cms.dao.Implement.StudentEnrollDAOImpl;
+import team.soa.cms.dao.PermissionDAO;
 import team.soa.cms.dao.PrerequestmentDAO;
 import team.soa.cms.dao.StudentDAO;
 import team.soa.cms.dao.StudentEnrollDAO;
 
 /**
  *
- * @author birui
+ * @author birui, edited by Kevin
  */
 @WebService(serviceName = "DAOService")
 public class DAOService {
@@ -136,5 +139,14 @@ public class DAOService {
     public Oneenroll getStudentEnrollmentRecord(@WebParam(name = "studentid") int studentid, @WebParam(name = "courseid") int classid) {
         StudentEnrollDAO stuEnrollDAO = new StudentEnrollDAOImpl();
         return stuEnrollDAO.getOneEnrollmentInfo(studentid,classid);
+    }
+    
+     /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getOnePermissionInfo")
+    public Permission getOnePermissionInfo(@WebParam(name = "permission_id") int permission_id) {
+        PermissionDAO perDAO = new PermissionDAOImpl();
+        return perDAO.getOnePermissionInfo(Integer.valueOf(permission_id));
     }
 }
