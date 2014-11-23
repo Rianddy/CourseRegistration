@@ -23,7 +23,7 @@ public class GeneralDAO {
    
     public void OpenConnection(){
         String DBPORT ="3306";
-        String DBNAME ="courseregistrationdb";
+        String DBNAME ="courseregistration";
         String DBUSER ="root";
         String DBPASSWORD="";
         try {

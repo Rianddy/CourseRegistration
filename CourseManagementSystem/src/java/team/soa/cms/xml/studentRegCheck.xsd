@@ -26,6 +26,7 @@
             <xsd:element name="classid" type="xsd:string"></xsd:element>
             <xsd:element name="classvalid" type="xsd:boolean"></xsd:element>
             <xsd:element name="classstatus" type="xsd:string"></xsd:element>
+            <xsd:element name="facultyEmail" type="xsd:string"></xsd:element>
             <xsd:element name="canTake" type="xsd:boolean"></xsd:element>
             <xsd:element name="PrereqClasses" type="tns:ClassPrereq" minOccurs="0" maxOccurs="unbounded"></xsd:element>
         </xsd:sequence>
@@ -40,12 +41,10 @@
     </xsd:complexType>
     
     <xsd:complexType name="StuRegCheckInfo">
-        <!--xsd:complexType-->
-            <xsd:sequence>
-                <xsd:element name="studentInfo" type="tns:studentInformation"></xsd:element>
-                <xsd:element name="clazzInfo" type="tns:classList"></xsd:element>
-            </xsd:sequence>
-        <!--/xsd:complexType-->
+        <xsd:sequence>
+            <xsd:element name="studentInfo" type="tns:studentInformation"></xsd:element>
+            <xsd:element name="clazzInfo" type="tns:classList"></xsd:element>
+        </xsd:sequence>
     </xsd:complexType>
     
 </xsd:schema>

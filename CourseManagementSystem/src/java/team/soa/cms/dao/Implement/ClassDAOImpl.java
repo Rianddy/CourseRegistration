@@ -53,6 +53,27 @@ public class ClassDAOImpl extends GeneralDAO implements ClassDAO{
         }
          
     }
+    
+    @Override
+    public Faculty getFacultyInfo(int class_id) {
+        try {
+            this.OpenConnection();
+            this.sql = "select * from Class where cls_id="+class_id;
+            rs =stmt.executeQuery(sql);
+            String fac_ID="",Open_Sem_ID="";
+            while (rs.next()){
+                fac_ID =rs.getString("Fac_ID"); 
+            }
+            Faculty fac= new Faculty();
+            FacultyDAO facDAO = new FacultyDAOImpl();
+            fac =facDAO.getOneFaculty(Integer.parseInt(fac_ID));
+            return fac;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ClassDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
 
     @Override
     public Class getOneClass(int class_id) {

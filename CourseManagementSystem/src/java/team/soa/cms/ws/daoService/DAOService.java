@@ -17,6 +17,7 @@ import org.netbeans.xml.schema.stuenrolxmlschema.StuEnrollList.Oneenroll;
 import team.soa.cms.dao.ClassDAO;
 import team.soa.cms.dao.FacultyDAO;
 import team.soa.cms.dao.Implement.ClassDAOImpl;
+import team.soa.cms.dao.Implement.CourseDAOImpl;
 import team.soa.cms.dao.Implement.FacultyDAOImpl;
 import team.soa.cms.dao.Implement.PermissionDAOImpl;
 import team.soa.cms.dao.Implement.PrerequestmentDAOImpl;
@@ -26,6 +27,10 @@ import team.soa.cms.dao.PermissionDAO;
 import team.soa.cms.dao.PrerequestmentDAO;
 import team.soa.cms.dao.StudentDAO;
 import team.soa.cms.dao.StudentEnrollDAO;
+import team.soa.cms.serializableObj.PermissionresultSerialObj;
+import team.soa.cms.serializableObj.StuClassInfoMQSerialObj;
+import team.soa.cms.serializableObj.permissionresultSerializableObj.ClassinfoSerialObj;
+import team.soa.cms.serializableObj.permissionresultSerializableObj.FacultyinfoSerialObj;
 
 /**
  *
@@ -148,5 +153,38 @@ public class DAOService {
     public Permission getOnePermissionInfo(@WebParam(name = "permission_id") int permission_id) {
         PermissionDAO perDAO = new PermissionDAOImpl();
         return perDAO.getOnePermissionInfo(Integer.valueOf(permission_id));
+    }
+    
+     /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "transferFromStuClassInfoToPermissionResult")
+    public team.soa.cms.serializableObj.permissionresultSerializableObj.StudentinfoSerialObj transferFromStuClassInfoToPermissionResult(@WebParam(name = "stuClassInfoMQSerialObj") StuClassInfoMQSerialObj stuClassInfoMQSerialObj) {
+        PermissionresultSerialObj permissionresultSerialObj = new PermissionresultSerialObj();
+        ClassinfoSerialObj classinfoSerialObj = new ClassinfoSerialObj();
+        FacultyinfoSerialObj facultyinfoSerialObj = new FacultyinfoSerialObj();
+        team.soa.cms.serializableObj.permissionresultSerializableObj.StudentinfoSerialObj studentinfoSerialObj2 = new team.soa.cms.serializableObj.permissionresultSerializableObj.StudentinfoSerialObj();
+        
+        ClassDAOImpl classDAOImpl = new ClassDAOImpl();
+        CourseDAOImpl courseDAOImpl = new CourseDAOImpl();
+        org.netbeans.xml.schema.classxmlschema.Class curClass = classDAOImpl.getOneClass(Integer.valueOf(stuClassInfoMQSerialObj.getClassInfo().getClassid()));
+        classinfoSerialObj.setClassid(curClass.getClassid());
+        classinfoSerialObj.setCourseid(curClass.getCosid());
+        classinfoSerialObj.setCoursename(courseDAOImpl.getOneCourse(Integer.valueOf(curClass.getCosid())).getCoursename());
+        classinfoSerialObj.setOpensemester(curClass.getOpensemid());
+        permissionresultSerialObj.setClassinfoserial(classinfoSerialObj);
+        
+        Faculty faculty = classDAOImpl.getFacultyInfo(Integer.valueOf(stuClassInfoMQSerialObj.getClassInfo().getClassid()));
+        facultyinfoSerialObj.setFacemail(faculty.getFacemail());
+        facultyinfoSerialObj.setFacid(faculty.getFacid());
+        facultyinfoSerialObj.setFacname(faculty.getFacname());
+        permissionresultSerialObj.setFacinfoserial(facultyinfoSerialObj);
+        
+        studentinfoSerialObj2.setStuemail(stuClassInfoMQSerialObj.getStudentInfo().getEmail());
+        studentinfoSerialObj2.setStuid(stuClassInfoMQSerialObj.getStudentInfo().getStuid());
+        studentinfoSerialObj2.setStuname("test");
+        permissionresultSerialObj.setStuinfoserial(studentinfoSerialObj2);
+        
+        return studentinfoSerialObj2;
     }
 }

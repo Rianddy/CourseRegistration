@@ -90,11 +90,21 @@
 		</bindings>
 		<catalog/>
 	</schema>
-	<schema type='-xmlschema' package='' name='studentregscheck'>
+	<schema type='-xmlschema' package='' name='studentprereqcheckschema'>
 		<xjc-options>
 		</xjc-options>
 		<schema-sources>
-			<schema-source location='src/conf/xml-resources/jaxb/studentregscheck/studentRegCheck.xsd' origLocation='src/java/team/soa/cms/xml/studentRegCheck.xsd'/>
+			<schema-source location='src/conf/xml-resources/jaxb/studentprereqcheckschema/studentPrereqCheck.xsd' origLocation='src/java/team/soa/cms/xml/studentPrereqCheck.xsd'/>
+		</schema-sources>
+		<bindings>
+		</bindings>
+		<catalog/>
+	</schema>
+	<schema type='-xmlschema' package='' name='stuclassppermresultxmlschema'>
+		<xjc-options>
+		</xjc-options>
+		<schema-sources>
+			<schema-source location='src/conf/xml-resources/jaxb/stuclassppermresultxmlschema/stuclassppermresultXmlSchema.xsd' origLocation='src/java/team/soa/cms/xml/stuclassppermresultXmlSchema.xsd'/>
 		</schema-sources>
 		<bindings>
 		</bindings>
@@ -110,11 +120,11 @@
 		</bindings>
 		<catalog/>
 	</schema>
-	<schema type='-xmlschema' package='' name='studentprereqcheckschema'>
+	<schema type='-xmlschema' package='' name='studentregscheck'>
 		<xjc-options>
 		</xjc-options>
 		<schema-sources>
-			<schema-source location='src/conf/xml-resources/jaxb/studentprereqcheckschema/studentPrereqCheck.xsd' origLocation='src/java/team/soa/cms/xml/studentPrereqCheck.xsd'/>
+			<schema-source location='src/conf/xml-resources/jaxb/studentregscheck/studentRegCheck.xsd' origLocation='src/java/team/soa/cms/xml/studentRegCheck.xsd'/>
 		</schema-sources>
 		<bindings>
 		</bindings>
