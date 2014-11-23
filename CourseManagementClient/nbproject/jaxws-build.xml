@@ -106,22 +106,6 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/webservice/prereqmeet"/>
         <delete dir="${build.generated.dir}/jax-wsCache/PrereqMeetService"/>
     </target>
-    <target name="wsimport-client-RegCheckService" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/RegCheckService"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/RegCheckService" destdir="${build.generated.dir}/jax-wsCache/RegCheckService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/RegCheckService/wsdl/localhost_8080/CourseManagementSystem/RegCheckService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/CourseManagementSystem/RegCheckService?wsdl" xnocompile="true" xendorsed="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/RegCheckService/wsdl/localhost_8080/CourseManagementSystem/RegCheckService.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/RegCheckService"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/RegCheckService">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="wsimport-client-clean-RegCheckService" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/team/soa/cms/ws"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/RegCheckService"/>
-    </target>
     <target name="wsimport-client-StudentDropClass" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/StudentDropClass"/>
         <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/StudentDropClass" destdir="${build.generated.dir}/jax-wsCache/StudentDropClass" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/StudentDropClass/wsdl/localhost_8080/CourseManagementSystem/StudentDropClass.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/CourseManagementSystem/StudentDropClass?wsdl" xnocompile="true" xendorsed="true">
@@ -170,5 +154,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/team/soa/cms/msgqueueservice"/>
         <delete dir="${build.generated.dir}/jax-wsCache/PermsConfmMsgService"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-StudentValidService, wsimport-client-DAOService, wsimport-client-ClassValidService, wsimport-client-ClassCanRegisterService, wsimport-client-PrereqMeetService, wsimport-client-RegCheckService, wsimport-client-StudentDropClass, wsimport-client-PermsReqMsgService, wsimport-client-PermsConfmMsgService"/>
+    <target name="wsimport-client-RegCheckService" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/RegCheckService"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/RegCheckService" destdir="${build.generated.dir}/jax-wsCache/RegCheckService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/RegCheckService/wsdl/localhost_8080/CourseManagementSystem/RegCheckService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/CourseManagementSystem/RegCheckService?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/RegCheckService/wsdl/localhost_8080/CourseManagementSystem/RegCheckService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/RegCheckService"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/RegCheckService">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-RegCheckService" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/team/soa/cms/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/RegCheckService"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-StudentValidService, wsimport-client-DAOService, wsimport-client-ClassValidService, wsimport-client-ClassCanRegisterService, wsimport-client-PrereqMeetService, wsimport-client-StudentDropClass, wsimport-client-PermsReqMsgService, wsimport-client-PermsConfmMsgService, wsimport-client-RegCheckService"/>
 </project>

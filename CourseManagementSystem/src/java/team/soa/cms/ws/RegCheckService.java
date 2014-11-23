@@ -9,6 +9,7 @@ import java.util.List;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import org.netbeans.xml.schema.permissionxmlschema.Permission;
 import org.netbeans.xml.schema.studentprereqcheck.StudentClass;
 import org.netbeans.xml.schema.studentregcheck.ClassInfo;
 import org.netbeans.xml.schema.studentregcheck.ClassList;
@@ -34,7 +35,7 @@ public class RegCheckService {
     DAOService daoService = new DAOService();
 
    @WebMethod(operationName = "checkStudentRegistration")
-    public StuRegCheckInfo checkStudentRegistration(@WebParam(name = "Stu_ID") int Stu_ID, @WebParam(name = "Class_ID_List") List<Integer> ClsIdList) {
+    public StuRegCheckInfo checkStudentRegistration(@WebParam(name = "Stu_ID") int Stu_ID, @WebParam(name = "Class_ID_List") List<Integer> ClsIdList, @WebParam(name = "Premission_Code_List") List<Integer> PremissionCodeList) {
 
         StuRegCheckInfo info = new StuRegCheckInfo();
         ClassList clsList = new ClassList();
@@ -54,9 +55,14 @@ public class RegCheckService {
             stu.setValid(stuValid);
         }
 
-        for (Integer Class_ID : ClsIdList) {
+        for (int i = 0; i < ClsIdList.size(); i++) {
+            int Class_ID = ClsIdList.get(i);
+            
             boolean clsValid = classValid.classIsValid(Class_ID);
             if (clsValid) {
+                int PremissionCode = PremissionCodeList.get(i);
+                
+                if (PremissionCode == 0) {
                 ClassInfo cls = new ClassInfo();
                 Integer classStatus = canRegister.classRegisterLeftSpace(Class_ID);
                 cls.setClassid(String.valueOf(Class_ID));
@@ -73,6 +79,23 @@ public class RegCheckService {
 
                 //clsList.setClazz(cls);
                 clsList.getClazz().add(cls);
+                } else {
+                    Permission permission = daoService.getOnePermissionInfo(PremissionCode);
+                    if (permission != null && permission.getStatus().equals("accept")) {
+                        if (Class_ID == Integer.valueOf(permission.getClassid())) {
+                            ClassInfo cls = new ClassInfo();
+                            Integer classStatus = canRegister.classRegisterLeftSpace(Class_ID);
+                            cls.setClassid(String.valueOf(Class_ID));
+                            cls.setClassvalid(true);
+                            cls.setCanTake(true);
+                            cls.setClassstatus(String.valueOf(classStatus));
+                            daoService.insertStudentEnrollment(String.valueOf(Stu_ID), String.valueOf(Class_ID));
+                            System.out.print(cls.getClassid() + " " + cls.getClassstatus());
+
+                            clsList.getClazz().add(cls);
+                        }
+                    }
+                }
             }
         }
 
