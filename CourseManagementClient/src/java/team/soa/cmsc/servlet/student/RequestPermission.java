@@ -11,12 +11,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.WebServiceRef;
+import team.soa.cms.ws.permission.PermissionRequestService_Service;
 
 /**
  *
  * @author riand_000
  */
 public class RequestPermission extends HttpServlet {
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/CourseManagementSystem/PermissionRequestService.wsdl")
+    private PermissionRequestService_Service service;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,6 +34,10 @@ public class RequestPermission extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        String stu_id = request.getParameter("stu_id");
+        String class_id = request.getParameter("class_id");
+        String faculty_email = request.getParameter("faculty_email");
+        String status = prereqMsgQueue(stu_id, class_id, faculty_email);
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -38,7 +46,7 @@ public class RequestPermission extends HttpServlet {
             out.println("<title>Servlet RequestPermission</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet RequestPermission at " + request.getContextPath() + "</h1>");
+            out.println("<h1>" + status + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -82,5 +90,12 @@ public class RequestPermission extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private String prereqMsgQueue(java.lang.String stuID, java.lang.String classID, java.lang.String faculty_email) {
+        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
+        // If the calling of port operations may lead to race condition some synchronization is required.
+        team.soa.cms.ws.permission.PermissionRequestService port = service.getPermissionRequestServicePort();
+        return port.prereqMsgQueue(stuID, classID, faculty_email);
+    }
 
 }

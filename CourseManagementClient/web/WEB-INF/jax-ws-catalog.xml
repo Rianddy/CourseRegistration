@@ -27,4 +27,6 @@
     <system systemId="http://localhost:8080/CourseManagementSystem/PermsConfmMsgService?wsdl" uri="wsdl/localhost_8080/CourseManagementSystem/PermsConfmMsgService.wsdl"/>
     <system systemId="http://localhost:8080/CourseManagementSystem/PermsConfmMsgService?xsd=1" uri="wsdl/localhost_8080/CourseManagementSystem/PermsConfmMsgService.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/CourseManagementSystem/PermsConfmMsgService?xsd=2" uri="wsdl/localhost_8080/CourseManagementSystem/PermsConfmMsgService.xsd_2.xsd"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/PermissionRequestService?wsdl" uri="wsdl/localhost_8080/CourseManagementSystem/PermissionRequestService.wsdl"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/PermissionRequestService?xsd=1" uri="wsdl/localhost_8080/CourseManagementSystem/PermissionRequestService.xsd_1.xsd"/>
 </catalog>

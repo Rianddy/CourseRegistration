@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-import javax.jms.Message;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -55,10 +54,9 @@ public class CheckPermsReqServlet extends HttpServlet {
             out.println("<title>Faculty check Permission Request</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Permission Request from " + permsMsgList.get(0).getStuname() + "</h1>");
-            out.println("<h3>Request Permission for " + permsMsgList.get(0).getRequestclasslist().get(0).getCoursename() + "</h3>");
-            out.println("<h3>Accept </h3>");
-            out.println("<h3>Rejuct </h3>");
+            out.println("<h1>Permission Request from " + permsMsgList.get(0) + "</h1>");
+            out.println("<a href='ConfirmPermsSerlvet?status=accept&permsId="+permsId+"'>Accept </a>");
+            out.println("<a href='ConfirmPermsSerlvet?status=reject&permsId="+permsId+"'>Rejuct </a>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -112,6 +110,7 @@ public class CheckPermsReqServlet extends HttpServlet {
         team.soa.cms.msgqueueservice.PermsReqMsgService port = service.getPermsReqMsgServicePort();
         return port.getPermsInfo(permsID);
     }
+
 
 
 }

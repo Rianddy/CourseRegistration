@@ -2,25 +2,9 @@
 
 <xs:import namespace="http://xml.netbeans.org/schema/stuclassmessageXmlSchema" schemaLocation="http://localhost:8080/CourseManagementSystem/PermsConfmMsgService?xsd=1"/>
 
-<xs:element name="setMsgListener" type="tns:setMsgListener"/>
-
-<xs:element name="setMsgListenerResponse" type="tns:setMsgListenerResponse"/>
-
 <xs:element name="setPermsConfirm" type="tns:setPermsConfirm"/>
 
 <xs:element name="setPermsConfirmResponse" type="tns:setPermsConfirmResponse"/>
-
-<xs:complexType name="setMsgListener">
-<xs:sequence>
-<xs:element name="PermsID" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="setMsgListenerResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
 
 <xs:complexType name="setPermsConfirm">
 <xs:sequence>
