@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: Nov 03, 2014 at 09:56 PM
+-- Generation Time: Nov 15, 2014 at 01:43 AM
 -- Server version: 5.5.34
 -- PHP Version: 5.5.10
 
@@ -33,14 +33,18 @@ CREATE TABLE `Class` (
   KEY `Cos_ID` (`Cos_ID`),
   KEY `Open_Sem_ID` (`Open_Sem_ID`),
   KEY `Fac_ID` (`Fac_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `Class`
 --
 
 INSERT INTO `Class` (`Cls_ID`, `Cos_ID`, `Max_Size`, `Max_WaitList`, `Cur_Size`, `Cur_WaitList`, `Open_Sem_ID`, `Fac_ID`) VALUES
-(1, 1, 30, 10, 0, 0, 1, 1);
+(1, 1, 30, 10, 0, 0, 1, 1),
+(6, 1, 27, 11, 0, 0, 1, 2),
+(7, 2, 30, 10, 0, 2, 1, 3),
+(8, 3, 30, 0, 0, 0, 1, 4),
+(9, 1, 30, 10, 0, 0, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -54,14 +58,17 @@ CREATE TABLE `Concentration` (
   `Maj_ID` int(11) NOT NULL,
   PRIMARY KEY (`Conc_ID`),
   KEY `Maj_ID` (`Maj_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `Concentration`
 --
 
 INSERT INTO `Concentration` (`Conc_ID`, `Name`, `Maj_ID`) VALUES
-(1, 'general', 1);
+(1, 'general', 1),
+(2, 'Human Center Computing', 1),
+(3, 'Big Data', 1),
+(4, 'Database and Web', 1);
 
 -- --------------------------------------------------------
 
@@ -82,14 +89,17 @@ CREATE TABLE `Course` (
   KEY `Maj_ID` (`Maj_ID`),
   KEY `Conc_ID` (`Conc_ID`),
   KEY `Dep_ID` (`Dep_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `Course`
 --
 
 INSERT INTO `Course` (`Cos_ID`, `Dep_ID`, `Maj_ID`, `Conc_ID`, `Name`, `Description`, `Credits`, `Status`) VALUES
-(1, 1, 1, 1, 'E-Business', 'E-business by Spring', 3, 1);
+(1, 1, 1, 1, 'E-Business', 'E-business by Spring', 3, 1),
+(2, 1, 1, NULL, 'Database', 'Database by valamier', 3, 1),
+(3, 1, 1, 2, 'Interactive System Design', 'Interactive by Peter', 3, 1),
+(4, 1, 1, 3, 'Data Mining ', 'Data Mining by Peter', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -128,14 +138,17 @@ CREATE TABLE `Faculty` (
   `Dep_ID` int(11) DEFAULT NULL,
   PRIMARY KEY (`Fac_ID`),
   KEY `Dep_ID` (`Dep_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `Faculty`
 --
 
 INSERT INTO `Faculty` (`Fac_ID`, `Name`, `Status`, `Email`, `Cell`, `Dep_ID`) VALUES
-(1, 'Michael Spring', '', 'mbsSpring@pitt.edu', '412-608-8888', 1);
+(1, 'Michael Spring', '', 'mbsSpring@pitt.edu', '412-608-8888', 1),
+(2, 'Becich, Michael', '\0', 'becich@pitt.edu', '412-608-7777', 1),
+(3, 'Cooper, Gregory F', '\0', 'gfc@pitt.edu', '412-608-6666', 1),
+(4, 'Brusilovsky, Peter', '\0', 'peter@pitt.edu', '412-608-1234', 1);
 
 -- --------------------------------------------------------
 
@@ -149,14 +162,17 @@ CREATE TABLE `Major` (
   `Dep_ID` int(11) NOT NULL,
   PRIMARY KEY (`Maj_ID`),
   KEY `Dep_ID` (`Dep_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `Major`
 --
 
 INSERT INTO `Major` (`Maj_ID`, `Name`, `Dep_ID`) VALUES
-(1, 'Information Scienece', 1);
+(1, 'Information Scienece', 1),
+(2, 'Telecomnication Information', 1),
+(3, 'Liberity information science', 1),
+(4, 'Undergraduate information science', 1);
 
 -- --------------------------------------------------------
 
@@ -187,7 +203,16 @@ CREATE TABLE `Prerequestment` (
   PRIMARY KEY (`PreReq_ID`),
   KEY `Cos_ID` (`Cos_ID`),
   KEY `Pre_Cos_ID` (`Pre_Cos_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `Prerequestment`
+--
+
+INSERT INTO `Prerequestment` (`PreReq_ID`, `Cos_ID`, `Pre_Cos_ID`) VALUES
+(1, 1, 2),
+(2, 1, 3),
+(3, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -202,14 +227,17 @@ CREATE TABLE `Semester` (
   `End_Date` date NOT NULL,
   `Add_Drop_Date` date NOT NULL,
   PRIMARY KEY (`Sem_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `Semester`
 --
 
 INSERT INTO `Semester` (`Sem_ID`, `Short_Name`, `Start_Date`, `End_Date`, `Add_Drop_Date`) VALUES
-(1, 'FALL2014', '2014-08-27', '2014-12-14', '2014-09-15');
+(1, 'FALL2014', '2014-08-27', '2014-12-14', '2014-09-15'),
+(2, 'Spring2015', '2014-01-27', '2014-04-14', '2014-02-15'),
+(3, 'Spring2014', '2014-01-27', '2014-04-14', '2014-02-15'),
+(4, 'Summer2014', '2014-04-17', '2014-08-19', '2014-05-25');
 
 -- --------------------------------------------------------
 
@@ -231,7 +259,7 @@ CREATE TABLE `Student` (
   KEY `Conc_ID` (`Conc_ID`),
   KEY `Maj_ID` (`Maj_ID`),
   KEY `Dep_ID` (`Dep_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `Student`
@@ -240,7 +268,13 @@ CREATE TABLE `Student` (
 INSERT INTO `Student` (`Stu_ID`, `Name`, `Email`, `Dep_ID`, `Maj_ID`, `Conc_ID`, `Birthday`, `Address`, `Cell`) VALUES
 (1, 'Zhefeng Chen', 'chenzf.pitts@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL),
 (2, 'Haoyu Wang', 'hyw2013.pitts@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 'Zhefeng Chen', 'zf@pitt.edu', 1, 1, 1, '1990-12-09', 'N.Dithridge', '412-608-9999');
+(3, 'Zhefeng Chen', 'zf@pitt.edu', 1, 1, 1, '1990-12-09', 'N.Dithridge', '412-608-9999'),
+(4, 'Yaping Chen', 'yaping@gmail.com', 1, 1, 2, NULL, NULL, NULL),
+(5, 'Rui Cai', 'ruiC@gmail.com', 1, 1, 3, NULL, NULL, NULL),
+(6, 'Bi Rui', 'rb@pitt.edu', 1, 1, 1, NULL, NULL, NULL),
+(7, 'Victory', 'vc@gmail.com', 1, 1, 1, NULL, NULL, NULL),
+(8, 'Sam', 'sam@gmail.com', 1, 1, 3, NULL, NULL, NULL),
+(9, 'Ruiting Yi', 'ry@pitt.edu', 1, 1, 1, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -259,14 +293,18 @@ CREATE TABLE `StudentEnrollment` (
   PRIMARY KEY (`Stu_Enroll_ID`),
   KEY `Stu_ID` (`Stu_ID`),
   KEY `Cls_ID` (`Cls_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `StudentEnrollment`
 --
 
 INSERT INTO `StudentEnrollment` (`Stu_Enroll_ID`, `Stu_ID`, `Cls_ID`, `Grade`, `Score`, `Status`, `Stu_Enroll_Time`) VALUES
-(1, 1, 1, NULL, 0, 'enroll', '2014-11-01 03:37:32');
+(1, 2, 1, NULL, 0, 'enroll', '2014-11-15 00:15:43'),
+(4, 1, 6, 'A', 90, 'complete', '2014-11-15 00:38:58'),
+(5, 3, 7, NULL, NULL, 'enroll', '2014-11-15 00:39:20'),
+(6, 4, 7, NULL, NULL, 'waitlist', '2014-11-15 00:39:30'),
+(7, 5, 7, NULL, NULL, 'waitlist', '2014-11-15 00:39:39');
 
 --
 -- Constraints for dumped tables
