@@ -52,8 +52,7 @@ public class MsgQueueReceiver {
             queueCF = (QueueConnectionFactory) ctx.lookup(connSrc);
             conn = queueCF.createConnection();
             ses = conn.createSession(Session.SESSION_TRANSACTED);
-            queue = (Queue) ctx.lookup(queueSrc);
-            conn.start();
+            queue = (Queue) ctx.lookup(queueSrc);            
         } catch (NamingException ex) {
             System.out.println("JNDI API lookup failed: "
                     + ex.toString());
@@ -75,6 +74,7 @@ public class MsgQueueReceiver {
         
         List<Message> messageList = null;
         try {
+            conn.start();
             QueueBrowser browser = ses.createBrowser(queue,selector);
             Message msg = null;
             Enumeration msgs = browser.getEnumeration();
@@ -107,6 +107,7 @@ public class MsgQueueReceiver {
     public List<Message> consumeMessage(String selector) {
         List<Message> messageList = null;
         try {
+            conn.start();
             MessageConsumer consumer = ses.createConsumer(queue, selector);
             Message msg = consumer.receive(10);
             if (msg != null) {

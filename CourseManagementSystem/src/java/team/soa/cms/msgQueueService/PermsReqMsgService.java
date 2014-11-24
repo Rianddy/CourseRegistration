@@ -16,6 +16,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import org.netbeans.xml.schema.stuclassmessagexmlschema.Stuclassmessage;
 import team.soa.cms.mail.PermsReqMailService;
+import team.soa.cms.serializableObj.PermissionresultSerialObj;
 import team.soa.cms.serializableObj.StuClassInfoMQSerialObj;
 
 /**
@@ -26,7 +27,7 @@ import team.soa.cms.serializableObj.StuClassInfoMQSerialObj;
 public class PermsReqMsgService {
 
     public String permsProp = "PermsId";
-    public String permsConnPath = "permsPool";
+    public String permsConnPath = "permsReqPool";
     public String permsQueuePath = "permsFal";
 
     /**
@@ -80,4 +81,28 @@ public class PermsReqMsgService {
         return permsObj;
     }
 
+        /**
+     * 
+     * @param PermsId 
+     * @return 
+     */
+    @WebMethod(operationName = "consumeFalMsg")
+    public List<StuClassInfoMQSerialObj> consumeFalMsg(@WebParam(name = "PermsId") String PermsId) {
+        //TODO write your implementation code here:
+        List<StuClassInfoMQSerialObj> permsObj = new ArrayList<StuClassInfoMQSerialObj>();
+
+        MsgQueueReceiver receiver = new MsgQueueReceiver(permsConnPath, permsQueuePath);
+        List<Message> msgList = new ArrayList<Message>();
+        String selector = permsProp + " = '" + PermsId + "'";
+        msgList = receiver.consumeMessage(selector);
+        for (Message msg : msgList) {
+            ObjectMessage objMsg = (ObjectMessage) msg;
+            try {
+                permsObj.add((StuClassInfoMQSerialObj) objMsg.getObject());
+            } catch (JMSException ex) {
+                permsObj.add(null);
+            }
+        }
+        return permsObj;
+    }
 }

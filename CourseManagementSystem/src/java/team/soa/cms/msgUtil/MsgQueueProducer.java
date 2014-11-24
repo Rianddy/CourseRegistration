@@ -49,7 +49,6 @@ public class MsgQueueProducer {
             ses = conn.createSession(true, Session.SESSION_TRANSACTED);
             queue = (Queue) ctx.lookup(queueSrc);
             producer = ses.createProducer((Destination) queue);
-            conn.start();
         } catch (NamingException ex) {
             System.out.println("JNDI API lookup failed: "
                     + ex.toString());
@@ -70,6 +69,7 @@ public class MsgQueueProducer {
      */
     public String setTextMsg(String text, List<String> propList) {
         try {
+            conn.start();
             Message m = ses.createTextMessage(text);
             m.setJMSDestination(producer.getDestination());
             for (String prop : propList) {
@@ -90,6 +90,7 @@ public class MsgQueueProducer {
 
     public String setObjMsg(Object object, List<String> propList) {
         try {
+            conn.start();
             Message m = ses.createObjectMessage((Serializable) object);
             m.setJMSDestination(producer.getDestination());
             for (String prop : propList) {

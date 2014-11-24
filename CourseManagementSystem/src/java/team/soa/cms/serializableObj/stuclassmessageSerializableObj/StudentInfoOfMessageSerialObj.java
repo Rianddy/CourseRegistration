@@ -6,6 +6,7 @@
 package team.soa.cms.serializableObj.stuclassmessageSerializableObj;
 
 
+import java.io.Serializable;
 import org.netbeans.xml.schema.stuclassmessagexmlschema.StudentInfo;
 
 
@@ -15,13 +16,13 @@ import org.netbeans.xml.schema.stuclassmessagexmlschema.StudentInfo;
  *
  * @author riand_000
  */
-public class StudentInfoSerialObj {
+public class StudentInfoOfMessageSerialObj implements Serializable{
 
     private String stuid;
     private String email;
     private boolean valid;
 
-    public StudentInfoSerialObj(StudentInfo studentInfo){
+    public StudentInfoOfMessageSerialObj(StudentInfo studentInfo){
         this.stuid = studentInfo.getStudentid();
         this.email = studentInfo.getEmail();
         this.valid = studentInfo.isValid();

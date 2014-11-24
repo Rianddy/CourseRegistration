@@ -13,11 +13,12 @@ import javax.jms.ObjectMessage;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
-import org.netbeans.xml.schema.stuclassppermresultxmlschema.Permissionresult;
 import team.soa.cms.msgUtil.MsgQueueProducer;
 import team.soa.cms.msgUtil.MsgQueueReceiver;
 import team.soa.cms.serializableObj.StuClassInfoMQSerialObj;
 import team.soa.cms.serializableObj.PermissionresultSerialObj;
+import team.soa.cms.serializableObj.permissionresultSerializableObj.ClassinfoSerialObj;
+import team.soa.cms.ws.daoService.DAOService;
 
 /**
  *
@@ -26,40 +27,48 @@ import team.soa.cms.serializableObj.PermissionresultSerialObj;
 @WebService(serviceName = "PermsConfmMsgService")
 public class PermsConfmMsgService {
 
-  public String permsProp = "PermsId";
+    public String permsProp = "PermsId";
     public String permsConnPath = "permsPool";
     public String permsQueuePath = "permsStu";
 
+    DAOService DAOService = new DAOService();
+
     /**
-     * @param PermsID permission id
-     * @param studentMail send confirm email to student to show status change
-     * @param Permissionresult permsInfo
+     * Set permission information with faculty confirm status(accept or reject)
      *
-     * @return sending status
+     * @param PermsID
+     * @param status
+     * @param PermsInfo
+     * @return message queue set succeed
      */
     @WebMethod(operationName = "setPermsConfirm")
-    public String setPermsConfirm(@WebParam(name = "PermsID") String PermsID, @WebParam(name = "stuclassInfo") Permissionresult permsinfo) {
+    public String setPermsConfirm(@WebParam(name = "PermsID") String PermsID, @WebParam(name = "PermsStatus") String status, @WebParam(name = "PermsInfo") StuClassInfoMQSerialObj PermsInfo) {
 
-        PermissionresultSerialObj sobj = new PermissionresultSerialObj(permsinfo);
-        MsgQueueProducer producer = new MsgQueueProducer(permsConnPath, permsQueuePath);
+        PermissionresultSerialObj sobj = null;
+        sobj = DAOService.transferFromStuClassInfoToPermissionResult(PermsInfo);
+
+        ClassinfoSerialObj classInfo = sobj.getClassinfoserial();
+        classInfo.setRegresult(status);
+        sobj.setClassinfoserial(classInfo);
+        
         List<String> propList = new ArrayList<String>();
         propList.add(permsProp + ":" + PermsID);
 
         // set permsInfo into MQ
-        String status = producer.setObjMsg(sobj, propList);
-
-        return status;
-
+        MsgQueueProducer producer = new MsgQueueProducer(permsConnPath, permsQueuePath);
+        return producer.setObjMsg(sobj, propList);
     }
 
     /**
-     * Web service operation
+     *
+     * @param PermsId
+     * @return
      */
-    @WebMethod(operationName = "consumeMsg")
-    public List<StuClassInfoMQSerialObj> consumeMsg(@WebParam(name = "PermsId") String PermsId) {
+    @WebMethod(operationName = "consumeStuMsg")
+    public List<PermissionresultSerialObj> consumeStuMsg(@WebParam(name = "PermsId") String PermsId) {
         //TODO write your implementation code here:
-         List<StuClassInfoMQSerialObj> permsObj = new ArrayList<StuClassInfoMQSerialObj>();
-         
+        List<PermissionresultSerialObj> permsObj = new ArrayList<PermissionresultSerialObj>();
+
         MsgQueueReceiver receiver = new MsgQueueReceiver(permsConnPath, permsQueuePath);
         List<Message> msgList = new ArrayList<Message>();
         String selector = permsProp + " = '" + PermsId + "'";
@@ -67,15 +76,11 @@ public class PermsConfmMsgService {
         for (Message msg : msgList) {
             ObjectMessage objMsg = (ObjectMessage) msg;
             try {
-                permsObj.add((StuClassInfoMQSerialObj) objMsg.getObject());
+                permsObj.add((PermissionresultSerialObj) objMsg.getObject());
             } catch (JMSException ex) {
                 permsObj.add(null);
             }
         }
         return permsObj;
     }
-
-    
-    
-    
 }

@@ -55,8 +55,8 @@ public class CheckPermsReqServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Permission Request from " + permsMsgList.get(0) + "</h1>");
-            out.println("<h3>Accept </h3>");
-            out.println("<h3>Rejuct </h3>");
+            out.println("<h3 href='ConfirmPermsSerlvet?status=accept&permsId="+permsId+"'>Accept </h3>");
+            out.println("<h3 href='ConfirmPermsSerlvet?status=reject&permsId="+permsId+"'>Rejuct </h3>");
             out.println("</body>");
             out.println("</html>");
         }

@@ -19,6 +19,12 @@
 <message name="getPermsInfoResponse">
 <part name="parameters" element="tns:getPermsInfoResponse"/>
 </message>
+<message name="consumeFalMsg">
+<part name="parameters" element="tns:consumeFalMsg"/>
+</message>
+<message name="consumeFalMsgResponse">
+<part name="parameters" element="tns:consumeFalMsgResponse"/>
+</message>
 <portType name="PermsReqMsgService">
 <operation name="setPermsReq">
 <input wsam:Action="http://msgQueueService.cms.soa.team/PermsReqMsgService/setPermsReqRequest" message="tns:setPermsReq"/>
@@ -27,6 +33,10 @@
 <operation name="getPermsInfo">
 <input wsam:Action="http://msgQueueService.cms.soa.team/PermsReqMsgService/getPermsInfoRequest" message="tns:getPermsInfo"/>
 <output wsam:Action="http://msgQueueService.cms.soa.team/PermsReqMsgService/getPermsInfoResponse" message="tns:getPermsInfoResponse"/>
+</operation>
+<operation name="consumeFalMsg">
+<input wsam:Action="http://msgQueueService.cms.soa.team/PermsReqMsgService/consumeFalMsgRequest" message="tns:consumeFalMsg"/>
+<output wsam:Action="http://msgQueueService.cms.soa.team/PermsReqMsgService/consumeFalMsgResponse" message="tns:consumeFalMsgResponse"/>
 </operation>
 </portType>
 <binding name="PermsReqMsgServicePortBinding" type="tns:PermsReqMsgService">
@@ -41,6 +51,15 @@
 </output>
 </operation>
 <operation name="getPermsInfo">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="consumeFalMsg">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

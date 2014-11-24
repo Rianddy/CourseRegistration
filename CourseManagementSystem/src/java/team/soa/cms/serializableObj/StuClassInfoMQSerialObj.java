@@ -7,8 +7,8 @@ package team.soa.cms.serializableObj;
 
 import java.io.Serializable;
 import org.netbeans.xml.schema.stuclassmessagexmlschema.Stuclassmessage;
-import team.soa.cms.serializableObj.stuclassmessageSerializableObj.StudentInfoSerialObj;
-import team.soa.cms.serializableObj.stuclassmessageSerializableObj.ClassInfoSerialObj;
+import team.soa.cms.serializableObj.stuclassmessageSerializableObj.StudentInfoOfMessageSerialObj;
+import team.soa.cms.serializableObj.stuclassmessageSerializableObj.ClassInfoOfMessageSerialObj;
 
 /**
  *
@@ -16,14 +16,14 @@ import team.soa.cms.serializableObj.stuclassmessageSerializableObj.ClassInfoSeri
  */
 public class StuClassInfoMQSerialObj implements Serializable {
 
-    private StudentInfoSerialObj studentInfo;
+    private StudentInfoOfMessageSerialObj studentInfo;
     
-    private ClassInfoSerialObj classInfo;
+    private ClassInfoOfMessageSerialObj classInfo;
 
     
     public StuClassInfoMQSerialObj(Stuclassmessage stuClassMessage){
-        this.studentInfo = new StudentInfoSerialObj(stuClassMessage.getStudentinfo());
-        this.classInfo = new ClassInfoSerialObj(stuClassMessage.getRequestClass());
+        this.studentInfo = new StudentInfoOfMessageSerialObj(stuClassMessage.getStudentinfo());
+        this.classInfo = new ClassInfoOfMessageSerialObj(stuClassMessage.getRequestClass());
     }
     
     public Stuclassmessage deserializeToStuClass(){
@@ -33,19 +33,19 @@ public class StuClassInfoMQSerialObj implements Serializable {
         return stuClassInfo;
     }
     
-    public StudentInfoSerialObj getStudentInfo() {
+    public StudentInfoOfMessageSerialObj getStudentInfo() {
         return studentInfo;
     }
 
-    public void setStudentInfo(StudentInfoSerialObj studentInfo) {
+    public void setStudentInfo(StudentInfoOfMessageSerialObj studentInfo) {
         this.studentInfo = studentInfo;
     }
 
-    public ClassInfoSerialObj getClassInfo() {
+    public ClassInfoOfMessageSerialObj getClassInfo() {
         return classInfo;
     }
 
-    public void setClassInfo(ClassInfoSerialObj classInfo) {
+    public void setClassInfo(ClassInfoOfMessageSerialObj classInfo) {
         this.classInfo = classInfo;
     }
     
