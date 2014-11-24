@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://xml.netbeans.org/schema/courseXmlSchema"
+    xmlns:tns="http://xml.netbeans.org/schema/courseXmlSchema"
+    elementFormDefault="qualified">
+    <xsd:complexType name="course">
+        <xsd:sequence>
+            <xsd:element name="courseid" type="xsd:string"></xsd:element>
+            <xsd:element name="departname" type="xsd:string"></xsd:element>
+            <xsd:element name="major" type="xsd:string"></xsd:element>
+            <xsd:element name="concentrationname" type="xsd:string"></xsd:element>
+            <xsd:element name="coursename" type="xsd:string"></xsd:element>
+            <xsd:element name="coursedescription" type="xsd:string"></xsd:element>
+            <xsd:element name="coursecredits" type="xsd:string"></xsd:element>
+            <xsd:element name="coursestatus" type="xsd:string"></xsd:element>
+            <xsd:element name="prerequestid" type="xsd:string"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
