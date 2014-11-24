@@ -24,8 +24,7 @@ import team.soa.cms.serializableObj.PermissionresultSerialObj;
  *
  * @author birui
  */
-@MessageDriven(activationConfig = {
-    @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "jms/permsStu"),
+@MessageDriven(mappedName="jms/permsStu",activationConfig = {
     @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue")
 })
 public class StuPermsQueueListener implements MessageListener {

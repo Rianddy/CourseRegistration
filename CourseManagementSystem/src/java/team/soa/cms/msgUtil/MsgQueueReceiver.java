@@ -113,14 +113,16 @@ public class MsgQueueReceiver {
                 if (msg instanceof TextMessage) {
                     //only one message in the message queue
                     messageList.add((TextMessage) msg);
+                }else if (msg instanceof ObjectMessage) {
+                    messageList.add((ObjectMessage) msg);
                 }
                 while ((msg = consumer.receive(10)) != null) {
                     if (msg instanceof TextMessage) {
                         messageList.add((TextMessage) msg);
-
+                    } else if (msg instanceof ObjectMessage) {
+                        messageList.add((ObjectMessage) msg);
                     }
-                }
-                ses.close();
+                }                ses.close();
                 conn.close();
             }
 

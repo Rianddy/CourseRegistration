@@ -24,7 +24,7 @@ public class CourseDAOImpl extends GeneralDAO implements CourseDAO{
         Course cos = new Course();
         try {
             this.OpenConnection();
-            this.sql = "select * from course where Cos_ID="+course_ID;
+            this.sql = "select * from Course where Cos_ID="+course_ID;
             rs =stmt.executeQuery(sql);
             while (rs.next()){
                 cos.setCoursename(rs.getString("Name"));
