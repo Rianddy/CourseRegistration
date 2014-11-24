@@ -16,17 +16,17 @@ import org.netbeans.xml.schema.stuclassmessagexmlschema.ClassPrereq;
  *
  * @author YIYI
  */
-public class ClassInfoSerialObj implements Serializable{
+public class ClassInfoOfMessageSerialObj implements Serializable{
     
     private  String classid;
     private  boolean classvalid;
     private  String classstatus;
     private  boolean canTake;
-    private  List<ClassPrereqSerialObj> prereqClasses;
+    private  List<ClassPrereqOfMessageSerialObj> prereqClasses;
     
-    public ClassInfoSerialObj(){}
+    public ClassInfoOfMessageSerialObj(){}
     
-    public ClassInfoSerialObj(ClassInfo obj){
+    public ClassInfoOfMessageSerialObj(ClassInfo obj){
     
         this.classid = obj.getClassid();
         this.classvalid = obj.isClassvalid();
@@ -39,7 +39,7 @@ public class ClassInfoSerialObj implements Serializable{
         
         for(int i=0;i<size;i++){
         
-           ClassPrereqSerialObj serialObj = new ClassPrereqSerialObj( obj.getPrereqClasses().get(i));
+           ClassPrereqOfMessageSerialObj serialObj = new ClassPrereqOfMessageSerialObj( obj.getPrereqClasses().get(i));
            this.prereqClasses.add(serialObj);
         
         }
@@ -123,14 +123,14 @@ public class ClassInfoSerialObj implements Serializable{
     /**
      * @return the prereqClasses
      */
-    public List<ClassPrereqSerialObj> getPrereqClasses() {
+    public List<ClassPrereqOfMessageSerialObj> getPrereqClasses() {
         return prereqClasses;
     }
 
     /**
      * @param prereqClasses the prereqClasses to set
      */
-    public void setPrereqClasses(List<ClassPrereqSerialObj> prereqClasses) {
+    public void setPrereqClasses(List<ClassPrereqOfMessageSerialObj> prereqClasses) {
         this.prereqClasses = prereqClasses;
     }
 

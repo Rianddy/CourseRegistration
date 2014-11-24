@@ -52,8 +52,7 @@ public class MsgQueueReceiver {
             queueCF = (QueueConnectionFactory) ctx.lookup(connSrc);
             conn = queueCF.createConnection();
             ses = conn.createSession(Session.SESSION_TRANSACTED);
-            queue = (Queue) ctx.lookup(queueSrc);
-            conn.start();
+            queue = (Queue) ctx.lookup(queueSrc);            
         } catch (NamingException ex) {
             System.out.println("JNDI API lookup failed: "
                     + ex.toString());
@@ -75,6 +74,7 @@ public class MsgQueueReceiver {
         
         List<Message> messageList = null;
         try {
+            conn.start();
             QueueBrowser browser = ses.createBrowser(queue,selector);
             Message msg = null;
             Enumeration msgs = browser.getEnumeration();
@@ -87,8 +87,6 @@ public class MsgQueueReceiver {
                     messageList.add(msg);
                 }
             }
-            ses.close();
-            conn.close();
         } catch (JMSException ex) {
             System.out.println("JMS Connection failed: "
                     + ex.toString());
@@ -104,10 +102,11 @@ public class MsgQueueReceiver {
      * @param queueID ID value
      * @return Message list
      */
-    public List<Message> consumeMessage(String IDProp, String queueID) {
+    public List<Message> consumeMessage(String selector) {
         List<Message> messageList = null;
         try {
-            MessageConsumer consumer = ses.createConsumer(queue, "'" + IDProp + "' = '" + queueID + "'");
+            conn.start();
+            MessageConsumer consumer = ses.createConsumer(queue, selector);
             Message msg = consumer.receive(10);
             if (msg != null) {
                 messageList = new ArrayList();
@@ -133,17 +132,5 @@ public class MsgQueueReceiver {
         return messageList;
     }
 
-//    public void msgListener(String IDProp, String queueID) {
-//        MsgQueueListener listener = new MsgQueueListener();
-//        try {
-//            MessageConsumer consumer = ses.createConsumer(queue, "'" + IDProp + "' = '" + queueID + "'");
-//            consumer.setMessageListener(listener);
-//            conn.setExceptionListener(listener);
-//            conn.start();
-//        } catch (JMSException ex) {
-//            System.out.println("JMS Connection failed: "
-//                    + ex.toString());
-//            System.exit(1);  
-//        }
-//    }
+
 }

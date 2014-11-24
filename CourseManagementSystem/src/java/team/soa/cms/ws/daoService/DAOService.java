@@ -159,7 +159,7 @@ public class DAOService {
      * Web service operation
      */
     @WebMethod(operationName = "transferFromStuClassInfoToPermissionResult")
-    public team.soa.cms.serializableObj.permissionresultSerializableObj.StudentinfoSerialObj transferFromStuClassInfoToPermissionResult(@WebParam(name = "stuClassInfoMQSerialObj") StuClassInfoMQSerialObj stuClassInfoMQSerialObj) {
+    public PermissionresultSerialObj transferFromStuClassInfoToPermissionResult(@WebParam(name = "stuClassInfoMQSerialObj") StuClassInfoMQSerialObj stuClassInfoMQSerialObj) {
         PermissionresultSerialObj permissionresultSerialObj = new PermissionresultSerialObj();
         ClassinfoSerialObj classinfoSerialObj = new ClassinfoSerialObj();
         FacultyinfoSerialObj facultyinfoSerialObj = new FacultyinfoSerialObj();
@@ -185,6 +185,6 @@ public class DAOService {
         studentinfoSerialObj2.setStuname("test");
         permissionresultSerialObj.setStuinfoserial(studentinfoSerialObj2);
         
-        return studentinfoSerialObj2;
+        return permissionresultSerialObj;
     }
 }

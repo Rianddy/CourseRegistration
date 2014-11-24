@@ -21,14 +21,20 @@ public class MailUtil {
 
     public static String status;
     
+    /**
+     * 
+     * @param mailto mail destination
+     * @param content mail content
+     * @return 
+     */
     public static String Sender(String mailto, String content) {
         String smtphost = "smtp.163.com";
         String user = "perms_request@163.com";
         String password = "pitt_perms";
         String from = "perms_request@163.com";
         String to = mailto; 
-        String subject = "";
-        String body = "";
+        String subject = "Permission request reminder";
+        String body = content;
         try
         {
             Properties props = new Properties();
@@ -47,7 +53,7 @@ public class MailUtil {
             InternetAddress toAddress = new InternetAddress(to);
             message.addRecipient(Message.RecipientType.TO, toAddress);
             message.setSubject(subject);
-            message.setText(body);
+            message.setContent(body,"text/html; charset=utf-8");
 
             Transport transport = ssn.getTransport("smtp");
             transport.connect(smtphost, user, password);

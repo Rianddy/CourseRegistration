@@ -15,6 +15,7 @@ import org.netbeans.xml.schema.studentregcheck.ClassInfo;
 import org.netbeans.xml.schema.studentregcheck.ClassList;
 import org.netbeans.xml.schema.studentregcheck.StuRegCheckInfo;
 import org.netbeans.xml.schema.studentregcheck.StudentInformation;
+import team.soa.cms.msgQueueService.ServicesQueueService;
 import team.soa.cms.ws.basicCheck.ClassCanRegisterService;
 import team.soa.cms.ws.basicCheck.ClassValidService;
 import team.soa.cms.ws.basicCheck.PrereqMeetService;
@@ -34,8 +35,9 @@ public class RegCheckService {
     StudentValidService studenValid = new StudentValidService();
     PrereqMeetService prereqMeet = new PrereqMeetService();
     DAOService daoService = new DAOService();
-        PermissionRequestService permissionRequestService = new PermissionRequestService();
-    
+    PermissionRequestService permissionRequestService = new PermissionRequestService();
+    ServicesQueueService servicesQueueService = new ServicesQueueService();
+
     @WebMethod(operationName = "checkStudentRegistration")
     public StuRegCheckInfo checkStudentRegistration(@WebParam(name = "Stu_ID") int Stu_ID, @WebParam(name = "Class_ID_List") List<Integer> ClsIdList, @WebParam(name = "Premission_Code_List") List<Integer> PremissionCodeList) {
 
@@ -70,14 +72,15 @@ public class RegCheckService {
                         stucls = prereqMeet.studentMeetsPrereq(Stu_ID, Class_ID);
                         convertStuclspreqToRegcheckprerq(cls.getPrereqClasses(), stucls.getClassPrereq());
                         cls.setCanTake(stucls.isCanTake()); //waitng one more operation;
+                        cls.setFacultyEmail(daoService.getFacultyEmail(Class_ID));
                         if (classStatus > 0 && stucls.isCanTake()) {
                             if (daoService.getStudentEnrollmentRecord(Stu_ID, Class_ID).getStatus() == null || !daoService.getStudentEnrollmentRecord(Stu_ID, Class_ID).getStatus().equals("enroll")) {
                                 daoService.insertStudentEnrollmentWithStatus(String.valueOf(Stu_ID), String.valueOf(Class_ID), "enroll");
                             }
-                        }else{
-                            
+                        } else {
+                            servicesQueueService.setObjectBetweenService(this.getClass().getName(), PermissionRequestService.class.getName(), cls, stu, String.valueOf(String.valueOf(Stu_ID).hashCode() * String.valueOf(Class_ID).hashCode()));
                         }
-                        cls.setFacultyEmail(daoService.getFacultyEmail(Class_ID));
+                        
                         System.out.print(cls.getClassid() + " " + cls.getClassstatus());
 
                         //clsList.setClazz(cls);

@@ -13,16 +13,16 @@ import org.netbeans.xml.schema.stuclassmessagexmlschema.ClassPrereq;
  *
  * @author YIYI
  */
-public class ClassPrereqSerialObj implements Serializable{
+public class ClassPrereqOfMessageSerialObj implements Serializable{
      
     private String classid;
     private String courseid;
     private String grade;
     private boolean reqMet;
     
-    public ClassPrereqSerialObj(){}
+    public ClassPrereqOfMessageSerialObj(){}
  
-    public ClassPrereqSerialObj( ClassPrereq obj){
+    public ClassPrereqOfMessageSerialObj( ClassPrereq obj){
      
         this.classid = obj.getClassid();
         this.courseid = obj.getCourseid();

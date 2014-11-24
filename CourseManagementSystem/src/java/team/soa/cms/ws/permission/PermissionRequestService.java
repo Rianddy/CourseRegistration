@@ -5,10 +5,16 @@
  */
 package team.soa.cms.ws.permission;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.jms.JMSException;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
-import org.netbeans.xml.schema.permissionxmlschema.Permission;
+import team.soa.cms.msgQueueService.PermsReqMsgService;
+import team.soa.cms.msgQueueService.ServicesQueueService;
+import team.soa.cms.serializableObj.StuClassInfoMQSerialObj;
+import team.soa.cms.ws.RegCheckService;
 
 /**
  *
@@ -21,13 +27,26 @@ public class PermissionRequestService {
      * Web service operation
      */
     @WebMethod(operationName = "PrereqMsgQueue")
-    public String PrereqMsgQueue(@WebParam(name = "parameter") Permission parameter) {
-        //TODO write your implementation code here:
-        return null;
+    public String PrereqMsgQueue(@WebParam(name = "stu_ID") String stu_ID, @WebParam(name = "class_ID") String class_ID, @WebParam(name = "faculty_email") String faculty_email) {
+        ServicesQueueService servicesQueueService = new ServicesQueueService();
+        StuClassInfoMQSerialObj object = null;
+        String perm_id = String.valueOf(stu_ID.hashCode() * class_ID.hashCode());
+        try {
+            object = (StuClassInfoMQSerialObj) (servicesQueueService.getObjectBetweenService(RegCheckService.class.getName(), PermissionRequestService.class.getName(), perm_id).getObject());
+        } catch (JMSException ex) {
+            Logger.getLogger(PermissionRequestService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (object == null) {
+            return "Fail!!!";
+        } else {
+            PermsReqMsgService permsReqMsgService = new PermsReqMsgService();
+            permsReqMsgService.setPermsReq(perm_id, faculty_email, object);
+            return "Success!!!";
+        }
+
     }
 
     /**
      * This is a sample web service operation
      */
-    
 }
