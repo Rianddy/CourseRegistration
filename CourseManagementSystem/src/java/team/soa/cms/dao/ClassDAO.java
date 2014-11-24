@@ -6,6 +6,7 @@
 
 package team.soa.cms.dao;
 import org.netbeans.xml.schema.classxmlschema.Class;
+import org.netbeans.xml.schema.facultyxmlschema.Faculty;
 /**
  *
  * @author Edison
@@ -20,5 +21,7 @@ public interface ClassDAO {
     public void update(int class_id, Class cls);
     
     public String getFacultyEmailFromClass(int class_id);
+    
+    public Faculty getFacultyInfo(int class_id) ;
     
 }

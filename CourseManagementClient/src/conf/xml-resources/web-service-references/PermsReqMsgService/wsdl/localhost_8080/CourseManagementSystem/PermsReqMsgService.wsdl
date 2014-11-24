@@ -7,11 +7,11 @@
 <xsd:import namespace="http://msgQueueService.cms.soa.team/" schemaLocation="http://localhost:8080/CourseManagementSystem/PermsReqMsgService?xsd=2"/>
 </xsd:schema>
 </types>
-<message name="setPermsInfo">
-<part name="parameters" element="tns:setPermsInfo"/>
+<message name="setPermsReq">
+<part name="parameters" element="tns:setPermsReq"/>
 </message>
-<message name="setPermsInfoResponse">
-<part name="parameters" element="tns:setPermsInfoResponse"/>
+<message name="setPermsReqResponse">
+<part name="parameters" element="tns:setPermsReqResponse"/>
 </message>
 <message name="getPermsInfo">
 <part name="parameters" element="tns:getPermsInfo"/>
@@ -20,9 +20,9 @@
 <part name="parameters" element="tns:getPermsInfoResponse"/>
 </message>
 <portType name="PermsReqMsgService">
-<operation name="setPermsInfo">
-<input wsam:Action="http://msgQueueService.cms.soa.team/PermsReqMsgService/setPermsInfoRequest" message="tns:setPermsInfo"/>
-<output wsam:Action="http://msgQueueService.cms.soa.team/PermsReqMsgService/setPermsInfoResponse" message="tns:setPermsInfoResponse"/>
+<operation name="setPermsReq">
+<input wsam:Action="http://msgQueueService.cms.soa.team/PermsReqMsgService/setPermsReqRequest" message="tns:setPermsReq"/>
+<output wsam:Action="http://msgQueueService.cms.soa.team/PermsReqMsgService/setPermsReqResponse" message="tns:setPermsReqResponse"/>
 </operation>
 <operation name="getPermsInfo">
 <input wsam:Action="http://msgQueueService.cms.soa.team/PermsReqMsgService/getPermsInfoRequest" message="tns:getPermsInfo"/>
@@ -31,7 +31,7 @@
 </portType>
 <binding name="PermsReqMsgServicePortBinding" type="tns:PermsReqMsgService">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="setPermsInfo">
+<operation name="setPermsReq">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

@@ -104,10 +104,10 @@ public class MsgQueueReceiver {
      * @param queueID ID value
      * @return Message list
      */
-    public List<Message> consumeMessage(String IDProp, String queueID) {
+    public List<Message> consumeMessage(String selector) {
         List<Message> messageList = null;
         try {
-            MessageConsumer consumer = ses.createConsumer(queue, "'" + IDProp + "' = '" + queueID + "'");
+            MessageConsumer consumer = ses.createConsumer(queue, selector);
             Message msg = consumer.receive(10);
             if (msg != null) {
                 messageList = new ArrayList();
@@ -132,5 +132,6 @@ public class MsgQueueReceiver {
         }
         return messageList;
     }
+
 
 }

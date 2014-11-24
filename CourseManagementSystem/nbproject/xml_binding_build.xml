@@ -123,20 +123,6 @@
         <copy todir="${build.generated.sources.dir}/jaxb">
             <fileset dir="build/generated/jaxbCache/permissionxmlschema"/>
         </copy>
-        <mkdir dir="build/generated/jaxbCache/stuclassmessagexmlschema"/>
-        <xjc destdir="build/generated/jaxbCache/stuclassmessagexmlschema" catalog="catalog.xml">
-            <classpath>
-                <pathelement location="${src.dir}"/>
-                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
-            </classpath>
-            <arg value="-xmlschema"/>
-            <schema file="src/conf/xml-resources/jaxb/stuclassmessagexmlschema/stuclassmessageXmlSchema.xsd"/>
-            <depends file="src/conf/xml-resources/jaxb/stuclassmessagexmlschema/stuclassmessageXmlSchema.xsd"/>
-            <produces dir="build/generated/jaxbCache/stuclassmessagexmlschema"/>
-        </xjc>
-        <copy todir="${build.generated.sources.dir}/jaxb">
-            <fileset dir="build/generated/jaxbCache/stuclassmessagexmlschema"/>
-        </copy>
         <mkdir dir="build/generated/jaxbCache/dropclassesschema"/>
         <xjc destdir="build/generated/jaxbCache/dropclassesschema" catalog="catalog.xml">
             <classpath>
@@ -165,19 +151,47 @@
         <copy todir="${build.generated.sources.dir}/jaxb">
             <fileset dir="build/generated/jaxbCache/studentregscheck"/>
         </copy>
-        <mkdir dir="build/generated/jaxbCache/studentprereqcheck"/>
-        <xjc destdir="build/generated/jaxbCache/studentprereqcheck" catalog="catalog.xml">
+        <mkdir dir="build/generated/jaxbCache/studentprereqcheckschema"/>
+        <xjc destdir="build/generated/jaxbCache/studentprereqcheckschema" catalog="catalog.xml">
             <classpath>
                 <pathelement location="${src.dir}"/>
                 <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
             </classpath>
             <arg value="-xmlschema"/>
-            <schema file="src/conf/xml-resources/jaxb/studentprereqcheck/studentPrereqCheck.xsd"/>
-            <depends file="src/conf/xml-resources/jaxb/studentprereqcheck/studentPrereqCheck.xsd"/>
-            <produces dir="build/generated/jaxbCache/studentprereqcheck"/>
+            <schema file="src/conf/xml-resources/jaxb/studentprereqcheckschema/studentPrereqCheck.xsd"/>
+            <depends file="src/conf/xml-resources/jaxb/studentprereqcheckschema/studentPrereqCheck.xsd"/>
+            <produces dir="build/generated/jaxbCache/studentprereqcheckschema"/>
         </xjc>
         <copy todir="${build.generated.sources.dir}/jaxb">
-            <fileset dir="build/generated/jaxbCache/studentprereqcheck"/>
+            <fileset dir="build/generated/jaxbCache/studentprereqcheckschema"/>
+        </copy>
+        <mkdir dir="build/generated/jaxbCache/stuclassppermresultXmlSchema"/>
+        <xjc destdir="build/generated/jaxbCache/stuclassppermresultXmlSchema" catalog="catalog.xml">
+            <classpath>
+                <pathelement location="${src.dir}"/>
+                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
+            </classpath>
+            <arg value="-xmlschema"/>
+            <schema file="src/conf/xml-resources/jaxb/stuclassppermresultXmlSchema/stuclassppermresultXmlSchema.xsd"/>
+            <depends file="src/conf/xml-resources/jaxb/stuclassppermresultXmlSchema/stuclassppermresultXmlSchema.xsd"/>
+            <produces dir="build/generated/jaxbCache/stuclassppermresultXmlSchema"/>
+        </xjc>
+        <copy todir="${build.generated.sources.dir}/jaxb">
+            <fileset dir="build/generated/jaxbCache/stuclassppermresultXmlSchema"/>
+        </copy>
+        <mkdir dir="build/generated/jaxbCache/stuclassmessagexmlschema"/>
+        <xjc destdir="build/generated/jaxbCache/stuclassmessagexmlschema" catalog="catalog.xml">
+            <classpath>
+                <pathelement location="${src.dir}"/>
+                <pathelement path="${jaxbwiz.xjcrun.classpath}"/>
+            </classpath>
+            <arg value="-xmlschema"/>
+            <schema file="src/conf/xml-resources/jaxb/stuclassmessagexmlschema/stuclassmessageXmlSchema.xsd"/>
+            <depends file="src/conf/xml-resources/jaxb/stuclassmessagexmlschema/stuclassmessageXmlSchema.xsd"/>
+            <produces dir="build/generated/jaxbCache/stuclassmessagexmlschema"/>
+        </xjc>
+        <copy todir="${build.generated.sources.dir}/jaxb">
+            <fileset dir="build/generated/jaxbCache/stuclassmessagexmlschema"/>
         </copy>
         <!--*** Web project javac macro does not support sourcepath attribute, so do not pass "sourcepath=${src.dir}"-->
     </target>

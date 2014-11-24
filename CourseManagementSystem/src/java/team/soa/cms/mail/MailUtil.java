@@ -21,6 +21,12 @@ public class MailUtil {
 
     public static String status;
     
+    /**
+     * 
+     * @param mailto mail destination
+     * @param content mail content
+     * @return 
+     */
     public static String Sender(String mailto, String content) {
         String smtphost = "smtp.163.com";
         String user = "perms_request@163.com";

@@ -16,13 +16,6 @@ import javax.jws.WebParam;
 @WebService(serviceName = "PermsReqMailService")
 public class PermsReqMailService {
 
-    /**
-     * This is a sample web service operation
-     */
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
-    }
 
     /**
      * Web service operation
@@ -36,5 +29,13 @@ public class PermsReqMailService {
         return status;
     }
     
-    
+       /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "PermsConfirm")
+    public String PermsConfirm( @WebParam(name = "StudentEmail") String StudentEmail, @WebParam(name = "PermsContent") String PermsContent) {
+        //TODO write your implementation code here:
+        String status = MailUtil.Sender(StudentEmail,PermsContent);      
+        return status;
+    }
 }
