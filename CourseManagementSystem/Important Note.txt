@@ -1,0 +1,7 @@
+1. We used Maven in this project. So you DONT have to directly add jar into this project. All you need to do is to add the dependency in pom.xml. Then clean and build the project will work great.
+
+2. In JMS branch, I add two message queues in GlassFish. So if you dont have those two message queues. You project cannot run correctly. So if you dont want to configure JMS right now, just dont swtich to JMS branch and I will merge it to master branch at a specific time. Below are JMS tutorial: (1) Open "View domain admin console" of GlassFish. (2) Choose "JMS Resources" at left menu (3) Create "jms/mailqueue" and "jms/mailqueue" at "Connection Factories". Choose "QueueConnectionFactory" for "Resource Type" when create factories. (4) Create "jms/maildest" and "jms/responsequeue" at "Destination Resources". Input anymail in "Physical Destination".
+
+3. When you are working on some cool stuff, remember to create a NEW BRANCH from master so that the things you do won't be a mess. When you finish your part, just push those code to that branch of remote repository and tell me. Then I will try to merge your cool stuff and the original project.
+
+4. Database and all design files are in the "Related Desgin Files and Instructions" folder. Please check it.

@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://msgQueueService.cms.soa.team/" xmlns:ns1="http://xml.netbeans.org/schema/stuclassmessageXmlSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://msgQueueService.cms.soa.team/">
+
+<xs:import namespace="http://xml.netbeans.org/schema/stuclassmessageXmlSchema" schemaLocation="http://localhost:8080/CourseManagementSystem/PermsReqMsgService?xsd=1"/>
+
+<xs:element name="getPermsInfo" type="tns:getPermsInfo"/>
+
+<xs:element name="getPermsInfoResponse" type="tns:getPermsInfoResponse"/>
+
+<xs:element name="setPermsReq" type="tns:setPermsReq"/>
+
+<xs:element name="setPermsReqResponse" type="tns:setPermsReqResponse"/>
+
+<xs:complexType name="getPermsInfo">
+<xs:sequence>
+<xs:element name="PermsID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPermsInfoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:stuClassInfoMQSerialObj" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="stuClassInfoMQSerialObj">
+<xs:sequence>
+<xs:element name="classInfo" type="tns:classInfoOfMessageSerialObj" minOccurs="0"/>
+<xs:element name="studentInfo" type="tns:studentInfoOfMessageSerialObj" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="classInfoOfMessageSerialObj">
+<xs:sequence>
+<xs:element name="canTake" type="xs:boolean"/>
+<xs:element name="classid" type="xs:string" minOccurs="0"/>
+<xs:element name="classstatus" type="xs:string" minOccurs="0"/>
+<xs:element name="classvalid" type="xs:boolean"/>
+<xs:element name="prereqClasses" type="tns:classPrereqOfMessageSerialObj" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="classPrereqOfMessageSerialObj">
+<xs:sequence>
+<xs:element name="classid" type="xs:string" minOccurs="0"/>
+<xs:element name="courseid" type="xs:string" minOccurs="0"/>
+<xs:element name="grade" type="xs:string" minOccurs="0"/>
+<xs:element name="reqMet" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="studentInfoOfMessageSerialObj">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="stuid" type="xs:string" minOccurs="0"/>
+<xs:element name="valid" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setPermsReq">
+<xs:sequence>
+<xs:element name="PermsID" type="xs:string" minOccurs="0"/>
+<xs:element name="falEmail" type="xs:string" minOccurs="0"/>
+<xs:element name="permsInfo" type="ns1:stuclassmessage" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setPermsReqResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

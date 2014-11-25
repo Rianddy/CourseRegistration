@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://xml.netbeans.org/schema/studentXmlSchema"
+    xmlns:tns="http://xml.netbeans.org/schema/studentXmlSchema"
+    elementFormDefault="qualified">
+    <xsd:complexType name="student">
+        <xsd:sequence>
+            <xsd:element name="stuid" type="xsd:string"></xsd:element>
+            <xsd:element name="name" type="xsd:string"></xsd:element>
+            <xsd:element name="email" type="xsd:string"></xsd:element>
+            <xsd:element name="department" type="xsd:string"></xsd:element>
+            <xsd:element name="major" type="xsd:string"></xsd:element>
+            <xsd:element name="concentration" type="xsd:string"></xsd:element>
+            <xsd:element name="birthday" type="xsd:string"></xsd:element>
+            <xsd:element name="address" type="xsd:string"></xsd:element>
+            <xsd:element name="cell" type="xsd:string"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
