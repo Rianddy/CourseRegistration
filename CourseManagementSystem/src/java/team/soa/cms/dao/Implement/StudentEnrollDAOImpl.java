@@ -129,7 +129,26 @@ public class StudentEnrollDAOImpl extends GeneralDAO implements StudentEnrollDAO
 
      
     }
+    //tranfer a waitinglist -->enroll,edit class information;
+    @Override
+    public void updateStuEnroll(int student_ID,int class_ID) {
+       // boolean result=false;
+      try {
+            this.OpenConnection();
+            this.sql = "UPDATE StudentEnrollment SET STATUS=\"enroll\" where Stu_ID="+student_ID+" and Cls_ID="+class_ID;
+            stmt.executeUpdate(sql);
+            this.sql = "UPDATE Class cl SET cl.Cur_Size=cl.Cur_Size+1 where cl.Cls_id = 1";
+            stmt.executeUpdate(sql);
+            this.sql = "UPDATE Class cl SET cl.Cur_WaitList=cl.Cur_WaitList-1 where cl.Cls_id = 1";
+            stmt.executeQuery(sql);   
+        //   result=true;
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentEnrollDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+   // return result;
 
+     
+    }
     @Override
     public Oneenroll getOneEnrollmentInfo(int Stu_ID,int Class_ID) {
         Oneenroll onee = new Oneenroll();

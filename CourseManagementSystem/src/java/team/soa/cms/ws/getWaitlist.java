@@ -26,7 +26,7 @@ import team.soa.cms.ws.daoService.DAOService;
  */
 @WebService(serviceName = "getWaitlist")
 public class getWaitlist {
-DAOService daoservice = new DAOService();
+    DAOService daoservice = new DAOService();
 
     /**
      * Web service operation
@@ -57,6 +57,7 @@ DAOService daoservice = new DAOService();
                    st.setStudentID(firstStudent.getStuid());
                    st.setEmail(email);
                    stus.add(st);
+                   daoservice.updateStuEnroll(Integer.parseInt(st.getStudentID()), Integer.parseInt(st.getClassID()));
                } 
             }
         }
