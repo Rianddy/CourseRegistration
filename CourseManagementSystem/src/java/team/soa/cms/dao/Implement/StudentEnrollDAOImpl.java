@@ -137,9 +137,9 @@ public class StudentEnrollDAOImpl extends GeneralDAO implements StudentEnrollDAO
             this.OpenConnection();
             this.sql = "UPDATE StudentEnrollment SET STATUS=\"enroll\" where Stu_ID="+student_ID+" and Cls_ID="+class_ID;
             stmt.executeUpdate(sql);
-            this.sql = "UPDATE Class cl SET cl.Cur_Size=cl.Cur_Size+1 where cl.Cls_id = 1";
+            this.sql = "UPDATE Class cl SET cl.Cur_Size=cl.Cur_Size+1 where cl.Cls_id = "+class_ID;
             stmt.executeUpdate(sql);
-            this.sql = "UPDATE Class cl SET cl.Cur_WaitList=cl.Cur_WaitList-1 where cl.Cls_id = 1";
+            this.sql = "UPDATE Class cl SET cl.Cur_WaitList=cl.Cur_WaitList-1 where cl.Cls_id = "+class_ID;
             stmt.executeQuery(sql);   
         //   result=true;
         } catch (SQLException ex) {
