@@ -1,9 +1,11 @@
+<%-- 
+    Document   : index
+    Created on : Dec 1, 2014, 1:09:27 PM
+    Author     : KevinZhou
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -17,10 +19,10 @@ and open the template in the editor.
         <![endif]-->
         <link href="CSS/styles.css" rel="stylesheet">
         <script src="js/jquery.min.js"></script>
-<!--        <script src="js/jquery.json.js"></script>-->
     </head>
     <body>
-        <div id="wrap">
+        <nav class="navbar navbar-default" role="navigation"><%@include file="Header.jsp"%></nav>
+        <div id="wrap">            
             <div class="divider" id="section1"></div>
                 <form name="input" action="StudentRegistration" method="post">
                     <div class="container">
@@ -114,4 +116,3 @@ and open the template in the editor.
         </div>
     </body>
 </html>
-

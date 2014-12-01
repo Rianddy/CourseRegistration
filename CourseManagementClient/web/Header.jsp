@@ -21,28 +21,28 @@
         <script src="js/jquery.session.js"></script>
     </head>
     <body>
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="container-fluid">
-                <div class="navbar-header navbar-right">    
-                    <%  String studentId = (String) session.getAttribute("stuID");
-                    if (studentId == null || studentId.equals("")) { %>
-                    <form class="navbar-form navbar-right" action="StudentLoginServlet">
-                        <div class="form-group">
-                            <input type="text" id="stuID" class="form-control" placeholder="Student ID" name="stuID">
-                        </div>
-                        <button type="submit" class="btn btn-default">Login</button>
-                    </form>      
-                    <% } else {%>
-                    <form class="navbar-form navbar-right" action="StudentLoginServlet">
-                        <div class="form-group">
-                            <label class="glyphicon glyphicon-user"> Hello, <b><%=studentId%></b></label>
-                            <button type="submit" class="btn btn-default small">Log Out</button>
-                        </div>
-                    </form>
-                    <% }%>
-                </div>
+        <div class="container-fluid">
+            <div class="navbar-header navbar-right">    
+                <%  String studentId = (String) session.getAttribute("stuID");
+                        if (studentId == null || studentId.equals("")) { %>
+                <form class="navbar-form navbar-right" action="StudentLoginServlet">
+                    <div class="form-group">
+                        <input type="text" id="stuID" class="form-control" placeholder="Student ID" name="stuID">
+                        <input type="hidden" name="from" value="${pageContext.request.requestURI}">
+                    </div>
+                    <button type="submit" class="btn btn-default">Login</button>
+                </form>      
+                <% } else {%>
+                <form class="navbar-form navbar-right" action="StudentLoginServlet">
+                    <div class="form-group">
+                        <label class="glyphicon glyphicon-user"> Hello, <b><%=studentId%></b></label>
+                        <input type="hidden" name="from" value="${pageContext.request.requestURI}">
+                        <button type="submit" class="btn btn-default small">Log Out</button>
+                    </div>
+                </form>
+                <% }%>
             </div>
-        </nav>
+        </div>
         <script type="text/javascript">
             function clearSession() {
                 var stuID = $.session.get("stuID");
