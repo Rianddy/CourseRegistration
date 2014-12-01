@@ -5,11 +5,12 @@
  */
 package Controllers;
 
+import org.netbeans.xml.schema.stuenrolxmlschema.StuEnrollList;
 import webservice.basic.Student;
 
 /**
  *
- * @author riand_000
+ * @author riand_000 Edited by Kevin
  */
 public class StudentController {
 
@@ -23,6 +24,12 @@ public class StudentController {
         webservice.basic.DAOService_Service service = new webservice.basic.DAOService_Service();
         webservice.basic.DAOService port = service.getDAOServicePort();
         return port.getStudentInfo(stuID);
+    }
+
+    public static StuEnrollList getStudentEnrollList(java.lang.String stuID) {
+        team.soa.cms.ws.StudentEnrollmentService_Service service = new team.soa.cms.ws.StudentEnrollmentService_Service();
+        team.soa.cms.ws.StudentEnrollmentService port = service.getStudentEnrollmentServicePort();
+        return port.getStudentEnrollList(stuID);
     }
     
     

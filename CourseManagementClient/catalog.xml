@@ -32,4 +32,7 @@
     <system systemId="http://localhost:8080/CourseManagementSystem/RegCheckService?xsd=2" uri="src/conf/xml-resources/web-service-references/RegCheckService/wsdl/localhost_8080/CourseManagementSystem/RegCheckService.xsd_2.xsd"/>
     <system systemId="http://localhost:8080/CourseManagementSystem/PermissionRequestService?wsdl" uri="src/conf/xml-resources/web-service-references/PermissionRequestService/wsdl/localhost_8080/CourseManagementSystem/PermissionRequestService.wsdl"/>
     <system systemId="http://localhost:8080/CourseManagementSystem/PermissionRequestService?xsd=1" uri="src/conf/xml-resources/web-service-references/PermissionRequestService/wsdl/localhost_8080/CourseManagementSystem/PermissionRequestService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/StudentEnrollmentService?wsdl" uri="src/conf/xml-resources/web-service-references/StudentEnrollmentService/wsdl/localhost_8080/CourseManagementSystem/StudentEnrollmentService.wsdl"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/StudentEnrollmentService?xsd=1" uri="src/conf/xml-resources/web-service-references/StudentEnrollmentService/wsdl/localhost_8080/CourseManagementSystem/StudentEnrollmentService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/StudentEnrollmentService?xsd=2" uri="src/conf/xml-resources/web-service-references/StudentEnrollmentService/wsdl/localhost_8080/CourseManagementSystem/StudentEnrollmentService.xsd_2.xsd"/>
 </catalog>
