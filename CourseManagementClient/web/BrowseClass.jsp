@@ -26,21 +26,42 @@
     <body>
         <nav class="navbar navbar-default" role="navigation"><%@include file="Header.jsp"%></nav>
             <%
+                session = request.getSession();
+                ArrayList<String> clsDropIDList = new ArrayList<String>();                
                 StuEnrollList stuEnrollList = (StuEnrollList) request.getAttribute("stuEnrollList");
                 if (stuEnrollList != null) { 
                     List<Oneenroll> oneEnrolls = stuEnrollList.getOneenroll();
-                    for (int i=0; i< oneEnrolls.size(); i++) { %>
-                        <label><%=oneEnrolls.get(i).getClassid()%></label>
+                    for (int i=0; i< oneEnrolls.size(); i++) { 
+                        clsDropIDList.add(oneEnrolls.get(i).getClassid());
+                        %>
+                        <form class="form-group" action="StudentDropServlet" method="post">
+                            <div class="form-group row">
+                                <div class="col-lg-6">
+                                    <div class="col-sm-1"><INPUT type="checkbox" name="chk<%=i%>"/></div>
+                                    <div class="col-sm-3"><labe>Class ID:</labe><%=oneEnrolls.get(i).getClassid()%></div>
+                                    <div class="col-sm-3"><label>Course ID:</label><%=oneEnrolls.get(i).getCourseid()%></div>
+                                    <div class="col-sm-5"><label>Enroll time:</label><%=oneEnrolls.get(i).getStuenrolltime()%></div>
+                                    <button class="btn btn-default pull-left" type="submit">Drop</button>
+                                </div>
+                            </div>                            
+                            <div class="form-group row">
+                                <div class="col-lg-6">
+                                    <input type="hidden" name="from" value="${pageContext.request.requestURI}">
+                                    
+                                </div>
+                            </div>
+                        </form>
                     <% }
             %>
                 
-            <% } else { %>
-        <form class="form-group" action="StudentEnrollmentServlet">
-            <div class="col-sm-6">
-                <input type="hidden" name="from" value="${pageContext.request.requestURI}">
-                <button class="btn btn-default pull-left" type="submit">Browse</button>
-            </div>                        
-        </form>
+            <%  session.setAttribute("clsDropID", clsDropIDList);
+                } else { %>
+            <form class="form-group" action="StudentEnrollmentServlet">
+                <div class="col-sm-6">
+                    <input type="hidden" name="from" value="${pageContext.request.requestURI}">
+                    <button class="btn btn-default pull-left" type="submit">Browse</button>
+                </div>                        
+            </form>
         <% }
         %>
     </body>
