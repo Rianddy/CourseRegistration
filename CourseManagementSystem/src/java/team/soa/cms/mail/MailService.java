@@ -46,6 +46,20 @@ public class MailService {
         return send();
     }
     
+   /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "dropConfirm")
+    public Integer dropConfirm(@WebParam(name = "StudentEmail") String StudentEmail, @WebParam(name = "DropContent") String DropContent) {
+        //TODO write your implementation code here:
+         mailAddress=StudentEmail;
+        Subject="Class has been dropped";
+        Content = DropContent;       
+        return send();
+    }
+    
+    
+    
     /**
      * @see MailUtil.sender
      * @return 
@@ -53,4 +67,6 @@ public class MailService {
     private int send(){
     return MailUtil.Sender(mailAddress, Subject, Content);
     }
+
+   
 }

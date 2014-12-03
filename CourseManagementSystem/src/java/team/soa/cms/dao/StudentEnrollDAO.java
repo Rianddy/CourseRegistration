@@ -16,6 +16,9 @@ import org.netbeans.xml.schema.stuenrolxmlschema.StuEnrollList.Oneenroll;
 public interface StudentEnrollDAO {
     public String insert(int Class_ID, int Stu_ID);
     
+    public void updateStuEnroll(int student_ID,int class_ID);
+     public Oneenroll getFirstStudentInWaitlist(int Class_ID, String status) ;
+    
     public StuEnrollList getStudentEnrollment(int Stu_ID);
 
     public int insertIDStatus(int Class_ID, int Stu_ID, String status);
