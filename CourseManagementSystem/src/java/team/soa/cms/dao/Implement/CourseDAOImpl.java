@@ -7,6 +7,8 @@
 package team.soa.cms.dao.Implement;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.netbeans.xml.schema.coursexmlschema.Course;
@@ -15,7 +17,7 @@ import team.soa.cms.dao.GeneralDAO;
 
 /**
  *
- * @author Edison
+ * @author Edison, edited by Kevin
  */
 public class CourseDAOImpl extends GeneralDAO implements CourseDAO{
 
@@ -33,6 +35,24 @@ public class CourseDAOImpl extends GeneralDAO implements CourseDAO{
             Logger.getLogger(CourseDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return cos;
+    }
+    
+    @Override
+    public List<Course> getAllCourses() {
+        List<Course> courses = new ArrayList<Course>();
+        Course cos = new Course();
+        try {
+            this.OpenConnection();
+            this.sql = "select * from Course";
+            rs =stmt.executeQuery(sql);
+            while (rs.next()){
+                cos.setCoursename(rs.getString("Name"));
+                courses.add(cos);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CourseDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return courses;
     }
     
 }

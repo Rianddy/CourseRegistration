@@ -3,7 +3,7 @@
     Created on : Dec 1, 2014, 1:09:27 PM
     Author     : KevinZhou
 --%>
-
+<%@page import="java.util.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -26,20 +26,27 @@
             <div class="divider" id="section1"></div>
                 <form name="input" action="StudentRegistration" method="post">
                     <div class="container">
-                        <div class="form-group row">
+                        <!--div class="form-group row">
                             <div class="col-sm-6">
                                 <input type="text" class="form-control" id="stuID" name="stuID" placeholder="Student ID"> 
                             </div>
-                        </div>
+                        </div-->
+                        <%  List<org.netbeans.xml.schema.classxmlschema.Class> clsRegID = (List) session.getAttribute("clsRegID");                             
+                        %>
                         <div class="form-group row addclass">
                             <div class="col-sm-6">
-                                <TABLE id="dataTable" border="1">
-                                    <TR>
+                                <TABLE id="dataTable" border="1">                                    
+                                        <%  if (clsRegID != null) {
+                                            for (int i=0; i<clsRegID.size(); i++) {
+                                        %>
+                                        <TR>
                                         <TD><INPUT type="checkbox" name="chk"/></TD>
-                                        <TD> 1 </TD>
-                                        <TD> <INPUT type="text" name="class0" placeholder="classID"/> </TD>
-                                        <TD> <INPUT type="text" name="PremssionCode0" placeholder="Premission Code"/> </TD>
-                                    </TR>
+                                        <TD> <%=i+1%> </TD>
+                                        <TD> <INPUT type="text" name="class<%=i%>" placeholder="classID" value="<%=clsRegID.get(i).getClassid()%>" text="<%=clsRegID.get(i).getClassid()%>"/> </TD>
+                                        <TD> <INPUT type="text" name="PremssionCode<%=i%>" placeholder="Premission Code"/> </TD>
+                                        </TR>
+                                        <% } 
+                                        } %>                                    
                                 </TABLE>
                             </div>
                         </div>
@@ -52,6 +59,16 @@
                         <div class="form-group row">
                             <div class="col-sm-6">
                                 <button class="btn btn-default pull-left" type="submit">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <form class="form-group" action="StudentEnrollmentServlet" method="post">
+                    <div class="container">
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <input type="hidden" name="from" value="${pageContext.request.requestURI}">
+                                <button class="btn btn-default pull-left" type="submit">Browse</button>
                             </div>
                         </div>
                     </div>

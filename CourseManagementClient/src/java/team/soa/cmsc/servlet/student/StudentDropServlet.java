@@ -46,10 +46,12 @@ public class StudentDropServlet extends HttpServlet {
         
         if (stuID != null) {
             if (clsDropIDList != null && clsDropIDList.size() > 0) {
-                while(request.getParameter("chk"+i) != null) {
-                    String checked = request.getParameter("chk"+i);
-                    if (checked.equals("on")) {
-                        clsDropIDListCopy.add(clsDropIDList.get(i));
+                while(i < clsDropIDList.size()) {
+                    if (request.getParameter("chk"+i) != null) {
+                        String checked = request.getParameter("chk"+i);
+                        if (checked.equals("on")) {
+                            clsDropIDListCopy.add(clsDropIDList.get(i));
+                        }
                     }
                     i++;
                 }

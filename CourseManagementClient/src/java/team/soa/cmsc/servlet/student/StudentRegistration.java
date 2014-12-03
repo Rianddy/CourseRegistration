@@ -6,8 +6,6 @@
  */
 package team.soa.cmsc.servlet.student;
 
-import Controllers.ClassController;
-import Controllers.PrereqController;
 import Controllers.StudentController;
 import Controllers.RegCheckController;
 import java.io.IOException;
@@ -17,13 +15,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.*;
+import javax.servlet.http.HttpSession;
 import javax.xml.ws.WebServiceRef;
-import org.netbeans.xml.schema.studentregcheck.ClassList;
 import org.netbeans.xml.schema.studentregcheck.StuRegCheckInfo;
-import org.netbeans.xml.schema.studentregcheck.StudentInformation;
 import webservice.basic.Student;
 //import webservice.checkregistration.*;
-import webservice.prereqmeet.StudentClass;
 
 
 @WebServlet(name = "StudentRegistration", urlPatterns = {"/StudentRegistration"})
@@ -42,45 +38,47 @@ public class StudentRegistration extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String studentId = request.getParameter("stuID");
-        int stuID = Integer.valueOf(studentId);
-        boolean studentValid = StudentController.studentIsValid(stuID);
-        if (studentValid) {
-            
-            // Call web service to get student information
-            Student student = StudentController.getStudentInfo(stuID);
-            
-            // Get all classes that the students want to register from request
-            List<Integer> classIDList = new ArrayList<Integer>();
-            
-            // Get all premission codes asscociated with classId, if none, set as 0
-            List<Integer> PremissionCodeList = new ArrayList<Integer>();
-            
-            int i = 0;            
-            
-            while (request.getParameter("class" + i) != null) {
-                int PremissionCode = 0;
-                if (request.getParameter("PremssionCode" + i) != null && !request.getParameter("PremssionCode" + i).equals("")) {
-                    PremissionCode = Integer.valueOf(request.getParameter("PremssionCode" + i));
-                }
+        HttpSession session = request.getSession();
+        String studentId = (String) session.getAttribute("stuID");//request.getParameter("stuID");
+        if (studentId != null || !studentId.equals("")) {
+            int stuID = Integer.valueOf(studentId);
+            boolean studentValid = StudentController.studentIsValid(stuID);
+            if (studentValid) {
 
-                PremissionCodeList.add(PremissionCode);
-                
+                // Call web service to get student information
+                Student student = StudentController.getStudentInfo(stuID);
+
+                // Get all classes that the students want to register from request
+                List<Integer> classIDList = new ArrayList<Integer>();
+
+                // Get all premission codes asscociated with classId, if none, set as 0
+                List<Integer> PremissionCodeList = new ArrayList<Integer>();
+
+                int i = 0;
+
+                while (request.getParameter("class" + i) != null) {
+                    int PremissionCode = 0;
+                    if (request.getParameter("PremssionCode" + i) != null && !request.getParameter("PremssionCode" + i).equals("")) {
+                        PremissionCode = Integer.valueOf(request.getParameter("PremssionCode" + i));
+                    }
+
+                    PremissionCodeList.add(PremissionCode);
+
                 // Create current class information object
+                    // Get classid from request
+                    int classID = Integer.valueOf(request.getParameter("class" + i));
 
-                // Get classid from request
-                int classID = Integer.valueOf(request.getParameter("class" + i));
+                    classIDList.add(classID);
+                    i++;
+                }
+                StuRegCheckInfo srci = RegCheckController.checkStudentRegistration(stuID, classIDList, PremissionCodeList);
+                // Redirect to successful page with some attributes
+                request.setAttribute("StuRegCheckInfo", srci);
+                request.getRequestDispatcher("/RegistrationResult.jsp").forward(request, response);
 
-                classIDList.add(classID);
-                i++;
+            } else {
+                // TODO: return to fail page
             }
-            StuRegCheckInfo srci = RegCheckController.checkStudentRegistration(stuID, classIDList, PremissionCodeList);
-            // Redirect to successful page with some attributes
-            request.setAttribute("StuRegCheckInfo", srci);
-            request.getRequestDispatcher("/RegistrationResult.jsp").forward(request, response);
-
-        } else {
-            // TODO: return to fail page
         }
     }
 

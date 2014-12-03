@@ -5,11 +5,12 @@
  */
 
 package team.soa.cms.dao;
+import java.util.List;
 import org.netbeans.xml.schema.classxmlschema.Class;
 import org.netbeans.xml.schema.facultyxmlschema.Faculty;
 /**
  *
- * @author Edison
+ * @author Edison, edited by Kevin
  */
 public interface ClassDAO {
     public Class getOneClass(int class_id);
@@ -23,5 +24,7 @@ public interface ClassDAO {
     public String getFacultyEmailFromClass(int class_id);
     
     public Faculty getFacultyInfo(int class_id) ;
+    
+    public List<Class> getAllClasses();
     
 }

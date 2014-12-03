@@ -1,20 +1,16 @@
-<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws.cms.soa.team/" xmlns:ns1="http://xml.netbeans.org/schema/stuEnrolXmlSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.cms.soa.team/">
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.3 (tags/2.3-7528; 2013-04-29T19:34:10+0000) JAXWS-RI/2.2.8 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.0" targetNamespace="http://xml.netbeans.org/schema/courseXmlSchema">
 
-<xs:import namespace="http://xml.netbeans.org/schema/stuEnrolXmlSchema" schemaLocation="http://localhost:8080/CourseManagementSystem/StudentEnrollmentService?xsd=1"/>
-
-<xs:element name="getStudentEnrollList" type="tns:getStudentEnrollList"/>
-
-<xs:element name="getStudentEnrollListResponse" type="tns:getStudentEnrollListResponse"/>
-
-<xs:complexType name="getStudentEnrollList">
+<xs:complexType name="course">
 <xs:sequence>
-<xs:element name="Stu_ID" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="getStudentEnrollListResponse">
-<xs:sequence>
-<xs:element name="return" type="ns1:stuEnrollList" minOccurs="0"/>
+<xs:element name="courseid" type="xs:string"/>
+<xs:element name="departname" type="xs:string"/>
+<xs:element name="major" type="xs:string"/>
+<xs:element name="concentrationname" type="xs:string"/>
+<xs:element name="coursename" type="xs:string"/>
+<xs:element name="coursedescription" type="xs:string"/>
+<xs:element name="coursecredits" type="xs:string"/>
+<xs:element name="coursestatus" type="xs:string"/>
+<xs:element name="prerequestid" type="xs:string"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

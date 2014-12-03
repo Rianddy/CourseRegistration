@@ -35,4 +35,6 @@
     <system systemId="http://localhost:8080/CourseManagementSystem/StudentEnrollmentService?wsdl" uri="src/conf/xml-resources/web-service-references/StudentEnrollmentService/wsdl/localhost_8080/CourseManagementSystem/StudentEnrollmentService.wsdl"/>
     <system systemId="http://localhost:8080/CourseManagementSystem/StudentEnrollmentService?xsd=1" uri="src/conf/xml-resources/web-service-references/StudentEnrollmentService/wsdl/localhost_8080/CourseManagementSystem/StudentEnrollmentService.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/CourseManagementSystem/StudentEnrollmentService?xsd=2" uri="src/conf/xml-resources/web-service-references/StudentEnrollmentService/wsdl/localhost_8080/CourseManagementSystem/StudentEnrollmentService.xsd_2.xsd"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/StudentEnrollmentService?xsd=3" uri="src/conf/xml-resources/web-service-references/StudentEnrollmentService/wsdl/localhost_8080/CourseManagementSystem/StudentEnrollmentService.xsd_3.xsd"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/StudentEnrollmentService?xsd=4" uri="src/conf/xml-resources/web-service-references/StudentEnrollmentService/wsdl/localhost_8080/CourseManagementSystem/StudentEnrollmentService.xsd_4.xsd"/>
 </catalog>

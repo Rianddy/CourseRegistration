@@ -30,6 +30,18 @@ public class ClassController {
         webservice.classregister.ClassCanRegisterService port = service.getClassCanRegisterServicePort();
         return port.classRegisterLeftSpace(classID);
     }
+
+    public static java.util.List<org.netbeans.xml.schema.coursexmlschema.Course> getAllCourses() {
+        team.soa.cms.ws.StudentEnrollmentService_Service service = new team.soa.cms.ws.StudentEnrollmentService_Service();
+        team.soa.cms.ws.StudentEnrollmentService port = service.getStudentEnrollmentServicePort();
+        return port.getAllCourses();
+    }
+
+    public static java.util.List<org.netbeans.xml.schema.classxmlschema.Class> getAllClasses() {
+        team.soa.cms.ws.StudentEnrollmentService_Service service = new team.soa.cms.ws.StudentEnrollmentService_Service();
+        team.soa.cms.ws.StudentEnrollmentService port = service.getStudentEnrollmentServicePort();
+        return port.getAllClasses();
+    }
     
     
     
