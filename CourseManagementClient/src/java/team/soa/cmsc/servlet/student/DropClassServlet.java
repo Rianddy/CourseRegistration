@@ -82,6 +82,16 @@ public class DropClassServlet extends HttpServlet {
                  out.println(result.getReason());
                  out.println(result.getResult());
             }
+            /*
+            Waitlist waitList = dropClassControler.getWaitingList(checkClasses, finalResult);
+            
+            System.out.println("waitlist");
+            List<Student> list = waitList.getStudent();
+            System.out.println("waitlist=="+list.size());
+            for (Student stu : list){
+                out.println("StuId:"+stu.getStudentID()+" StuEmail:"+stu.getEmail()+" ClassId:"+stu.getClassID());
+            }*/
+        
            
         }
     }
@@ -115,16 +125,7 @@ public class DropClassServlet extends HttpServlet {
         processRequest(request, response);
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+    
     
 
 }

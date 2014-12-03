@@ -29,4 +29,10 @@ public class DropClassControler {
         team.soa.cms.ws.StudentDropClass port = service.getStudentDropClassPort();
         return port.studentDropClass(inputClasses);
     }
+    /*
+    public Waitlist getWaitingList(org.netbeans.xml.schema.checkdropclasses.CheckClasses checkClasses,org.netbeans.xml.schema.dropclasses.DropStudentClasses dropStudentClasses){
+        team.soa.cms.ws.GetWaitlist_Service service = new team.soa.cms.ws.GetWaitlist_Service();
+        team.soa.cms.ws.GetWaitlist port = service.getGetWaitlistPort();
+        return port.operation(dropStudentClasses, checkClasses);
+    }*/
 }
