@@ -41,28 +41,20 @@ public class RequestPermsServlet extends HttpServlet {
         String class_id = request.getParameter("class_id");
         String faculty_email = request.getParameter("faculty_email");
         int status = prereqMsgQueue(stu_id, class_id, faculty_email);
+        String stas = "";
         /**  please dispatch web page here with the status codes **/
         if(status%10==Constant.SUCCESS){
-            System.out.println("Success!");
+            stas = "Success";
+            //System.out.println("Success!");
         }else if(status%10==Constant.PARTIAL_SUCCESS){
-            System.err.println("Partial success! Please check!");
+            stas = "Partial success! Please check!";
+            //System.err.println("Partial success! Please check!");
         }else if(status%10==Constant.FAIL){
-            System.err.println("Fail!!");
+            stas = "Fail!";
+            //System.err.println("Fail!!");
         }
-        /**remove following code and use the status code to show your page!!!!!**/
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet RequestPermission</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>" + status + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-        /*************************************end*************************************/
+        request.setAttribute("stas", stas);
+        request.getRequestDispatcher("/RequestPerms.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
