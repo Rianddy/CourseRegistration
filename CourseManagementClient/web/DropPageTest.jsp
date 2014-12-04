@@ -1,4 +1,4 @@
-<%-- 
+do  <%-- 
     Document   : DropPageTest
     Created on : Nov 13, 2014, 10:40:13 PM
     Author     : Edison

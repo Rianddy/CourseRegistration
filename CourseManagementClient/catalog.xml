@@ -32,4 +32,10 @@
     <system systemId="http://localhost:8080/CourseManagementSystem/RegCheckService?xsd=2" uri="src/conf/xml-resources/web-service-references/RegCheckService/wsdl/localhost_8080/CourseManagementSystem/RegCheckService.xsd_2.xsd"/>
     <system systemId="http://localhost:8080/CourseManagementSystem/PermissionRequestService?wsdl" uri="src/conf/xml-resources/web-service-references/PermissionRequestService/wsdl/localhost_8080/CourseManagementSystem/PermissionRequestService.wsdl"/>
     <system systemId="http://localhost:8080/CourseManagementSystem/PermissionRequestService?xsd=1" uri="src/conf/xml-resources/web-service-references/PermissionRequestService/wsdl/localhost_8080/CourseManagementSystem/PermissionRequestService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/getWaitlist?wsdl" uri="src/conf/xml-resources/web-service-references/getWaitlist/wsdl/localhost_8080/CourseManagementSystem/getWaitlist.wsdl"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/getWaitlist?xsd=1" uri="src/conf/xml-resources/web-service-references/getWaitlist/wsdl/localhost_8080/CourseManagementSystem/getWaitlist.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/getWaitlist?xsd=2" uri="src/conf/xml-resources/web-service-references/getWaitlist/wsdl/localhost_8080/CourseManagementSystem/getWaitlist.xsd_2.xsd"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/getWaitlist?xsd=3" uri="src/conf/xml-resources/web-service-references/getWaitlist/wsdl/localhost_8080/CourseManagementSystem/getWaitlist.xsd_3.xsd"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/PermsReqMailService?wsdl" uri="src/conf/xml-resources/web-service-references/PermsReqMailService_1/wsdl/localhost_8080/CourseManagementSystem/PermsReqMailService.wsdl"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/PermsReqMailService?xsd=1" uri="src/conf/xml-resources/web-service-references/PermsReqMailService_1/wsdl/localhost_8080/CourseManagementSystem/PermsReqMailService.xsd_1.xsd"/>
 </catalog>

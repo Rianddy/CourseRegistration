@@ -186,5 +186,53 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/team/soa/cms/ws/permission"/>
         <delete dir="${build.generated.dir}/jax-wsCache/PermissionRequestService"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-StudentValidService, wsimport-client-DAOService, wsimport-client-ClassValidService, wsimport-client-ClassCanRegisterService, wsimport-client-PrereqMeetService, wsimport-client-StudentDropClass, wsimport-client-PermsReqMsgService, wsimport-client-PermsConfmMsgService, wsimport-client-RegCheckService, wsimport-client-PermissionRequestService"/>
+    <target name="wsimport-client-getWaitlist" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/getWaitlist"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/getWaitlist" destdir="${build.generated.dir}/jax-wsCache/getWaitlist" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/getWaitlist/wsdl/localhost_8080/CourseManagementSystem/getWaitlist.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/CourseManagementSystem/getWaitlist?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/getWaitlist/wsdl/localhost_8080/CourseManagementSystem/getWaitlist.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/getWaitlist"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/getWaitlist">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-getWaitlist" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/team/soa/cms/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/getWaitlist"/>
+    </target>
+    <target name="wsimport-client-PermsReqMailService" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/PermsReqMailService"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/PermsReqMailService" destdir="${build.generated.dir}/jax-wsCache/PermsReqMailService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/PermsReqMailService/wsdl/localhost_8080/CourseManagementSystem/PermsReqMailService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/CourseManagementSystem/PermsReqMailService?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/PermsReqMailService/wsdl/localhost_8080/CourseManagementSystem/PermsReqMailService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/PermsReqMailService"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/PermsReqMailService">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-PermsReqMailService" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/team/soa/cms/mail"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/PermsReqMailService"/>
+    </target>
+    <target name="wsimport-client-PermsReqMailService_1" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/PermsReqMailService_1"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/PermsReqMailService_1" destdir="${build.generated.dir}/jax-wsCache/PermsReqMailService_1" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/PermsReqMailService_1/wsdl/localhost_8080/CourseManagementSystem/PermsReqMailService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/CourseManagementSystem/PermsReqMailService?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/PermsReqMailService_1/wsdl/localhost_8080/CourseManagementSystem/PermsReqMailService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/PermsReqMailService_1"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/PermsReqMailService_1">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-PermsReqMailService_1" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/team/soa/cms/mail"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/PermsReqMailService_1"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-StudentValidService, wsimport-client-DAOService, wsimport-client-ClassValidService, wsimport-client-ClassCanRegisterService, wsimport-client-PrereqMeetService, wsimport-client-StudentDropClass, wsimport-client-PermsReqMsgService, wsimport-client-PermsConfmMsgService, wsimport-client-RegCheckService, wsimport-client-PermissionRequestService, wsimport-client-getWaitlist, wsimport-client-PermsReqMailService, wsimport-client-PermsReqMailService_1"/>
 </project>

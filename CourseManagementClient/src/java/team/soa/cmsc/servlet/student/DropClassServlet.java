@@ -24,6 +24,10 @@ import org.netbeans.xml.schema.dropclasses.CheckClasses.Classes;
 import org.netbeans.xml.schema.dropclasses.DropClassesInput;
 import org.netbeans.xml.schema.dropclasses.DropStudentClasses;
 import org.netbeans.xml.schema.dropclasses.DropStudentClasses.ClassResult;
+import org.netbeans.xml.schema.studentinwaitlist.Waitlist;
+import org.netbeans.xml.schema.studentinwaitlist.Waitlist.Student;
+import team.soa.cms.mail.MailService;
+import team.soa.cms.mail.PermsReqMailService;
 import team.soa.cms.ws.StudentDropClass_Service;
 
 /**
@@ -31,6 +35,8 @@ import team.soa.cms.ws.StudentDropClass_Service;
  * @author Edison Edited by Yaping Chen
  */
 public class DropClassServlet extends HttpServlet {
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/CourseManagementSystem/PermsReqMailService.wsdl")
+    private PermsReqMailService service_1;
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/CourseManagementSystem/StudentDropClass.wsdl")
     private StudentDropClass_Service service;
 
@@ -76,11 +82,22 @@ public class DropClassServlet extends HttpServlet {
                
             }
             DropStudentClasses finalResult =dropClassControler.studentDropClass(checkClasses);
-            out.println("StudentID:"+finalResult.getStudentid());
+            out.println(finalResult.getStudentid());
             for (ClassResult result :finalResult.getClassResult()){
-                 out.println("<br/>"+result.getClassid());
+                 out.println(result.getClassid());
                  out.println(result.getReason());
                  out.println(result.getResult());
+            }
+            Waitlist waitList = dropClassControler.getWaitingList(checkClasses, finalResult);
+            
+            System.out.println("waitlist");
+            List<Student> list = waitList.getStudent();
+            System.out.println("waitlist=="+list.size());
+              
+            for (Student stu : list){
+                out.println("StuId:"+stu.getStudentID()+" StuEmail:"+stu.getEmail()+" ClassId:"+stu.getClassID());
+              String content="As you are in the waitlist, someone dropped this class, so you have been enrolled into Class ID:"+stu.getStudentID()+" automatically";
+                dropConfirm(stu.getEmail(),content);
             }
            
         }
@@ -124,6 +141,13 @@ public class DropClassServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private Integer dropConfirm(java.lang.String studentEmail, java.lang.String dropContent) {
+        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
+        // If the calling of port operations may lead to race condition some synchronization is required.
+        team.soa.cms.mail.MailService port = service_1.getMailServicePort();
+        return port.dropConfirm(studentEmail, dropContent);
+    }
 
     
 
