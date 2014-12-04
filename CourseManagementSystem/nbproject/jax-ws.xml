@@ -43,6 +43,9 @@
     <service name="MailService">
       <implementation-class>team.soa.cms.mail.MailService</implementation-class>
     </service>
+    <service name="getWaitlist">
+      <implementation-class>team.soa.cms.ws.getWaitlist</implementation-class>
+    </service>
   </services>
   <clients/>
   <jsr109>true</jsr109>

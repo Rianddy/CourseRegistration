@@ -11,7 +11,7 @@ import org.netbeans.xml.schema.stuenrolxmlschema.StuEnrollList.Oneenroll;
 
 /**
  *
- * @author Edison
+ * @author Edison,Yaping Chen
  */
 public interface StudentEnrollDAO {
     public String insert(int Class_ID, int Stu_ID);
@@ -25,5 +25,9 @@ public interface StudentEnrollDAO {
     public Oneenroll getOneEnrollmentInfo(int Stu_ID,int Class_ID ); // used in drop module
     
     public void dropEnrolledClass(int Class_ID,int Stu_ID);
+    
+    public Oneenroll getFirstStudentInWaitlist(int Class_ID,String status);
+    
+    public void updateStuEnroll(int student_ID,int class_ID);
     
 }

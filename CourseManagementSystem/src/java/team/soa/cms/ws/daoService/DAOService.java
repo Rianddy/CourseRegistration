@@ -206,4 +206,24 @@ public class DAOService {
         
         return result;
     }
+    
+     /**
+     * Web service operation
+     * Author:Yaping Chen
+     */
+    @WebMethod(operationName = "firstStudentInWaitlist")
+    public Oneenroll firstStudentInWaitlist(@WebParam(name = "classID") int classID, @WebParam(name = "status") String status) {
+       StudentEnrollDAO stuEnrollDAO = new StudentEnrollDAOImpl();
+       return stuEnrollDAO.getFirstStudentInWaitlist(classID, status);
+    }
+    
+    /**
+     * Web service operation
+     *Author:Edison
+     */
+    @WebMethod(operationName = "updateStuEnroll")
+    public void updateStuEnroll(@WebParam(name = "student_ID") int student_ID, @WebParam(name = "class_ID") int class_ID) {
+       StudentEnrollDAO stuEnrollDAO = new StudentEnrollDAOImpl();
+       stuEnrollDAO.updateStuEnroll(student_ID, class_ID);
+    }
 }
