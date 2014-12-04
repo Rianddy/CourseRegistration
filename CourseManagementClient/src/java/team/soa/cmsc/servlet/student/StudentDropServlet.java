@@ -60,11 +60,11 @@ public class StudentDropServlet extends HttpServlet {
                 
                 session.setAttribute("clsDropID", clsDropIDListCopy);
                 
-                request.getRequestDispatcher("/").forward(request, response);
+                
             }
         }
-        
-        request.getRequestDispatcher("/BrowseClass.jsp").forward(request, response);
+        request.getRequestDispatcher("/DropCourseConfirm.jsp").forward(request, response);
+        //request.getRequestDispatcher("/BrowseClass.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
