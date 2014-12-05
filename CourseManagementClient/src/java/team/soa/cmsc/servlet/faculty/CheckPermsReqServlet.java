@@ -45,6 +45,7 @@ public class CheckPermsReqServlet extends HttpServlet {
         String permsId = request.getParameter("permsId");
         List<StuClassInfoMQSerialObj> permsMsgList = new ArrayList<StuClassInfoMQSerialObj>();
         permsMsgList = getPermsInfo(permsId);
+        request.setAttribute("permsId", permsId);
         request.setAttribute("PermsMsgList", permsMsgList);
         // show values in this list in your page!!!
         // do not forget to redirect or dispatch to next Servlet!!!!!!!!

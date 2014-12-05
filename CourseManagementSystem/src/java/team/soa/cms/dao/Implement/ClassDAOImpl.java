@@ -7,6 +7,8 @@
 package team.soa.cms.dao.Implement;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.netbeans.xml.schema.classxmlschema.Class;
@@ -153,6 +155,48 @@ public class ClassDAOImpl extends GeneralDAO implements ClassDAO{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    @Override
+    public List<Class> getAllClasses() {
+        List<Class> classes = new ArrayList<Class>();        
+        try {
+            this.OpenConnection();
+            this.sql = "select * from Class";
+            rs =stmt.executeQuery(sql);
+            String fac_ID="",Open_Sem_ID="";
+            while (rs.next()){
+                Class cls = new Class();
+                cls.setClassid(rs.getString("cls_ID"));
+                cls.setCosid(rs.getString("cos_ID"));
+                cls.setCursize(Integer.parseInt(rs.getString("Cur_Size")));
+                cls.setCurwaitlist(Integer.parseInt(rs.getString("Cur_WaitList")));
+                cls.setMaxsize(Integer.parseInt(rs.getString("Max_Size")));
+                cls.setMaxwaitlist(Integer.parseInt(rs.getString("Max_WaitList")));
+                fac_ID =rs.getString("Fac_ID");
+                Open_Sem_ID =rs.getString("Open_Sem_ID");
+                Faculty fac= new Faculty();
+                FacultyDAO facDAO = new FacultyDAOImpl();
+                fac =facDAO.getOneFaculty(Integer.parseInt(fac_ID));
+                cls.setFacultyname(fac.getFacname());
+
+                Semester sem = new Semester();
+                SemesterDAO semDAO = new SemesterDAOImpl();
+                sem =semDAO.getOneSemester(Integer.parseInt(Open_Sem_ID));
+                cls.setAdddropdate(sem.getAdddropdate());
+                cls.setOpensemid(sem.getSemid());
+                cls.setSemname(sem.getSemname());
+                cls.setStartdate(sem.getStartdate());
+                cls.setEnddate(sem.getEnddate());                
+                classes.add(cls);
+            }     
+            for (int i=0; i<classes.size(); i++) {
+                System.out.println("class id: " + classes.get(i).getClassid());
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ClassDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return classes;
+    }
    
     
 }

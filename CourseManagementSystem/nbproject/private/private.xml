@@ -2,12 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/Workspaces/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/msgListener/StuPermsQueueListener.java</file>
-            <file>file:/D:/Workspaces/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/msgQueueService/PermsConfmMsgService.java</file>
-            <file>file:/D:/Workspaces/CourseRegistration/CourseManagementSystem/setup/glassfish-resources.xml</file>
-            <file>file:/D:/Workspaces/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/mail/MailUtil.java</file>
-            <file>file:/D:/Workspaces/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/msgQueueService/PermsReqMsgService.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

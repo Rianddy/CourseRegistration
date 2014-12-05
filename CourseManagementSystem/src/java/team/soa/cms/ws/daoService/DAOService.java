@@ -5,9 +5,11 @@
  */
 package team.soa.cms.ws.daoService;
 
+import java.util.List;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import org.netbeans.xml.schema.coursexmlschema.Course;
 import org.netbeans.xml.schema.facultyxmlschema.Faculty;
 import org.netbeans.xml.schema.permissionxmlschema.Permission;
 import org.netbeans.xml.schema.prerequestxmlschema.Prerequestment;
@@ -206,4 +208,28 @@ public class DAOService {
         
         return result;
     }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getAllCourses")
+    public List<Course> getAllCourses() {
+        //TODO write your implementation code here:
+        CourseDAOImpl courseDAOO = new CourseDAOImpl();
+        List<Course> courses = courseDAOO.getAllCourses();
+        return courses;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getAllClasses")
+    public List<org.netbeans.xml.schema.classxmlschema.Class> getAllClasses() {
+        //TODO write your implementation code here:
+        ClassDAOImpl classDAOO = new ClassDAOImpl();
+        List<org.netbeans.xml.schema.classxmlschema.Class> classes = classDAOO.getAllClasses();
+        return classes;
+    }
+    
+    
 }

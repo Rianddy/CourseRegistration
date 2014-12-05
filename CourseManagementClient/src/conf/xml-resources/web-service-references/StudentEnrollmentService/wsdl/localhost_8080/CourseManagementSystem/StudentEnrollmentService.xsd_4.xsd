@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.3 (tags/2.3-7528; 2013-04-29T19:34:10+0000) JAXWS-RI/2.2.8 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws.cms.soa.team/" xmlns:ns3="http://xml.netbeans.org/schema/classXmlSchema" xmlns:ns2="http://xml.netbeans.org/schema/stuEnrolXmlSchema" xmlns:ns1="http://xml.netbeans.org/schema/courseXmlSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.cms.soa.team/">
+
+<xs:import namespace="http://xml.netbeans.org/schema/courseXmlSchema" schemaLocation="http://localhost:8080/CourseManagementSystem/StudentEnrollmentService?xsd=2"/>
+
+<xs:import namespace="http://xml.netbeans.org/schema/stuEnrolXmlSchema" schemaLocation="http://localhost:8080/CourseManagementSystem/StudentEnrollmentService?xsd=1"/>
+
+<xs:import namespace="http://xml.netbeans.org/schema/classXmlSchema" schemaLocation="http://localhost:8080/CourseManagementSystem/StudentEnrollmentService?xsd=3"/>
+
+<xs:element name="getAllClasses" type="tns:getAllClasses"/>
+
+<xs:element name="getAllClassesResponse" type="tns:getAllClassesResponse"/>
+
+<xs:element name="getAllCourses" type="tns:getAllCourses"/>
+
+<xs:element name="getAllCoursesResponse" type="tns:getAllCoursesResponse"/>
+
+<xs:element name="getStudentEnrollList" type="tns:getStudentEnrollList"/>
+
+<xs:element name="getStudentEnrollListResponse" type="tns:getStudentEnrollListResponse"/>
+
+<xs:complexType name="getAllCourses">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getAllCoursesResponse">
+<xs:sequence>
+<xs:element name="return" type="ns1:course" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getStudentEnrollList">
+<xs:sequence>
+<xs:element name="Stu_ID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getStudentEnrollListResponse">
+<xs:sequence>
+<xs:element name="return" type="ns2:stuEnrollList" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllClasses">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getAllClassesResponse">
+<xs:sequence>
+<xs:element name="return" type="ns3:class" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

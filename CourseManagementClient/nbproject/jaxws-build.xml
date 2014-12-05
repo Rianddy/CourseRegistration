@@ -186,5 +186,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/team/soa/cms/ws/permission"/>
         <delete dir="${build.generated.dir}/jax-wsCache/PermissionRequestService"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-StudentValidService, wsimport-client-DAOService, wsimport-client-ClassValidService, wsimport-client-ClassCanRegisterService, wsimport-client-PrereqMeetService, wsimport-client-StudentDropClass, wsimport-client-PermsReqMsgService, wsimport-client-PermsConfmMsgService, wsimport-client-RegCheckService, wsimport-client-PermissionRequestService"/>
+    <target name="wsimport-client-StudentEnrollmentService" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/StudentEnrollmentService"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/StudentEnrollmentService" destdir="${build.generated.dir}/jax-wsCache/StudentEnrollmentService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/StudentEnrollmentService/wsdl/localhost_8080/CourseManagementSystem/StudentEnrollmentService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/CourseManagementSystem/StudentEnrollmentService?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/StudentEnrollmentService/wsdl/localhost_8080/CourseManagementSystem/StudentEnrollmentService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/StudentEnrollmentService"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/StudentEnrollmentService">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-StudentEnrollmentService" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/team/soa/cms/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/StudentEnrollmentService"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-StudentValidService, wsimport-client-DAOService, wsimport-client-ClassValidService, wsimport-client-ClassCanRegisterService, wsimport-client-PrereqMeetService, wsimport-client-StudentDropClass, wsimport-client-PermsReqMsgService, wsimport-client-PermsConfmMsgService, wsimport-client-RegCheckService, wsimport-client-PermissionRequestService, wsimport-client-StudentEnrollmentService"/>
 </project>

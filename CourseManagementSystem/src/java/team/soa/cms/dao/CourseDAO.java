@@ -6,12 +6,15 @@
 
 package team.soa.cms.dao;
 
+import java.util.List;
 import org.netbeans.xml.schema.coursexmlschema.Course;
 
 /**
  *
- * @author Edison
+ * @author Edison, edited by Kevin
  */
 public interface CourseDAO {
     public Course getOneCourse(int course_ID);
+    
+    public List<Course> getAllCourses();
 }
