@@ -3,9 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package team.soa.cmsc.servlet.student;
-
 
 import Controllers.DropClassControler;
 import java.io.IOException;
@@ -18,12 +16,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.xml.ws.WebServiceRef;
 import org.netbeans.xml.schema.dropclasses.CheckClasses;
 import org.netbeans.xml.schema.dropclasses.CheckClasses.Classes;
 import org.netbeans.xml.schema.dropclasses.DropClassesInput;
 import org.netbeans.xml.schema.dropclasses.DropStudentClasses;
 import org.netbeans.xml.schema.dropclasses.DropStudentClasses.ClassResult;
+import org.netbeans.xml.schema.studentinwaitlist.Waitlist;
+import org.netbeans.xml.schema.studentinwaitlist.Waitlist.Student;
+import team.soa.cms.mail.MailService_Service;
 import team.soa.cms.ws.StudentDropClass_Service;
 
 /**
@@ -31,6 +33,9 @@ import team.soa.cms.ws.StudentDropClass_Service;
  * @author Edison Edited by Yaping Chen
  */
 public class DropClassServlet extends HttpServlet {
+
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/CourseManagementSystem/MailService.wsdl")
+    private MailService_Service service_2;
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/CourseManagementSystem/StudentDropClass.wsdl")
     private StudentDropClass_Service service;
 
@@ -48,41 +53,41 @@ public class DropClassServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             //PrintWriter writer = response.getWriter();
-            
+
             Map<String, String[]> params = request.getParameterMap();
-            
-            DropClassControler dropClassControler =new DropClassControler();
+
+            DropClassControler dropClassControler = new DropClassControler();
             DropClassesInput classes = new DropClassesInput();
-            
-            List<Integer> classIDs = new ArrayList<Integer>();
-            int studentID;
-            Iterator iter = params.entrySet().iterator();
-            while (iter.hasNext()){
-                Map.Entry<String, String[]> entry = (Map.Entry<String,String[]>) iter.next();
-                String key = entry.getKey();
-                String[] val =entry.getValue();
-                if (key.equals("studentID")){
-                    studentID= Integer.parseInt(val[0]);
-                    classes.setStudentid(studentID);
-                }else if (key.contains("classID")){
-                    if (val[0]!=null&&val[0]!=""){
-                        classes.getClassIds().add(Integer.parseInt(val[0]));
-                    }
-                }
+
+            HttpSession session = request.getSession();
+            String studentID = (String) session.getAttribute("stuID");
+            ArrayList<String> classIDs = (ArrayList<String>) session.getAttribute("clsDropID");
+            classes.setStudentid(Integer.parseInt(studentID));
+            for (String classId : classIDs) {
+                classes.getClassIds().add(Integer.parseInt(classId));
             }
-            
+
             CheckClasses checkClasses = dropClassControler.isClassEnrolled(classes);
-            for (Classes checkClass :checkClasses.getClasses()){
-               
+
+            DropStudentClasses finalResult = dropClassControler.studentDropClass(checkClasses);
+            out.println(finalResult.getStudentid());
+            for (ClassResult result : finalResult.getClassResult()) {
+                out.println(result.getClassid());
+                out.println(result.getReason());
+                out.println(result.getResult());
             }
-            DropStudentClasses finalResult =dropClassControler.studentDropClass(checkClasses);
-            out.println("StudentID:"+finalResult.getStudentid());
-            for (ClassResult result :finalResult.getClassResult()){
-                 out.println("<br/>"+result.getClassid());
-                 out.println(result.getReason());
-                 out.println(result.getResult());
+            Waitlist waitList = dropClassControler.getWaitingList(checkClasses, finalResult);
+
+            System.out.println("waitlist");
+            List<Student> list = waitList.getStudent();
+            System.out.println("waitlist==" + list.size());
+
+            for (Student stu : list) {
+                System.out.println("StuId:" + stu.getStudentID() + " StuEmail:" + stu.getEmail() + " ClassId:" + stu.getClassID());
+                String content = "As you are in the waitlist, someone dropped this class, so you have been enrolled into Class ID:" + stu.getStudentID() + " automatically";
+                dropConfirm(stu.getEmail(), content);
             }
-           
+
         }
     }
 
@@ -125,6 +130,11 @@ public class DropClassServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    
+    private int dropConfirm(java.lang.String studentEmail, java.lang.String permsContent) {
+        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
+        // If the calling of port operations may lead to race condition some synchronization is required.
+        team.soa.cms.mail.MailService port = service_2.getMailServicePort();
+        return port.dropConfirm(studentEmail, permsContent);
+    }
 
 }

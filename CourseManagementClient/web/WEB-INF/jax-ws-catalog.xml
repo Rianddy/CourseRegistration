@@ -36,4 +36,13 @@
     <system systemId="http://localhost:8080/CourseManagementSystem/StudentEnrollmentService?xsd=2" uri="wsdl/localhost_8080/CourseManagementSystem/StudentEnrollmentService.xsd_2.xsd"/>
     <system systemId="http://localhost:8080/CourseManagementSystem/StudentEnrollmentService?xsd=3" uri="wsdl/localhost_8080/CourseManagementSystem/StudentEnrollmentService.xsd_3.xsd"/>
     <system systemId="http://localhost:8080/CourseManagementSystem/StudentEnrollmentService?xsd=4" uri="wsdl/localhost_8080/CourseManagementSystem/StudentEnrollmentService.xsd_4.xsd"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/DAOService?xsd=8" uri="wsdl/localhost_8080/CourseManagementSystem/DAOService.xsd_8.xsd"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/getWaitlist?wsdl" uri="wsdl/localhost_8080/CourseManagementSystem/getWaitlist.wsdl"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/getWaitlist?xsd=1" uri="wsdl/localhost_8080/CourseManagementSystem/getWaitlist.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/getWaitlist?xsd=2" uri="wsdl/localhost_8080/CourseManagementSystem/getWaitlist.xsd_2.xsd"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/getWaitlist?xsd=3" uri="wsdl/localhost_8080/CourseManagementSystem/getWaitlist.xsd_3.xsd"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/PermsReqMailService?wsdl" uri="wsdl/localhost_8080/CourseManagementSystem/PermsReqMailService.wsdl"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/PermsReqMailService?xsd=1" uri="wsdl/localhost_8080/CourseManagementSystem/PermsReqMailService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/MailService?wsdl" uri="wsdl/localhost_8080/CourseManagementSystem/MailService.wsdl"/>
+    <system systemId="http://localhost:8080/CourseManagementSystem/MailService?xsd=1" uri="wsdl/localhost_8080/CourseManagementSystem/MailService.xsd_1.xsd"/>
 </catalog>

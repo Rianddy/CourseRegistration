@@ -35,6 +35,7 @@
                         %>
                         <form class="form-group" action="StudentDropServlet" method="post">
                             <%  for (int i=0; i< oneEnrolls.size(); i++) { 
+                                if(oneEnrolls.get(i).getStatus().equals("enroll")){
                                 clsDropIDList.add(oneEnrolls.get(i).getClassid());
                                 %>
                             <div class="form-group row">
@@ -45,7 +46,7 @@
                                     <div class="col-sm-5"><label>Enroll time:</label><%=oneEnrolls.get(i).getStuenrolltime()%></div>                                    
                                 </div>
                             </div>  
-                            <% }
+                            <% }}
                             %>
                             <div class="form-group row">
                                 <div class="col-lg-6">

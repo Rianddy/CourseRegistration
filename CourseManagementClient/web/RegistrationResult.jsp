@@ -51,7 +51,7 @@
                             int leftSpace = Integer.valueOf(classInfo.getClassstatus());
                             boolean requestPermission = false;
                             if(leftSpace<=0){
-                                out.println("<div class='col-sm-6'  style='background-color:#FF0000'>"+true+"</div>");
+                                out.println("<div class='col-sm-6'  style='background-color:#FF0000'>"+true+"(You are automatically put into waitlist!)</div>");
                                 requestPermission = true;
                             }else
                                 out.println("<div class='col-sm-6'  style='background-color:#00CC66'>"+false+"</div>");

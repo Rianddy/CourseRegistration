@@ -202,5 +202,37 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/team/soa/cms/ws"/>
         <delete dir="${build.generated.dir}/jax-wsCache/StudentEnrollmentService"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-StudentValidService, wsimport-client-DAOService, wsimport-client-ClassValidService, wsimport-client-ClassCanRegisterService, wsimport-client-PrereqMeetService, wsimport-client-StudentDropClass, wsimport-client-PermsReqMsgService, wsimport-client-PermsConfmMsgService, wsimport-client-RegCheckService, wsimport-client-PermissionRequestService, wsimport-client-StudentEnrollmentService"/>
+    <target name="wsimport-client-getWaitlist" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/getWaitlist"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/getWaitlist" destdir="${build.generated.dir}/jax-wsCache/getWaitlist" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/getWaitlist/wsdl/localhost_8080/CourseManagementSystem/getWaitlist.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/CourseManagementSystem/getWaitlist?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/getWaitlist/wsdl/localhost_8080/CourseManagementSystem/getWaitlist.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/getWaitlist"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/getWaitlist">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-getWaitlist" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/team/soa/cms/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/getWaitlist"/>
+    </target>
+    <target name="wsimport-client-MailService" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/MailService"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/MailService" destdir="${build.generated.dir}/jax-wsCache/MailService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/MailService/wsdl/localhost_8080/CourseManagementSystem/MailService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/CourseManagementSystem/MailService?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/MailService/wsdl/localhost_8080/CourseManagementSystem/MailService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/MailService"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/MailService">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-MailService" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/team/soa/cms/mail"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/MailService"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-StudentValidService, wsimport-client-DAOService, wsimport-client-ClassValidService, wsimport-client-ClassCanRegisterService, wsimport-client-PrereqMeetService, wsimport-client-StudentDropClass, wsimport-client-PermsReqMsgService, wsimport-client-PermsConfmMsgService, wsimport-client-RegCheckService, wsimport-client-PermissionRequestService, wsimport-client-StudentEnrollmentService, wsimport-client-getWaitlist, wsimport-client-MailService"/>
 </project>
