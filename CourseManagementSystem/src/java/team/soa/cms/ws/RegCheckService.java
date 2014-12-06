@@ -73,9 +73,13 @@ public class RegCheckService {
                         convertStuclspreqToRegcheckprerq(cls.getPrereqClasses(), stucls.getClassPrereq());
                         cls.setCanTake(stucls.isCanTake()); //waitng one more operation;
                         cls.setFacultyEmail(daoService.getFacultyEmail(Class_ID));
-                        if (classStatus > 0 && stucls.isCanTake()) {
+                        if (stucls.isCanTake()) {
                             if (daoService.getStudentEnrollmentRecord(Stu_ID, Class_ID).getStatus() == null || !daoService.getStudentEnrollmentRecord(Stu_ID, Class_ID).getStatus().equals("enroll")) {
-                                daoService.insertStudentEnrollmentWithStatus(String.valueOf(Stu_ID), String.valueOf(Class_ID), "enroll");
+                                if(classStatus > 0){
+                                    daoService.insertStudentEnrollmentWithStatus(String.valueOf(Stu_ID), String.valueOf(Class_ID), "enroll");
+                                }else{
+                                    daoService.insertStudentEnrollmentWithStatus(String.valueOf(Stu_ID), String.valueOf(Class_ID), "waitlist");
+                                }
                             }
                         } else {
                             servicesQueueService.setObjectBetweenService(this.getClass().getName(), PermissionRequestService.class.getName(), cls, stu, String.valueOf(String.valueOf(Stu_ID).hashCode() * String.valueOf(Class_ID).hashCode()));

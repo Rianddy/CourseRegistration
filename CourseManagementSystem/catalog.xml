@@ -17,4 +17,5 @@
     <system systemId="file:/Users/rianddy/NetBeansProjects/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/xml/stuclassmessageXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/stuclassmessageschema/stuclassmessageXmlSchema.xsd"/>
     <system systemId="file:/Users/rianddy/NetBeansProjects/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/xml/studentPrereqCheck.xsd" uri="src/conf/xml-resources/jaxb/studentprereqcheckschema/studentPrereqCheck.xsd"/>
     <system systemId="file:/C:/Users/riand_000/Documents/NetBeansProjects/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/xml/stuclassppermresultXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/stuclassppermresultxmlschema/stuclassppermresultXmlSchema.xsd"/>
+    <system systemId="file:/Users/rianddy/NetBeansProjects/CourseRegistration/CourseManagementSystem/src/java/team/soa/cms/xml/studentInWaitlist.xsd" uri="src/conf/xml-resources/jaxb/studentinwaitlist/studentInWaitlist.xsd"/>
 </catalog>

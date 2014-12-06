@@ -12,6 +12,7 @@ import javax.jws.WebParam;
 import org.netbeans.xml.schema.stuenrolxmlschema.StuEnrollList;
 import team.soa.cms.dao.Implement.StudentEnrollDAOImpl;
 import team.soa.cms.dao.StudentEnrollDAO;
+import team.soa.cms.ws.basicCheck.ClassCanRegisterService;
 
 /**
  *
@@ -47,5 +48,31 @@ public class InsertStudentEnrollment {
         return reEnrollId;
         
         
+    }
+    
+    /**
+     * Web service operation
+     * @editor Yan
+     * check class space left first
+     * then insert student
+     * @return student Enrollment ID
+     */
+    @WebMethod(operationName = "insertStudentEnrollCheck")
+    public Integer insertStudentEnroll(@WebParam(name = "stuid") int stuid, @WebParam(name = "clsid") int clsid) {
+        //TODO write your implementation code here:
+        
+        ClassCanRegisterService clss = new ClassCanRegisterService();
+        int space = clss.classRegisterLeftSpace(clsid);
+        String status = "";
+        if(space>0){
+            status = "enroll";
+        }else if(space<0){
+            status = "waitlist";
+        }
+        
+        int resID = insertStudentEnrollment(stuid, clsid, status);
+        
+        
+        return resID;
     }
 }

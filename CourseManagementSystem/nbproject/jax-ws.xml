@@ -46,6 +46,9 @@
     <service name="StudentEnrollmentService">
       <implementation-class>team.soa.cms.ws.StudentEnrollmentService</implementation-class>
     </service>
+    <service name="getWaitlist">
+      <implementation-class>team.soa.cms.ws.getWaitlist</implementation-class>
+    </service>
   </services>
   <clients/>
   <jsr109>true</jsr109>

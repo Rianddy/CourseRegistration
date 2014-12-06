@@ -26,4 +26,8 @@ public interface StudentEnrollDAO {
     
     public void dropEnrolledClass(int Class_ID,int Stu_ID);
     
+    public void updateStuEnroll(int student_ID,int class_ID);
+    
+    public Oneenroll getFirstStudentInWaitlist(int Class_ID, String status) ;
+    
 }

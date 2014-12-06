@@ -41,33 +41,32 @@ import team.soa.cms.serializableObj.permissionresultSerializableObj.FacultyinfoS
 @WebService(serviceName = "DAOService")
 public class DAOService {
 
-     @WebMethod(operationName = "getStudentInfo")
+    @WebMethod(operationName = "getStudentInfo")
     public Student getStudentInfo(@WebParam(name = "Stu_ID") final int Stu_ID) {
         StudentDAO stuDAO = new StudentDAOImpl();
-        Student stu =stuDAO.getOneStudent(Stu_ID);
+        Student stu = stuDAO.getOneStudent(Stu_ID);
         System.out.println("Service success!");
         return stu;
     }
-    
+
     @WebMethod(operationName = "getClassInfo")
-    public org.netbeans.xml.schema.classxmlschema.Class getClassInfo(@WebParam(name="Class_ID") final int Class_ID){
+    public org.netbeans.xml.schema.classxmlschema.Class getClassInfo(@WebParam(name = "Class_ID") final int Class_ID) {
         ClassDAO classDAO = new ClassDAOImpl();
         org.netbeans.xml.schema.classxmlschema.Class cls = classDAO.getOneClass(Class_ID);
         System.out.println("Service success!");
         return cls;
     }
-    
+
     @WebMethod(operationName = "getFacultyEmail")
-    public String getFacultyEmail(@WebParam(name="Class_ID") final int Class_ID){
+    public String getFacultyEmail(@WebParam(name = "Class_ID") final int Class_ID) {
         ClassDAO classDAO = new ClassDAOImpl();
         String email = classDAO.getFacultyEmailFromClass(Class_ID);
         System.out.println("Service success!");
         return email;
     }
-    
-    
+
     @WebMethod(operationName = "getFacultyInfo")
-    public Faculty getFacultyInfo(@WebParam(name="Fac_ID") final int Fac_ID){
+    public Faculty getFacultyInfo(@WebParam(name = "Fac_ID") final int Fac_ID) {
         FacultyDAO facultyDAO = new FacultyDAOImpl();
         Faculty fac = facultyDAO.getOneFaculty(Fac_ID);
         System.out.println("Service success!");
@@ -83,7 +82,7 @@ public class DAOService {
         String enroll_ID = stuEnrollDAO.insert(Integer.parseInt(Class_ID), Integer.parseInt(Student_ID));
         return enroll_ID;
     }
-    
+
     /**
      * Web service operation
      */
@@ -118,37 +117,37 @@ public class DAOService {
      */
     @WebMethod(operationName = "updateClassInfo")
     public Boolean updateClassInfo(@WebParam(name = "Class_ID") int Class_ID, @WebParam(name = "Cls") org.netbeans.xml.schema.classxmlschema.Class Cls) {
-      
+
         boolean result = false;
-        try{
-         ClassDAOImpl classDaoImpl = new ClassDAOImpl();
-         classDaoImpl.update(Class_ID, Cls);
-         result = true;
-        }catch(Exception e){
-          result = false;
+        try {
+            ClassDAOImpl classDaoImpl = new ClassDAOImpl();
+            classDaoImpl.update(Class_ID, Cls);
+            result = true;
+        } catch (Exception e) {
+            result = false;
         }
         return result;
     }
-    
+
     /**
      * Web service operation
      */
     @WebMethod(operationName = "dropEnrolledClass")
-    public void dropEnrolledClass(@WebParam(name = "courseid") int classid,@WebParam(name = "studentid") int studentid) {
+    public void dropEnrolledClass(@WebParam(name = "courseid") int classid, @WebParam(name = "studentid") int studentid) {
         StudentEnrollDAO stuEnrollDAO = new StudentEnrollDAOImpl();
-        stuEnrollDAO.dropEnrolledClass(classid,studentid);
+        stuEnrollDAO.dropEnrolledClass(classid, studentid);
     }
-    
+
     /**
      * Web service operation
      */
     @WebMethod(operationName = "getStudentEnrollmentRecord")  //to get specific record in the studentEnrollment table
     public Oneenroll getStudentEnrollmentRecord(@WebParam(name = "studentid") int studentid, @WebParam(name = "courseid") int classid) {
         StudentEnrollDAO stuEnrollDAO = new StudentEnrollDAOImpl();
-        return stuEnrollDAO.getOneEnrollmentInfo(studentid,classid);
+        return stuEnrollDAO.getOneEnrollmentInfo(studentid, classid);
     }
-    
-     /**
+
+    /**
      * Web service operation
      */
     @WebMethod(operationName = "getOnePermissionInfo")
@@ -156,8 +155,8 @@ public class DAOService {
         PermissionDAO perDAO = new PermissionDAOImpl();
         return perDAO.getOnePermissionInfo(Integer.valueOf(permission_id));
     }
-    
-     /**
+
+    /**
      * Web service operation
      */
     @WebMethod(operationName = "transferFromStuClassInfoToPermissionResult")
@@ -166,7 +165,7 @@ public class DAOService {
         ClassinfoSerialObj classinfoSerialObj = new ClassinfoSerialObj();
         FacultyinfoSerialObj facultyinfoSerialObj = new FacultyinfoSerialObj();
         team.soa.cms.serializableObj.permissionresultSerializableObj.StudentinfoSerialObj studentinfoSerialObj2 = new team.soa.cms.serializableObj.permissionresultSerializableObj.StudentinfoSerialObj();
-        
+
         ClassDAOImpl classDAOImpl = new ClassDAOImpl();
         CourseDAOImpl courseDAOImpl = new CourseDAOImpl();
         org.netbeans.xml.schema.classxmlschema.Class curClass = classDAOImpl.getOneClass(Integer.valueOf(stuClassInfoMQSerialObj.getClassInfo().getClassid()));
@@ -175,24 +174,24 @@ public class DAOService {
         classinfoSerialObj.setCoursename(courseDAOImpl.getOneCourse(Integer.valueOf(curClass.getCosid())).getCoursename());
         classinfoSerialObj.setOpensemester(curClass.getOpensemid());
         permissionresultSerialObj.setClassinfoserial(classinfoSerialObj);
-        
+
         Faculty faculty = classDAOImpl.getFacultyInfo(Integer.valueOf(stuClassInfoMQSerialObj.getClassInfo().getClassid()));
         facultyinfoSerialObj.setFacemail(faculty.getFacemail());
         facultyinfoSerialObj.setFacid(faculty.getFacid());
         facultyinfoSerialObj.setFacname(faculty.getFacname());
         permissionresultSerialObj.setFacinfoserial(facultyinfoSerialObj);
-        
+
         studentinfoSerialObj2.setStuemail(stuClassInfoMQSerialObj.getStudentInfo().getEmail());
         studentinfoSerialObj2.setStuid(stuClassInfoMQSerialObj.getStudentInfo().getStuid());
         studentinfoSerialObj2.setStuname("test");
         permissionresultSerialObj.setStuinfoserial(studentinfoSerialObj2);
-        
+
         return permissionresultSerialObj;
     }
-    
+
     /**
-     * Web service operation Insert Permission
-     * no matter accept or reject
+     * Web service operation Insert Permission no matter accept or reject
+     *
      * @editor Yan Ma
      */
     @WebMethod(operationName = "InsertPerms")
@@ -203,9 +202,9 @@ public class DAOService {
         int cla_ID = Integer.valueOf(permResultSerialObject.getClassinfoserial().getClassid());
         int fac_ID = Integer.valueOf(permResultSerialObject.getFacinfoserial().getFacid());
         String status = permResultSerialObject.getClassinfoserial().getRegresult();
-        
-        int result = perDAOO.insertPerm(stu_ID,cla_ID,fac_ID,status);
-        
+
+        int result = perDAOO.insertPerm(stu_ID, cla_ID, fac_ID, status);
+
         return result;
     }
 
@@ -230,6 +229,22 @@ public class DAOService {
         List<org.netbeans.xml.schema.classxmlschema.Class> classes = classDAOO.getAllClasses();
         return classes;
     }
-    
-    
+
+    /**
+     * Web service operation Author:Yaping Chen
+     */
+    @WebMethod(operationName = "firstStudentInWaitlist")
+    public Oneenroll firstStudentInWaitlist(@WebParam(name = "classID") int classID, @WebParam(name = "status") String status) {
+        StudentEnrollDAO stuEnrollDAO = new StudentEnrollDAOImpl();
+        return stuEnrollDAO.getFirstStudentInWaitlist(classID, status);
+    }
+
+    /**
+     * Web service operation Author:Edison
+     */
+    @WebMethod(operationName = "updateStuEnroll")
+    public void updateStuEnroll(@WebParam(name = "student_ID") int student_ID, @WebParam(name = "class_ID") int class_ID) {
+        StudentEnrollDAO stuEnrollDAO = new StudentEnrollDAOImpl();
+        stuEnrollDAO.updateStuEnroll(student_ID, class_ID);
+    }
 }

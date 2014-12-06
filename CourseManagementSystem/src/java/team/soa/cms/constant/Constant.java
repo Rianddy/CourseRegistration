@@ -19,7 +19,7 @@ package team.soa.cms.constant;
  * Email operation BEGIN 100;</p>
  */
 public class Constant {
-
+    public static final String ADDRESS = "127.0.0.1"+":8080"+"//CourseManagementClient/";
     public static final int SUCCESS = 0;
     public static final int PARTIAL_SUCCESS = 1;
     public static final int FAIL = 2;
