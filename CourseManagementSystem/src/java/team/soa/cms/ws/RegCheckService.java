@@ -62,8 +62,25 @@ public class RegCheckService {
                 boolean clsValid = classValid.classIsValid(Class_ID);
                 if (clsValid) {
                     int PremissionCode = PremissionCodeList.get(i);
+                    Permission permission = daoService.getOnePermissionInfo(PremissionCode);
+                    if (permission != null && permission.getPermsid() != null && permission.getStatus().equals("accept")) {
+                        if (Class_ID == Integer.valueOf(permission.getClassid())) {
+                            ClassInfo cls = new ClassInfo();
+                            Integer classStatus = canRegister.classRegisterLeftSpace(Class_ID);
+                            cls.setClassid(String.valueOf(Class_ID));
+                            cls.setClassvalid(true);
+                            cls.setCanTake(true);
+                            cls.setClassstatus("1");
+                            if (daoService.getStudentEnrollmentRecord(Stu_ID, Class_ID).getStatus() != null && daoService.getStudentEnrollmentRecord(Stu_ID, Class_ID).getStatus().equals("waitlist")) {
+                                daoService.updateStuEnroll(Stu_ID, Class_ID);
+                            } else if (daoService.getStudentEnrollmentRecord(Stu_ID, Class_ID).getStatus() == null || daoService.getStudentEnrollmentRecord(Stu_ID, Class_ID).getStatus().equals("drop")) {
+                                daoService.insertStudentEnrollmentWithStatus(String.valueOf(Stu_ID), String.valueOf(Class_ID), "enroll");
+                            }
+                            System.out.print(cls.getClassid() + " " + cls.getClassstatus());
 
-                    if (PremissionCode == 0) {
+                            clsList.getClazz().add(cls);
+                        }
+                    } else {
                         ClassInfo cls = new ClassInfo();
                         Integer classStatus = canRegister.classRegisterLeftSpace(Class_ID);
                         cls.setClassid(String.valueOf(Class_ID));
@@ -74,37 +91,21 @@ public class RegCheckService {
                         cls.setCanTake(stucls.isCanTake()); //waitng one more operation;
                         cls.setFacultyEmail(daoService.getFacultyEmail(Class_ID));
                         if (stucls.isCanTake()) {
-                            if (daoService.getStudentEnrollmentRecord(Stu_ID, Class_ID).getStatus() == null || !daoService.getStudentEnrollmentRecord(Stu_ID, Class_ID).getStatus().equals("enroll")) {
-                                if(classStatus > 0){
+                            if (daoService.getStudentEnrollmentRecord(Stu_ID, Class_ID).getStatus() == null || daoService.getStudentEnrollmentRecord(Stu_ID, Class_ID).getStatus().equals("drop")) {
+                                if (classStatus > 0) {
                                     daoService.insertStudentEnrollmentWithStatus(String.valueOf(Stu_ID), String.valueOf(Class_ID), "enroll");
-                                }else{
+                                } else {
                                     daoService.insertStudentEnrollmentWithStatus(String.valueOf(Stu_ID), String.valueOf(Class_ID), "waitlist");
                                 }
                             }
                         } else {
                             servicesQueueService.setObjectBetweenService(this.getClass().getName(), PermissionRequestService.class.getName(), cls, stu, String.valueOf(String.valueOf(Stu_ID).hashCode() * String.valueOf(Class_ID).hashCode()));
                         }
-                        
+
                         System.out.print(cls.getClassid() + " " + cls.getClassstatus());
 
                         //clsList.setClazz(cls);
                         clsList.getClazz().add(cls);
-                    } else {
-                        Permission permission = daoService.getOnePermissionInfo(PremissionCode);
-                        if (permission != null && permission.getStatus().equals("accept")) {
-                            if (Class_ID == Integer.valueOf(permission.getClassid())) {
-                                ClassInfo cls = new ClassInfo();
-                                Integer classStatus = canRegister.classRegisterLeftSpace(Class_ID);
-                                cls.setClassid(String.valueOf(Class_ID));
-                                cls.setClassvalid(true);
-                                cls.setCanTake(true);
-                                cls.setClassstatus(String.valueOf(classStatus));
-                                daoService.insertStudentEnrollment(String.valueOf(Stu_ID), String.valueOf(Class_ID));
-                                System.out.print(cls.getClassid() + " " + cls.getClassstatus());
-
-                                clsList.getClazz().add(cls);
-                            }
-                        }
                     }
                 }
             }

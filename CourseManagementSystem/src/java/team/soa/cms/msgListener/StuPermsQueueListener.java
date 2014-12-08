@@ -56,16 +56,6 @@ public class StuPermsQueueListener implements MessageListener {
             try {
                 obj = (PermissionresultSerialObj) msg.getObject();
 
-                //mail sender
-                String mailContent = "Your permission request of class" + obj.getClassinfoserial().getCoursename() + " is " + obj.getClassinfoserial().getRegresult();
-                mailService.PermsConfirm(obj.getStuinfoserial().getStuemail(), mailContent);
-
-                //consume message:
-                MsgQueueReceiver receiver = new MsgQueueReceiver(permsConnPath, permsQueuePath);
-                List<Message> msgList = new ArrayList<Message>();
-                String selector = permsProp + " = '" + msg.getStringProperty(permsProp) + "'";
-                msgList = receiver.consumeMessage(selector);
-
                 //database setter:
                 DAOService daoService = new DAOService();
                 int result = daoService.InsertPerms(obj);
@@ -74,6 +64,18 @@ public class StuPermsQueueListener implements MessageListener {
                 } else {
                     System.err.println("Insert success!");  //insert permission record successfully
                 }
+
+                String permissionPart = obj.getClassinfoserial().getRegresult().equals("reject") ? "" : "and Permission code is:" + result;
+
+                //mail sender
+                String mailContent = "Your permission request of class " + obj.getClassinfoserial().getCoursename() + " is " + obj.getClassinfoserial().getRegresult() + " " + permissionPart;
+                mailService.PermsConfirm(obj.getStuinfoserial().getStuemail(), mailContent);
+
+                //consume message:
+                MsgQueueReceiver receiver = new MsgQueueReceiver(permsConnPath, permsQueuePath);
+                List<Message> msgList = new ArrayList<Message>();
+                String selector = permsProp + " = '" + msg.getStringProperty(permsProp) + "'";
+                msgList = receiver.consumeMessage(selector);
 
             } catch (JMSException ex) {
                 Logger.getLogger(StuPermsQueueListener.class.getName()).log(Level.SEVERE, null, ex);

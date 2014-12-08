@@ -27,7 +27,7 @@ public class PermissionDAOImpl extends GeneralDAO implements PermissionDAO{
         try {
             this.OpenConnection();
             
-            this.sql = "select * from `permission` where Perms_ID = "+permission_id+";";            
+            this.sql = "select * from `Permission` where Perms_ID = "+permission_id+";";            
             rs =stmt.executeQuery(sql);
              
             while (rs.next()){
@@ -56,7 +56,7 @@ public class PermissionDAOImpl extends GeneralDAO implements PermissionDAO{
           try {
             this.OpenConnection();
             
-            this.sql = "insert into `permission` values("+permission.getPermsid()+","+permission.getStuid()+","+
+            this.sql = "insert into `Permission` values("+permission.getPermsid()+","+permission.getStuid()+","+
                     permission.getFacultyid()+","+permission.getStatus()+","+permission.getClassid()+");";
             /*permission status
             1: submit 
@@ -79,7 +79,7 @@ public class PermissionDAOImpl extends GeneralDAO implements PermissionDAO{
       try{
             this.OpenConnection();
           
-            this.sql = "select count(*) AS num from permission;";            
+            this.sql = "select count(*) AS num from Permission;";            
            
             rs =stmt.executeQuery(sql);
            
@@ -104,11 +104,11 @@ public class PermissionDAOImpl extends GeneralDAO implements PermissionDAO{
             */
             
             // insert record into the permission table with 'accept' status
-            this.sql = "insert into `permission` values("+pid+","+sid+","+fid+","+status+","+cid+");";           
+            this.sql = "insert into `Permission` values("+pid+","+sid+","+fid+","+status+","+cid+");";           
             stmt.execute(sql);
             
             //if success, find the permissionid and return
-            this.sql = "select Perms_ID from permission where Stu_ID = "+studentID+" AND Fac_ID = "+facultyID+" AND Status = 4 AND Class_ID = "+classID+";";
+            this.sql = "select Perms_ID from Permission where Stu_ID = "+studentID+" AND Fac_ID = "+facultyID+" AND Status = 4 AND Class_ID = "+classID+";";
             
             rs =stmt.executeQuery(sql);
             while (rs.next()){
@@ -131,7 +131,7 @@ public class PermissionDAOImpl extends GeneralDAO implements PermissionDAO{
       try{
             this.OpenConnection();
           
-            this.sql = "select count(*) AS num from permission;";            
+            this.sql = "select count(*) AS num from Permission;";            
            
             rs =stmt.executeQuery(sql);
            
@@ -156,11 +156,11 @@ public class PermissionDAOImpl extends GeneralDAO implements PermissionDAO{
             */
             
             // insert record into the permission table with 'accept' status
-            this.sql = "insert into `permission` values("+pid+","+sid+","+fid+","+status+","+cid+");";           
+            this.sql = "insert into `Permission` values("+pid+","+sid+","+fid+","+status+","+cid+");";           
             stmt.execute(sql);
             
             //if success, find the permissionid and return
-            this.sql = "select Perms_ID from permission where Stu_ID = "+studentID+" AND Fac_ID = "+facultyID+" AND Status = 3 AND Class_ID = "+classID+";";
+            this.sql = "select Perms_ID from Permission where Stu_ID = "+studentID+" AND Fac_ID = "+facultyID+" AND Status = 3 AND Class_ID = "+classID+";";
             
             rs =stmt.executeQuery(sql);
             while (rs.next()){
@@ -202,7 +202,7 @@ public class PermissionDAOImpl extends GeneralDAO implements PermissionDAO{
         String cid = classID+"";
         
         try {
-            this.sql = "select Status from `permission` where Perms_ID = "+pcode+" AND Stu_ID = "+sid+" AND Class_ID = "+cid+";";           
+            this.sql = "select Status from `Permission` where Perms_ID = "+pcode+" AND Stu_ID = "+sid+" AND Class_ID = "+cid+";";           
             rs =stmt.executeQuery(sql);
             
          while (rs.next()){
@@ -231,7 +231,7 @@ public class PermissionDAOImpl extends GeneralDAO implements PermissionDAO{
       try{
             this.OpenConnection();
           
-            this.sql = "select count(*) AS num from permission;";            
+            this.sql = "select count(*) AS num from Permission;";            
            
             rs =stmt.executeQuery(sql);
            
@@ -256,11 +256,11 @@ public class PermissionDAOImpl extends GeneralDAO implements PermissionDAO{
             */
             
             // insert record into the permission table with 'accept' status
-            this.sql = "insert into `permission`(`Perms_ID`,`Stu_ID`,`Fac_ID`,`Class_ID`,`Status`) values("+pid+","+sid+","+fid+","+cid+", '"+status+"');";           
+            this.sql = "insert into `Permission`(`Perms_ID`,`Stu_ID`,`Fac_ID`,`Class_ID`,`Status`) values("+pid+","+sid+","+fid+","+cid+", '"+status+"');";           
             stmt.execute(sql);
             
             //if success, find the permissionid and return
-            this.sql = "select Perms_ID from permission where Stu_ID = "+studentID+" AND Fac_ID = "+facultyID+" AND Status = '"+status+"' AND Class_ID = "+classID+";";
+            this.sql = "select Perms_ID from Permission where Stu_ID = "+studentID+" AND Fac_ID = "+facultyID+" AND Status = '"+status+"' AND Class_ID = "+classID+";";
             
             rs =stmt.executeQuery(sql);
             while (rs.next()){
