@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package team.soa.cmsc.servlet.student;
 
 import java.io.IOException;
@@ -34,33 +33,32 @@ public class StudentDropServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
         HttpSession session = request.getSession();
-        
+
         String stuID = (String) session.getAttribute("stuID");
-        
+
         ArrayList<String> clsDropIDList = (ArrayList) session.getAttribute("clsDropID");
         ArrayList<String> clsDropIDListCopy = new ArrayList<String>();
-        
+
         int i = 0;
-        
+
         if (stuID != null) {
             if (clsDropIDList != null && clsDropIDList.size() > 0) {
-                while(i < clsDropIDList.size()) {
-                    if (request.getParameter("chk"+i) != null) {
-                        String checked = request.getParameter("chk"+i);
+                while (i < clsDropIDList.size()) {
+                    if (request.getParameter("chk" + i) != null) {
+                        String checked = request.getParameter("chk" + i);
                         if (checked.equals("on")) {
                             clsDropIDListCopy.add(clsDropIDList.get(i));
                         }
                     }
                     i++;
                 }
-                
+
                 session.removeAttribute("clsDropID");
-                
+
                 session.setAttribute("clsDropID", clsDropIDListCopy);
-                
-                
+
             }
         }
         request.getRequestDispatcher("/DropCourseConfirm.jsp").forward(request, response);

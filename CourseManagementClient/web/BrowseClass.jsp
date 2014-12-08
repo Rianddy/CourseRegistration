@@ -34,19 +34,23 @@
                     List<Oneenroll> oneEnrolls = stuEnrollList.getOneenroll();                   
                         %>
                         <form class="form-group" action="StudentDropServlet" method="post">
-                            <%  for (int i=0; i< oneEnrolls.size(); i++) { 
+                            <%  int j=0;
+                    for (int i=0; i< oneEnrolls.size(); i++) { 
                                 if(oneEnrolls.get(i).getStatus().equals("enroll")){
+                                    
                                 clsDropIDList.add(oneEnrolls.get(i).getClassid());
                                 %>
                             <div class="form-group row">
                                 <div class="col-lg-6">
-                                    <div class="col-sm-1"><INPUT type="checkbox" id="chk<%=i%>" name="chk<%=i%>"/></div>
+                                    <div class="col-sm-1"><INPUT type="checkbox" id="chk<%=j%>" name="chk<%=j%>"/></div>
                                     <div class="col-sm-3"><labe>Class ID:</labe><%=oneEnrolls.get(i).getClassid()%></div>
                                     <div class="col-sm-3"><label>Course ID:</label><%=oneEnrolls.get(i).getCourseid()%></div>
                                     <div class="col-sm-5"><label>Enroll time:</label><%=oneEnrolls.get(i).getStuenrolltime()%></div>                                    
                                 </div>
                             </div>  
-                            <% }}
+                            <% j++;
+                                }
+                    }
                             %>
                             <div class="form-group row">
                                 <div class="col-lg-6">
