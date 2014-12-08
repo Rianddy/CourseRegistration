@@ -84,7 +84,7 @@ public class DropClassServlet extends HttpServlet {
 
             for (Student stu : list) {
                 System.out.println("StuId:" + stu.getStudentID() + " StuEmail:" + stu.getEmail() + " ClassId:" + stu.getClassID());
-                String content = "As you are in the waitlist, someone dropped this class, so you have been enrolled into Class ID:" + stu.getStudentID() + " automatically";
+                String content = "As you are in the waitlist, someone dropped this class, so you have been enrolled into Class ID:" + stu.getClassID() + " automatically";
                 dropConfirm(stu.getEmail(), content);
             }
 

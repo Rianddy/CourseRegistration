@@ -47,29 +47,8 @@ public class CheckPermsReqServlet extends HttpServlet {
         permsMsgList = getPermsInfo(permsId);
         request.setAttribute("permsId", permsId);
         request.setAttribute("PermsMsgList", permsMsgList);
-        // show values in this list in your page!!!
-        // do not forget to redirect or dispatch to next Servlet!!!!!!!!
-
-        /**
-         * ************************************************Test*********************************************
-         */
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Faculty check Permission Request</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Permission Request from " + permsMsgList.get(0).getStudentInfo().getStuid() + "</h1>");
-            out.println("<a href='ConfirmPermsSerlvet?status=accept&permsId=" + permsId + "'>Accept </a>");
-            out.println("<a href='ConfirmPermsSerlvet?status=reject&permsId=" + permsId + "'>Rejuct </a>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-        /**
-         * ************************************************************************************************
-         */
+        
+        request.getRequestDispatcher("/CheckPermsReq.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

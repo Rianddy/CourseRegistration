@@ -57,14 +57,15 @@ public class ConfirmPermsSerlvet extends HttpServlet {
             queueStatus+=setPermsConfirm(permsId, status, obj);
         }
         
-        
+        PrintWriter out = response.getWriter();
+
         /**  please dispatch web page here with the status codes **/
         if(queueStatus%10==Constant.SUCCESS){
-            System.out.println("Success!");
+            out.println("Success!");
         }else if(queueStatus%10==Constant.PARTIAL_SUCCESS){
-            System.err.println("Partial success! Please check!");
+            out.println("Partial success! Please check!");
         }else{
-            System.err.println("Fail!!");
+            out.println("Fail!!");
         }
         
     }

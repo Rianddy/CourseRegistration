@@ -53,7 +53,7 @@ public class RequestPermsServlet extends HttpServlet {
             stas = "Fail!";
             //System.err.println("Fail!!");
         }
-        request.setAttribute("stas", stas);
+        request.setAttribute("stas", stas+" reqest permission! You will receive an email about the decision.");
         request.getRequestDispatcher("/RequestPerms.jsp").forward(request, response);
     }
 

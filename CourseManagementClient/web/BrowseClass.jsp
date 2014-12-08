@@ -85,7 +85,9 @@
                         </div>
                     </div>
                 </form> 
-                <% session.setAttribute("clsDropID", clsDropIDList);
+                           <% session.removeAttribute("clsRegID");
+                            session.removeAttribute("clsDropID");
+                    session.setAttribute("clsDropID", clsDropIDList);
                 session.setAttribute("clsRegID", classes); %>
     </body>
 </html>

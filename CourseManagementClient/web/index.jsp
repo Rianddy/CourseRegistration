@@ -31,7 +31,7 @@
                                 <input type="text" class="form-control" id="stuID" name="stuID" placeholder="Student ID"> 
                             </div>
                         </div-->
-                        <%  List<org.netbeans.xml.schema.classxmlschema.Class> clsRegID = (List) session.getAttribute("clsRegID");                             
+                        <%  List<org.netbeans.xml.schema.classxmlschema.Class> clsRegID = (List) session.getAttribute("clsNewRegID");                             
                         %>
                         <div class="form-group row addclass">
                             <div class="col-sm-6">
@@ -63,16 +63,7 @@
                         </div>
                     </div>
                 </form>
-                <form class="form-group" action="StudentEnrollmentServlet" method="post">
-                    <div class="container">
-                        <div class="form-group row">
-                            <div class="col-sm-6">
-                                <input type="hidden" name="from" value="${pageContext.request.requestURI}">
-                                <button class="btn btn-default pull-left" type="submit">Browse</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+               
             <script type="text/javascript">
                 $(document).ready(function() {  
                            

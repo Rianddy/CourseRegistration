@@ -22,6 +22,14 @@
     </head>
     <body>
         <div class="container-fluid">
+            <div class="navbar-header navbar-left">
+                <form class="navbar-form" action="StudentEnrollmentServlet" method="post">
+                    <div class="form-group">
+                        <input type="hidden" name="from" class="form-control" value="${pageContext.request.requestURI}">
+                        <button class="btn btn-default pull-left" type="submit">Browse</button>
+                    </div>
+                </form>
+            </div>
             <div class="navbar-header navbar-right">    
                 <%  String studentId = (String) session.getAttribute("stuID");
                         if (studentId == null || studentId.equals("")) { %>

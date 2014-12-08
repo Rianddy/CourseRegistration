@@ -58,9 +58,9 @@ public class StudentPreRegistrationServlet extends HttpServlet {
                     i++;
                 }
                 
-                session.removeAttribute("clsRegID");
+                session.removeAttribute("clsNewRegID");
                 
-                session.setAttribute("clsRegID", clsRegID);
+                session.setAttribute("clsNewRegID", clsRegID);
                 
                 request.getRequestDispatcher("/index.jsp").forward(request, response);
             }

@@ -26,7 +26,8 @@
         <link href="CSS/styles.css" rel="stylesheet">
     </head>
     <body>
-        <h1>Registration Result</h1>
+        <nav class="navbar navbar-default" role="navigation"><%@include file="Header.jsp"%></nav>
+        <div class="container"><h1>Registration Result</h1></div>
         <div class="container">
             <div class="form-group row">
                 <%
@@ -35,59 +36,69 @@
                 <div class="col-sm-6">Student ID:</div>
                 <div class="col-sm-6"><%=stuRegCheckInfo.getStudentInfo().getStudentid()%></div>            
             </div>
-                <%
-                    ClassList clazzInfo =  stuRegCheckInfo.getClazzInfo();
-                    for(ClassInfo classInfo : clazzInfo.getClazz()) {
-                        
-                %>
+            <%
+                ClassList clazzInfo = stuRegCheckInfo.getClazzInfo();
+                for (ClassInfo classInfo : clazzInfo.getClazz()) {
+
+            %>
             <div class="form-group row">
-                    <div class="col-sm-6">Class ID:</div>
-                    <div class="col-sm-6"><%=classInfo.getClassid()%></div>
-                    <div class="col-sm-6">Class Valid:</div>
-                    <%
-                        if(classInfo.isClassvalid()){
-                            out.println("<div class='col-sm-6'>"+true+"</div>");
+                <div class="col-sm-6">Class ID:</div>
+                <div class="col-sm-6"><%=classInfo.getClassid()%></div>
+                <div class="col-sm-6">Class Valid:</div>
+                <%
+                    if (classInfo.isClassvalid()) {
+                        out.println("<div class='col-sm-6'>" + true + "</div>");
+                        int leftSpace = Integer.valueOf(classInfo.getClassstatus());
+                        if (leftSpace > 0 && classInfo.isCanTake()) {
+                            out.println("<div class='col-sm-6' >Successfully Registered!</div>");
+                            out.println("<div class='col-sm-6' style='background-color:#00CC66'>True</div>");
+                        } else {
+                            out.println("<div class='col-sm-6' >Successfully Registered!</div>");
+                            out.println("<div class='col-sm-6' style='background-color:#FF0000'>False</div>");
                             out.println("<div class='col-sm-6' >Class Full</div>");
-                            int leftSpace = Integer.valueOf(classInfo.getClassstatus());
+
                             boolean requestPermission = false;
-                            if(leftSpace<=0){
-                                out.println("<div class='col-sm-6'  style='background-color:#FF0000'>"+true+"(You are automatically put into waitlist!)</div>");
+                            if (leftSpace <= 0) {
+                                String putIntoWaitList = classInfo.isCanTake() ? "(You are automatically put into waitlist!)" : "";
+                                out.println("<div class='col-sm-6'  style='background-color:#FF0000'>" + true + putIntoWaitList + "</div>");
                                 requestPermission = true;
-                            }else
-                                out.println("<div class='col-sm-6'  style='background-color:#00CC66'>"+false+"</div>");
+                            } else {
+                                out.println("<div class='col-sm-6'  style='background-color:#00CC66'>" + false + "</div>");
+                            }
 
                             // Whether this class meet the prerequisite classes requirements                           
                             out.println("<div class='col-sm-6'>Prerequisite Classes Meet:</div>");
-                            if(!classInfo.isCanTake()){
+                            if (!classInfo.isCanTake()) {
                                 requestPermission = true;
-                                out.println("<div class='col-sm-6' style='background-color:#FF0000'>"+false+"</div>");
+                                out.println("<div class='col-sm-6' style='background-color:#FF0000'>" + false + "</div>");
                                 out.println("<div class='col-sm-6' >Prerequisite Courses:</div>");
                                 out.println("<div class='col-sm-6' ");
-                                for(ClassPrereq classPrereq:classInfo.getPrereqClasses()){
-                                    out.println("<span style='background-color:#FF0000'>"+classPrereq.getCourseid()+"</span>");
+                                for (ClassPrereq classPrereq : classInfo.getPrereqClasses()) {
+                                    out.println("<span style='background-color:#FF0000'>" + classPrereq.getCourseid() + "</span>");
                                 }
                                 out.println("</div>");
-                            }else{
-                                out.println("<div class='col-sm-6' style='background-color:#00CC66'>"+classInfo.isCanTake()+"</div>"); 
+                            } else {
+                                out.println("<div class='col-sm-6' style='background-color:#00CC66'>" + classInfo.isCanTake() + "</div>");
                             }
-                            
+
                             // Generate requestpermission button
-                            if(requestPermission){
+                            if (requestPermission) {
                                 out.println("<div class='col-sm-6'>Request Permission: </div>");
                                 out.println("<div class='col-sm-6'><form action = 'RequestPermsServlet' method = 'POST'>");
-                                out.println("<input type='hidden' name='class_id' value = '"+classInfo.getClassid()+"'/>");
-                                out.println("<input type='hidden' name='stu_id' value = '"+stuRegCheckInfo.getStudentInfo().getStudentid()+"'/>");
-                                out.println("<input type='hidden' name='faculty_email' value = '"+classInfo.getFacultyEmail()+"'/>");
+                                out.println("<input type='hidden' name='class_id' value = '" + classInfo.getClassid() + "'/>");
+                                out.println("<input type='hidden' name='stu_id' value = '" + stuRegCheckInfo.getStudentInfo().getStudentid() + "'/>");
+                                out.println("<input type='hidden' name='faculty_email' value = '" + classInfo.getFacultyEmail() + "'/>");
                                 out.println("<input type = 'submit' value = 'Request'></button>");
                                 out.println("</form></div>");
                             }
-                        }else{
-                            out.println("<div class='col-sm-6' style='background-color:#FF0000 '>"+false+"</div>");
-                        } 
-                    %>
+                        }
+                    } else {
+                        out.println("<div class='col-sm-6' style='background-color:#FF0000 '>" + false + "</div>");
+                    }
+                %>
             </div>
             <%
-                    }
+                }
             %>
         </div>
     </body>

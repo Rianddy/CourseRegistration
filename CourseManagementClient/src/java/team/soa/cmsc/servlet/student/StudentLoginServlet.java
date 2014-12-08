@@ -49,7 +49,7 @@ public class StudentLoginServlet extends HttpServlet {
         else {
             session.removeAttribute("stuID");
         }
-        response.sendRedirect(request.getParameter("from"));
+        response.sendRedirect("login.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
